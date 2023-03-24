@@ -1,0 +1,13 @@
+.footer-bg {
+  background-color: #1d71c0;
+  font-family: sans-serif;
+  font-weight: 200;
+  border-radius: 50px;
+}
+
+.logoja {
+  width: auto;
+  height: 1.65rem;
+  display: block;
+  margin-left: 0.6rem;
+}

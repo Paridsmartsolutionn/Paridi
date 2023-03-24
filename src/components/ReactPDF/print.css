@@ -1,0 +1,12 @@
+
+  .print{
+    display: none;
+  }
+
+  @media print{
+    
+  .print{
+    display: inline;
+  }
+
+  }

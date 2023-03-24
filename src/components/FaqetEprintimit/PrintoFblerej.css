@@ -1,0 +1,17 @@
+
+.print{
+    display: none;
+}
+
+.totalFooter{
+    display: none;
+}
+
+@media print {
+    .print{
+        display: inline;
+    }
+    .totalFooter{
+        display: flex;
+    }
+}

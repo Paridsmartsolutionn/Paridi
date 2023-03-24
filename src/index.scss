@@ -1,0 +1,280 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+html {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  padding: 0;
+  box-sizing: border-box;
+}
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.css-azeo8y-MuiAvatar-root {
+  background-color: transparent !important;
+  border: solid 1px #bebebe;
+}
+
+table {
+  border-collapse: collapse !important;
+  border-spacing: 0 !important;
+  width: 100% !important;
+  border: 1px solid #ddd !important;
+}
+
+.shenim {
+  border: solid 1px #cee5ff;
+  outline: none;
+}
+
+.shenim:hover {
+  border: solid 1px #cee5ff;
+}
+
+.active-tabsLink {
+  border-bottom: solid 2px;
+  padding: 1rem;
+}
+
+.p-column-title {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.p-datatable::-webkit-scrollbar {
+  overflow-y: scroll !important;
+  overflow-x: scroll !important;
+}
+
+.p-inputtext {
+  height: 1.7rem !important;
+  width: 100% !important;
+}
+
+.p-tabview-nav-content {
+  display: flex !important;
+  flex-direction: column !important;
+}
+.p-float-label label {
+  margin-top: -0.4rem !important;
+}
+
+.p-inputtext.p-inputtext-sm {
+  font-size: 0.81rem !important;
+}
+.p-float-label > label {
+  font-size: 0.81rem !important;
+}
+
+.p-datatable .p-datatable-header {
+  padding: 0.4rem !important;
+}
+
+.p-datatable-tbody {
+  min-height: 270px !important;
+  max-height: 300px !important;
+}
+.pi {
+  font-size: 0.7rem !important;
+}
+
+.bar_kod {
+  display: grid;
+  grid-template-columns: 1.5% 70% 20%;
+  gap: 1rem;
+}
+.klasifikime {
+  background-color: white;
+  color: #1971c2;
+  font-weight: 500;
+  left: 320px;
+  top: -14px;
+  letter-spacing: 2.5px;
+}
+.receptura {
+  display: grid;
+  grid-template-columns: 1.5% auto;
+  gap: 1rem;
+}
+.procese {
+  display: grid;
+  grid-template-columns: 1.5% auto;
+  gap: 1rem;
+}
+
+.footer-position {
+  background-color: #1971c2;
+  margin-top: auto;
+  height: 3.5rem;
+  clear: both;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  bottom: 0.2rem;
+  right: 0.5rem;
+  left: 0.5rem;
+  width: 100%;
+}
+
+.card {
+  margin: 0 !important;
+}
+.css-xsu6ln-MuiAutocomplete-root .MuiOutlinedInput-root {
+  padding: 2px !important;
+}
+.p-dialog-content {
+  overflow: hidden !important;
+}
+
+.transitioni {
+  transition: ease-in-out 2s;
+  transform: rotate(0);
+}
+.transitioni:hover {
+  background-color: #86c2fa;
+  transition: ease-in-out 0.2s;
+  border-radius: 15px;
+}
+.transitioni1 {
+  transition: ease-in-out 2s;
+  transform: rotate(-180deg);
+}
+.transitioni1:hover {
+  background-color: #86c2fa;
+  transition: ease-in-out 0.2s;
+  border-radius: 15px;
+}
+
+.shtim {
+  z-index: 1000;
+  background-color: #d6e9ff !important;
+  transition: 0.8s;
+}
+
+.layover {
+  z-index: 40;
+  width: 100%;
+  height: 100vh;
+  background-color: #49494967;
+}
+
+.bloc-tabs {
+  display: flex;
+}
+
+.tabs {
+  padding: 5px;
+  text-align: center;
+  width: 50%;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.274);
+  box-sizing: content-box;
+  position: relative;
+  outline: none;
+}
+.tabs:not(:last-child) {
+  border-right: 1px solid rgba(0, 0, 0, 0.274);
+}
+
+.active-tabs {
+  background: white;
+  border-bottom: 1px solid transparent;
+}
+
+.active-tabs::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% + 2px);
+  height: 5px;
+  background: #5893f1;
+}
+
+.content-tabs {
+  flex-grow: 1;
+}
+
+.content {
+  display: none;
+}
+
+.active-content {
+  display: block;
+}
+
+.p-overlaypanel {
+  top: 180px !important;
+  left: 265.781px !important;
+  width: 550px !important;
+}
+
+.p-tabview-title {
+  color: #23547b !important;
+}
+
+@media (min-width: 30em) {
+  .navbar-media {
+    display: block;
+  }
+}
+
+@media (max-height: 855px) {
+  .footer-position {
+    position: absolute;
+    display: none;
+    transition: 0.3s;
+  }
+}
+
+@media print {
+  body {
+    background: transparent !important;
+  }
+}
+
+input[type="file"]::file-selector-button {
+  border: 1px solid #1971c2;
+  padding: 0.2em 0.4em;
+  border-radius: 0.2em;
+  background-color: #1564ad;
+  transition: 1s;
+  color: white;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background-color: #4d90e7;
+  border: 1px solid #2aaaf5;
+}
+
+.tabs::before {
+  background-color: #248be6 !important;
+  border-radius: 5px;
+}
+
+.p-menuitem-icon {
+  color: white !important;
+}

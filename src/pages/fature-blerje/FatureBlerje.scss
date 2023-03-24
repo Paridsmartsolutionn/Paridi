@@ -1,0 +1,25 @@
+.template {
+  display: grid;
+  grid-template-columns: minmax(0, 250px) minmax(0, 1fr);
+}
+
+.main-container {
+  @media (max-width: 1280px) {
+    display: none !important;
+  }
+}
+
+.sidebar {
+  @media (max-width: 1280px) {
+    display: none !important;
+  }
+}
+
+//// paneli-tabeve
+
+.paneli-tabeve {
+  display: grid;
+  grid-template-columns: minmax(370px, 1fr) minmax(530px, 1fr) minmax(50px, 1fr);
+  padding: 0.25rem;
+  grid-gap: 25px;
+}
