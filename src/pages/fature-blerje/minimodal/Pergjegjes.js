@@ -111,13 +111,13 @@ const Pergjegjes = ({ fetchMonedhat }) => {
 
   return (
     <form onSubmit={() => submitHandler()}>
-      <div
+      <AddIcon
         fontSize="small"
-        className="cursor-pointer -rotate-90 bg-sky-600 text-white pl-1 pr-1 z-50 text-xs tracking-widest rounded-b-md"
+        className="cursor-pointer"
         onClick={() => onClick("displayResponsive")}
       >
-        Shto
-      </div>
+        Open
+      </AddIcon>
 
       <Dialog
         header="Punonjes"

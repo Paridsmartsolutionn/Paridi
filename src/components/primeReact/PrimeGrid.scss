@@ -1,35 +1,37 @@
-.p-contextmenu.p-component.p-contextmenu-enter-done{
- 
-    .p-menuitem.p-menuitem-active{
-        background-color: rgb(211, 211, 211) !important;
-    }
-    .p-contextmenu.p-menuitem-link:hover {
-        
-        background-color: rgb(211, 211, 211) !important;
-    }
-
-    .p-menuitem-text{
-      color: rgb(65, 65, 65) !important;
-    }
-  .pi-file{
-    color:rgb(65, 65, 65)!important ;
+.p-contextmenu.p-component.p-contextmenu-enter-done {
+  .p-menuitem.p-menuitem-active {
+    background-color: rgb(211, 211, 211) !important;
   }
-  .p-menuitem-link:hover{
+  .p-contextmenu.p-menuitem-link:hover {
+    background-color: rgb(211, 211, 211) !important;
+  }
+
+  .p-menuitem-text {
+    color: rgb(65, 65, 65) !important;
+  }
+  .pi-file {
+    color: rgb(65, 65, 65) !important ;
+  }
+  .p-menuitem-link:hover {
     background-color: aliceblue !important;
-   }
-
+  }
 }
-.p-contextmenu.p-component.p-contextmenu-enter-active{
-   
-    .p-menuitem-text{
-        color: rgb(65, 65, 65) !important;
-      }
+.p-contextmenu.p-component.p-contextmenu-enter-active {
+  .p-menuitem-text {
+    color: rgb(65, 65, 65) !important;
+  }
 
-      .pi-file{
-        color:rgb(65, 65, 65)!important ;
-      }
-      .p-menuitem-link:hover{
-        background-color: aliceblue !important;
-       }
-    
+  .pi-file {
+    color: rgb(65, 65, 65) !important ;
+  }
+  .p-menuitem-link:hover {
+    background-color: aliceblue !important;
+  }
+}
+
+.file-choosen {
+  width: 20rem;
+  @media (max-width: 1280px) {
+    width: 13rem;
+  }
 }

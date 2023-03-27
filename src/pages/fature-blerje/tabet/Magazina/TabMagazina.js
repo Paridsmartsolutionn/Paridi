@@ -19,7 +19,7 @@ const TabMagazina = ({
   ];
 
   return (
-    <div>
+    <div className="grid gap-2 ">
       <div
         className={toggleState === 3 ? "content  active-content" : "content"}
       >
@@ -27,27 +27,26 @@ const TabMagazina = ({
           <LaunchIcon />
           Flete Hyrje
         </Button>
-        <div className="flex flex-col justify-center items-center relative">
-          {/* ///////// MiniModal */}
-          <div
-            className="absolute  hover:shadow-md hover:rotate-90 transition-all"
-            style={{ left: 153, top: 28 }}
-          >
-            <Magazina fetchMonedhat={fetchPost} />
+        <div className="grid gap-2 grid-cols-2">
+          <div className="bg-gray-100 rounded-tr-lg rounded-br-lg flex justify-center items-center relative">
+            {/* //////////// */}
+            <Autocomplete
+              disablePortal
+              id="combo-box-demo"
+              options={mgz}
+              sx={{ width: "100%" }}
+              size="small"
+              renderInput={(params) => (
+                <TextField {...params} label="Magazina" />
+              )}
+            />
+            {/* ///////// MiniModal */}
+            <div className="hover:scale-110 transition-all">
+              <Magazina fetchMonedhat={fetchPost} />
+            </div>
           </div>
-          {/* //////////// */}
-          <Autocomplete
-            disablePortal
-            id="combo-box-demo"
-            options={mgz}
-            sx={{ width: "100%", marginTop: "1rem" }}
-            size="small"
-            renderInput={(params) => <TextField {...params} label="Magazina" />}
-          />
-
           <div>
             <TextField
-              className="mt-2  "
               disabled={disabled}
               type="date"
               label="Date"
