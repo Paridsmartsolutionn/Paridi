@@ -32,17 +32,8 @@ const TabTjera = ({
       <div
         className={toggleState === 4 ? "content  active-content" : "content"}
       >
-        <div className="flex">
-          <div className="relative flex flex-col gap-2.5 mr-8">
-            {/* ////// MiniModal */}
-            <div
-              className="absolute  hover:shadow-md hover:rotate-90 transition-all"
-              style={{ left: 213, top: 12 }}
-            >
-              <Veprime />
-            </div>
-            {/* ///////// */}
-
+        <div className="grid gap-2 grid-cols-2">
+          <div>
             <Autocomplete
               disablePortal
               id="combo-box-demo"
@@ -53,99 +44,87 @@ const TabTjera = ({
                 <TextField {...params} label="Veprime" />
               )}
             />
-
-            <div className="relative">
-              {/* ////// MiniModal */}
-              <div
-                className="absolute  hover:shadow-md hover:rotate-90 transition-all"
-                style={{ left: 213, top: 12 }}
-              >
-                <Departamenti fetchMonedhat={fetchPost} />
-              </div>
-              {/* /////////// */}
-              <Autocomplete
-                disablePortal
-                id="combo-box-demo"
-                options={veprimet}
-                sx={{ width: "100%" }}
-                size="small"
-                renderInput={(params) => (
-                  <TextField {...params} label="Departamenti" />
-                )}
-              />
-              <div></div>
+            {/* ////// MiniModal */}
+            <div className="absolute  hover:shadow-md hover:rotate-90 transition-all">
+              <Veprime />
             </div>
-            <div className="relative">
-              {/* ////// MiniModal */}
-              <div
-                className="absolute  hover:shadow-md hover:rotate-90 transition-all"
-                style={{ left: 213, top: 12 }}
-              >
-                <Transportues fetchMonedhat={fetchPost} />
-              </div>
-              {/* //////// */}
-              <Autocomplete
-                disablePortal
-                id="combo-box-demo"
-                options={veprimet}
-                sx={{ width: "100%" }}
-                size="small"
-                renderInput={(params) => (
-                  <TextField {...params} label="Transportuesi" />
-                )}
-              />
-            </div>
-
-            <TextField
-              disabled={disabled}
-              type="text"
-              label="Nipt Transportuesi"
-              value={state?.NiptTransport}
-              onChange={(e) => handleChange("NiptTransport", e.target.value)}
+          </div>
+          <div className="bg-gray-100 rounded-tr-lg rounded-br-lg flex justify-center items-center relative">
+            <Autocomplete
+              disablePortal
+              id="combo-box-demo"
+              options={veprimet}
+              sx={{ width: "100%" }}
               size="small"
+              renderInput={(params) => (
+                <TextField {...params} label="Transportuesi" />
+              )}
             />
+            {/* ////// MiniModal */}
+            <div className=" hover:scale-110 transition-all">
+              <Transportues fetchMonedhat={fetchPost} />
+            </div>
+          </div>
+          <div className="bg-gray-100 rounded-tr-lg rounded-br-lg flex justify-center items-center relative">
+            <Autocomplete
+              disablePortal
+              id="combo-box-demo"
+              options={veprimet}
+              sx={{ width: "100%" }}
+              size="small"
+              renderInput={(params) => (
+                <TextField {...params} label="Departamenti" />
+              )}
+            />
+            {/* ////// MiniModal */}
+            <div className=" hover:scale-110 transition-all">
+              <Departamenti fetchMonedhat={fetchPost} />
+            </div>
           </div>
 
-          <div className="flex flex-col gap-2.5">
-            <TextField
-              disabled={disabled}
-              type="date"
-              value={state?.Deklarimit}
-              label="Data e deklarimit"
-              InputLabelProps={{
-                shrink: true,
-              }}
-              onChange={(e) => handleChange("Deklarimit", e.target.value)}
-              size="small"
-            />
-            <FormControlLabel
-              control={
-                <Checkbox
-                  disabled={disabled}
-                  type="checkbox"
-                  size="small"
-                  value={state?.Import}
-                  onChange={(e) => handleChange("Import", e.target.checked)}
-                />
-              }
-              label="Import"
-            />
-            <Button
-              className="hover:shadow-md shadow-sky-600"
-              variant="outlined"
-            >
-              Shperndaje
-            </Button>
+          <FormControlLabel
+            control={
+              <Checkbox
+                disabled={disabled}
+                type="checkbox"
+                size="small"
+                value={state?.Import}
+                onChange={(e) => handleChange("Import", e.target.checked)}
+              />
+            }
+            label="Import"
+          />
+          <TextField
+            disabled={disabled}
+            type="date"
+            value={state?.Deklarimit}
+            label="Data e deklarimit"
+            InputLabelProps={{
+              shrink: true,
+            }}
+            onChange={(e) => handleChange("Deklarimit", e.target.value)}
+            size="small"
+          />
+          <TextField
+            disabled={disabled}
+            type="text"
+            label="Nipt Transportuesi"
+            value={state?.NiptTransport}
+            onChange={(e) => handleChange("NiptTransport", e.target.value)}
+            size="small"
+          />
 
-            <TextField
-              disabled={disabled}
-              type="text"
-              label="Targa"
-              value={state?.Targa}
-              onChange={(e) => handleChange("Targa", e.target.value)}
-              size="small"
-            />
-          </div>
+          <Button className="hover:shadow-md shadow-sky-600" variant="outlined">
+            Shperndaje
+          </Button>
+          <TextField
+            disabled={disabled}
+            type="text"
+            label="Targa"
+            value={state?.Targa}
+            onChange={(e) => handleChange("Targa", e.target.value)}
+            size="small"
+          />
         </div>
       </div>
     </div>

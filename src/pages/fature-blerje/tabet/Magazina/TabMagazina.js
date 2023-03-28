@@ -19,11 +19,9 @@ const TabMagazina = ({
   ];
 
   return (
-    <div className="grid gap-2 ">
-      <div
-        className={toggleState === 3 ? "content  active-content" : "content"}
-      >
-        <Button className="shadow-sm" variant="outlined" size="sm">
+    <div className={toggleState === 3 ? "content  active-content" : "content"}>
+      <div className="grid gap-4">
+        <Button className="shadow-sm w-2/3" variant="outlined" size="sm">
           <LaunchIcon />
           Flete Hyrje
         </Button>

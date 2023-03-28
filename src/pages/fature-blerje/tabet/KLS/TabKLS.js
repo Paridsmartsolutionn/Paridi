@@ -24,91 +24,71 @@ const TabKLS = ({
   ];
 
   return (
-    <div>
-      <div
-        className={toggleState === 5 ? "content  active-content" : "content"}
-      >
-        <div className="flex flex-col gap-2 w-80">
-          <div className="relative">
-            {/* /////// MiniModal */}
-            <div
-              className="absolute  hover:shadow-md hover:rotate-90 transition-all"
-              style={{ left: 310, top: 11.5 }}
-            >
-              <Klasifikim fetchMonedhat={fetchPost} />
-            </div>
-            {/* //////// */}
-            <Autocomplete
-              disablePortal
-              id="combo-box-demo"
-              options={kls}
-              sx={{ width: "100%" }}
-              size="small"
-              renderInput={(params) => (
-                <TextField {...params} label="Klasifikim1" />
-              )}
-            />
+    <div className={toggleState === 5 ? "content  active-content" : "content"}>
+      <div className="grid w-72 gap-2 grid-cols-1">
+        <div className="bg-gray-100 rounded-tr-lg rounded-br-lg flex justify-center items-center relative">
+          <Autocomplete
+            disablePortal
+            id="combo-box-demo"
+            options={kls}
+            sx={{ width: "100%" }}
+            size="small"
+            renderInput={(params) => (
+              <TextField {...params} label="Klasifikim1" />
+            )}
+          />
+          {/* /////// MiniModal */}
+          <div className="hover:scale-110 transition-all">
+            <Klasifikim fetchMonedhat={fetchPost} />
           </div>
+        </div>
 
-          <div className="relative">
-            {/* /////// MiniModal */}
-            <div
-              className="absolute  hover:shadow-md hover:rotate-90 transition-all"
-              style={{ left: 310, top: 11.5 }}
-            >
-              <Klasifikim2 fetchMonedhat={fetchPost} />
-            </div>
-            {/* //////////// */}
-            <Autocomplete
-              disablePortal
-              id="combo-box-demo"
-              options={kls}
-              sx={{ width: "100%" }}
-              size="small"
-              renderInput={(params) => (
-                <TextField {...params} label="Klasifikim2" />
-              )}
-            />
+        <div className="bg-gray-100 rounded-tr-lg rounded-br-lg flex justify-center items-center relative">
+          <Autocomplete
+            disablePortal
+            id="combo-box-demo"
+            options={kls}
+            sx={{ width: "100%" }}
+            size="small"
+            renderInput={(params) => (
+              <TextField {...params} label="Klasifikim2" />
+            )}
+          />
+          {/* /////// MiniModal */}
+          <div className="hover:scale-110 transition-all">
+            <Klasifikim2 fetchMonedhat={fetchPost} />
           </div>
-          <div className="relative">
-            {/* ////// MiniModal */}
-            <div
-              className="absolute  hover:shadow-md hover:rotate-90 transition-all"
-              style={{ left: 310, top: 11.5 }}
-            >
-              <Klasifikim3 fetchMonedhat={fetchPost} />
-            </div>
-            {/* //////////// */}
-            <Autocomplete
-              disablePortal
-              id="combo-box-demo"
-              options={kls}
-              sx={{ width: "100%" }}
-              size="small"
-              renderInput={(params) => (
-                <TextField {...params} label="Klasifikim3" />
-              )}
-            />
+        </div>
+        <div className="bg-gray-100 rounded-tr-lg rounded-br-lg flex justify-center items-center relative">
+          <Autocomplete
+            disablePortal
+            id="combo-box-demo"
+            options={kls}
+            sx={{ width: "100%" }}
+            size="small"
+            renderInput={(params) => (
+              <TextField {...params} label="Klasifikim3" />
+            )}
+          />{" "}
+          {/* ////// MiniModal */}
+          <div className="hover:scale-110 transition-all">
+            <Klasifikim3 fetchMonedhat={fetchPost} />
           </div>
-          <div className="relative">
-            {/* /////// MiniModal */}
-            <div
-              className="absolute  hover:shadow-md hover:rotate-90 transition-all"
-              style={{ left: 310, top: 11.5 }}
-            >
-              <Klasifikim4 fetchMonedhat={fetchPost} />
-            </div>
-            {/* /////////// */}
-            <Autocomplete
-              disablePortal
-              id="combo-box-demo"
-              options={kls}
-              sx={{ width: "100%" }}
-              size="small"
-              renderInput={(params) => (
-                <TextField {...params} label="Klasifikim4" />
-              )}
-            />
+        </div>
+        <div className="bg-gray-100 rounded-tr-lg rounded-br-lg flex justify-center items-center relative">
+          <Autocomplete
+            disablePortal
+            id="combo-box-demo"
+            options={kls}
+            sx={{ width: "100%" }}
+            size="small"
+            renderInput={(params) => (
+              <TextField {...params} label="Klasifikim4" />
+            )}
+          />
+          {/* /////// MiniModal */}
+          <div className="hover:scale-110 transition-all">
+            <Klasifikim4 fetchMonedhat={fetchPost} />
           </div>
         </div>
       </div>

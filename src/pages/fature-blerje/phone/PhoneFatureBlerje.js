@@ -399,7 +399,7 @@ const PhoneFatureBlerje = ({ hidePupUp, setHidePupUp }) => {
             aprovoFature={aprovoFature}
             anulloFatureBlerje={anulloFatureBlerje}
           />
-          <div className=" border-separate flex p-4 gap-24 border-t">
+          <div className=" mb-4 p-1  border-t">
             <MainTab
               disabled={disabled}
               state={state}

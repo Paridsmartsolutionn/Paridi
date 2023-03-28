@@ -52,9 +52,6 @@ const MainTab = ({
       />
 
       <div className=" bg-gray-100 rounded-tr-lg rounded-br-lg flex justify-center items-center relative">
-        {/* ////// MIniModal /////// */}
-
-        {/* ///////////// */}
         <Form.Select
           disabled={disabled}
           value={state?.Monedha}
@@ -67,6 +64,7 @@ const MainTab = ({
             return <option value={monedha.Kodi}>{monedha.Pershkrim}</option>;
           })}
         </Form.Select>
+        {/* ////// MIniModal /////// */}
         <div className=" hover:scale-110 transition-all">
           <Monedhat fetchMonedhat={fetchPost} />
         </div>
