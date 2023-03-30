@@ -13,7 +13,7 @@ import Modal from "react-bootstrap/Modal";
 import Button from "@mui/material/Button";
 import { Checkbox, TextField } from "@mui/material";
 import FormControlLabel from "@mui/material/FormControlLabel";
-
+import "./Monedhat.scss";
 const Monedhat = ({ fetchMonedhat }) => {
   const defaultState = {
     Kodi: "",
@@ -130,10 +130,12 @@ const Monedhat = ({ fetchMonedhat }) => {
                 setDisabled(false);
               }}
             >
-              <PostAddIcon /> Shtim
+              <PostAddIcon />
+              <span className="phone-text">Shtim</span>
             </Button>
             <Button className="p-1.5" disabled={disabled}>
-              <DeleteIcon /> Fshije
+              <DeleteIcon />
+              <span className="phone-text">Fshije</span>
             </Button>
             <Button
               className="p-1.5"
@@ -144,7 +146,7 @@ const Monedhat = ({ fetchMonedhat }) => {
               disabled={disabled}
             >
               <ClearIcon />
-              Anullim
+              <span className="phone-text">Anullim</span>
             </Button>
             <Button
               className="p-1.5"
@@ -157,7 +159,7 @@ const Monedhat = ({ fetchMonedhat }) => {
               type="submit"
             >
               <AppRegistrationIcon />
-              Rregjistrim
+              <span className="phone-text">Rregjistrim</span>
             </Button>
           </ButtonGroup>
         </div>
