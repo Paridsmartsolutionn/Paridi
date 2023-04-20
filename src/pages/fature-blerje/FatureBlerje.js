@@ -116,6 +116,7 @@ const FatureBlerje = ({ hidePupUp, setHidePupUp }) => {
   const [transportuesi, setTransportuesi] = useState([]);
   const [konfigurim, setKonfigurim] = useState([]);
   const [testi, setTesti] = useState([]);
+
   console.log({ testi });
 
   const showData = (item) => {
