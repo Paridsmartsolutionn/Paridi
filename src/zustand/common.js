@@ -1,11 +1,7 @@
-// import { atom } from "recoil";
-import { useEffect } from "react";
-import { Navigate } from "react-router-dom";
 import create from "zustand";
-import useStorage from "../hooks/useStorage";
 import mainAxios, { setAuthToken } from "../services/axios";
 import { expireCookie, getCookie, setCookie } from "../services/helpers";
-import axios from "axios";
+
 // export const userAtom = atom({
 //     key: 'user', // unique ID (with respect to other atoms/selectors)
 //     default: null, // default value (aka initial value)
