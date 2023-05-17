@@ -223,7 +223,7 @@ const FleteHyrje = () => {
     });
   };
 
-  const handleChange = (key, value) => {
+  const handleChange = async (key, value) => {
     setState((state) => {
       return {
         ...state,

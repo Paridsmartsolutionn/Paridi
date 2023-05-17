@@ -18,7 +18,7 @@ import mainAxios, { AxiosInterceptor, setAuthToken } from "./services/axios";
 import AuthorizedRoute from "./services/AuthorizedRoute";
 import { useUser } from "./zustand/common";
 import { getCookie, setCookie } from "./services/helpers";
-import LandingPage from "./pages/LandingPage";
+import LandingPage from "./pages/landing-page/LandingPage";
 import "./index.scss";
 function App() {
   const [ndryshoKushtin, setNdryshoKushtin] = useState(false);

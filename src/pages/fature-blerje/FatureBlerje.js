@@ -31,7 +31,12 @@ import MainTab from "./tabet/MainTab/MainTab";
 import PaneliTabeve from "./tabet/PaneliTabeve";
 import "./FatureBlerje.scss";
 import PhoneFatureBlerje from "./phone/PhoneFatureBlerje";
+import useCourseStore from "./zustand/store";
+
 const FatureBlerje = ({ hidePupUp, setHidePupUp }) => {
+  const { defaultState } = useCourseStore((state) => state);
+  console.log("default", defaultState);
+
   const [disabled, setDisabled] = useState(true);
 
   const furnitoret = [
@@ -142,40 +147,40 @@ const FatureBlerje = ({ hidePupUp, setHidePupUp }) => {
     fetchPost();
   }, []);
 
-  const defaultState = {
-    data: moment().format("yyyy-MM-DD"),
-    MagazinaData: moment().format("yyyy-MM-DD"),
-    AfatiData: moment().format("yyyy-MM-DD"),
-    Deklarimit: moment().format("yyyy-MM-DD"),
-    furnitorType: "",
-    furnitorId: "",
-    Kodi: "",
-    shenim: "",
-    Kursi: "",
-    Monedha: "",
-    magazina: "",
-    Menyra: "",
-    Nipt: "",
-    llojiMonedhes: "",
-    Qytetet: "",
-    NrOrigjine: "",
-    Nr: "",
-    NrSerial: "",
-    Paguar: "",
-    Afati: "",
-    Pergjegjes: "",
-    arkBank: "",
-    Departamenti: "",
-    Transport: "",
-    Targa: "",
-    Kls1: "",
-    kls2: "",
-    Kls3: "",
-    Kls4: "",
-    veprime: "",
-    NiptTransport: "",
-    Import: "",
-  };
+  // const defaultState = {
+  //   data: moment().format("yyyy-MM-DD"),
+  //   MagazinaData: moment().format("yyyy-MM-DD"),
+  //   AfatiData: moment().format("yyyy-MM-DD"),
+  //   Deklarimit: moment().format("yyyy-MM-DD"),
+  //   furnitorType: "",
+  //   furnitorId: "",
+  //   Kodi: "",
+  //   shenim: "",
+  //   Kursi: "",
+  //   Monedha: "",
+  //   magazina: "",
+  //   Menyra: "",
+  //   Nipt: "",
+  //   llojiMonedhes: "",
+  //   Qytetet: "",
+  //   NrOrigjine: "",
+  //   Nr: "",
+  //   NrSerial: "",
+  //   Paguar: "",
+  //   Afati: "",
+  //   Pergjegjes: "",
+  //   arkBank: "",
+  //   Departamenti: "",
+  //   Transport: "",
+  //   Targa: "",
+  //   Kls1: "",
+  //   kls2: "",
+  //   Kls3: "",
+  //   Kls4: "",
+  //   veprime: "",
+  //   NiptTransport: "",
+  //   Import: "",
+  // };
 
   const [state, setState] = useState(defaultState);
 

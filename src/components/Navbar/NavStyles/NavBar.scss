@@ -19,12 +19,12 @@ html {
 .css-2dum1v-MuiDrawer-docked .MuiDrawer-paper {
   margin-right: 2rem !important;
 }
-.email {
-  //borderi i input email
-  .css-1d3z3hw-MuiOutlinedInput-notchedOutline {
-    border: none !important;
-  }
-}
+// .email {
+//   //borderi i input email
+//   .css-1d3z3hw-MuiOutlinedInput-notchedOutline {
+//     border: none !important;
+//   }
+// }
 
 .all__links {
   color: #fafafa !important;
@@ -142,15 +142,15 @@ html {
     display: flex !important;
     justify-content: space-between !important;
     .MuiSvgIcon-root {
-      font-size: xx-large !important;
+      font-size: x-large !important;
     }
   }
   //section-1 ne landing-page te kalon posht.
 
-  .section1-landingpage {
-    display: flex;
-    flex-direction: column;
-  }
+  // .section1-landingpage {
+  //   display: flex;
+  //   flex-direction: column;
+  // }
 }
 
 @media (min-width: 1300px) {
