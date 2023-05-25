@@ -687,14 +687,7 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
                         variant="outlined"
                         size="small"
                       />
-                      <div className="flex justify-center items-center relative">
-                        <div
-                          className="absolute  hover:scale-110 transition-all"
-                          style={{ left: 173, top: 5 }}
-                        >
-                          <Monedhat fetchMonedhat={fetchmonedha} />
-                        </div>
-
+                      <div className="bg-gray-100 rounded-tr-lg rounded-br-lg w-full flex justify-center items-center relative">
                         <Form.Select
                           disabled={disabled}
                           value={state?.Monedha}
@@ -711,6 +704,9 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
                             );
                           })}
                         </Form.Select>
+                        <div className="hover:scale-110 transition-all">
+                          <Monedhat fetchMonedhat={fetchmonedha} />
+                        </div>
                       </div>
                     </div>
 
@@ -754,7 +750,7 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
                     }
                   >
                     <div className="flex gap-4">
-                      <div className="flex flex-col">
+                      <div className="flex flex-col gap-2">
                         <TextField
                           disabled={disabled}
                           value={state?.Klienti}
@@ -766,18 +762,9 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
                           size="small"
                         />
 
-                        <div className="flex justify-center items-center relative">
-                          <div
-                            className="absolute  hover:scale-110 transition-all"
-                            style={{ left: 173, top: 8 }}
-                          >
-                            <KodKlienti fetchKKlienti={fetchFShitje} />
-                          </div>
-
+                        <div className="bg-gray-100 rounded-tr-lg rounded-br-lg w-full flex justify-center items-center relative">
                           <Form.Select
                             required
-                            className="mt-1.5"
-                            size="sm"
                             value={state?.KodKlient}
                             onChange={(e) => handleFurnitorType(e)}
                             disabled={disabled}
@@ -791,12 +778,13 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
                               );
                             })}
                           </Form.Select>
+                          <div className="hover:scale-110 transition-all">
+                            <KodKlienti fetchKKlienti={fetchFShitje} />
+                          </div>
                         </div>
                         <div className="flex justify-center items-center">
                           <Form.Select
                             required
-                            className="mt-1.5"
-                            size="sm"
                             value={state?.Cmimi ?? ""}
                             disabled={disabled}
                             onChange={(e) => {
@@ -817,7 +805,7 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
                         </div>
                       </div>
 
-                      <div className="flex flex-col">
+                      <div className="flex flex-col gap-2">
                         <TextField
                           disabled={disabled}
                           type="text"
@@ -828,20 +816,11 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
                           size="small"
                         />
 
-                        <div className="flex justify-start items-center relative">
-                          <div
-                            className="absolute  hover:scale-110 transition-all"
-                            style={{ left: 250, top: 7 }}
-                          >
-                            <Q fetchMonedhat={fetchFShitje} />
-                          </div>
-
+                        <div className="bg-gray-100 rounded-tr-lg rounded-br-lg w-full flex justify-center items-center relative">
                           <Form.Select
                             disabled={disabled}
-                            className="mt-1.5 "
                             label="Qytetet"
                             value={state?.Qytetet ?? ""}
-                            size="sm"
                             onChange={(e) => {
                               handleChange("Qytetet", e.target.value);
                             }}
@@ -855,6 +834,9 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
                               );
                             })}
                           </Form.Select>
+                          <div className="hover:scale-110 transition-all">
+                            <Q fetchMonedhat={fetchFShitje} />
+                          </div>
                         </div>
 
                         <textarea
@@ -870,16 +852,16 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
                           className="shenim resize-none mt-2 rounded-md"
                         ></textarea>
                         {/* <AutoComplete 
-            value={selectedCountry2} 
-            // suggestions={filteredCountries} 
-            // completeMethod={searchCountry}
-            field="name" 
-            dropdown 
-            forceSelection 
-            // itemTemplate={itemTemplate}
-            onChange={(e)=>{setSelectedCountry2(e.target.value)}} 
-            aria-label="Countries" 
-            dropdownAriaLabel="Select Country" /> */}
+                             value={selectedCountry2} 
+                             // suggestions={filteredCountries} 
+                             // completeMethod={searchCountry}
+                             field="name" 
+                             dropdown 
+                             forceSelection 
+                             // itemTemplate={itemTemplate}
+                             onChange={(e)=>{setSelectedCountry2(e.target.value)}} 
+                             aria-label="Countries" 
+                             dropdownAriaLabel="Select Country" /> */}
                       </div>
                     </div>
                   </div>
@@ -892,38 +874,24 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
                       toggleState === 2 ? "content  active-content" : "content"
                     }
                   >
-                    <div style={{ marginTop: "-1rem" }}>
-                      <div
-                        style={{
-                          display: "flex",
-                          justifyContent: "center",
-                          flexDirection: "row",
-                          gap: "5rem",
+                    <div className="grid gap-2 grid-cols-2">
+                      <Form.Select
+                        disabled={disabled}
+                        label="Menyra"
+                        value={state?.Menyra ?? ""}
+                        onChange={(e) => {
+                          handleChange("Menyra", e.target.value);
                         }}
                       >
-                        <Form.Select
-                          size="sm"
-                          disabled={disabled}
-                          label="Menyra"
-                          value={state?.Menyra ?? ""}
-                          onChange={(e) => {
-                            handleChange("Menyra", e.target.value);
-                          }}
-                        >
-                          <option label="Menyra" />
-                          {menyraPageses.map((menyra) => {
-                            return (
-                              <option key={menyra.Id}>
-                                {menyra.Pershkrim}
-                              </option>
-                            );
-                          })}
-                        </Form.Select>
-                      </div>
+                        <option label="Menyra" />
+                        {menyraPageses.map((menyra) => {
+                          return (
+                            <option key={menyra.Id}>{menyra.Pershkrim}</option>
+                          );
+                        })}
+                      </Form.Select>
 
                       <Form.Select
-                        size="sm"
-                        className="mt-2"
                         disabled={disabled}
                         value={state?.arkBank ?? ""}
                         onChange={(e) => {
@@ -941,7 +909,6 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
                       </Form.Select>
 
                       <TextField
-                        className="mt-2"
                         label="Paguar"
                         disabled={disabled}
                         type="number"
@@ -951,32 +918,27 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
                         onChange={(e) => handleChange("Paguar", e.target.value)}
                       />
 
-                      <div className="flex justify-end ">
-                        <div>
-                          <TextField
-                            className="mt-2"
-                            disabled={disabled}
-                            type="date"
-                            label="Afati"
-                            InputLabelProps={{
-                              shrink: true,
-                            }}
-                            value={state?.AfatiData}
-                            onChange={(e) =>
-                              handleChange("AfatiData", e.target.value)
-                            }
-                            size="small"
-                          />
-                        </div>
-                        <span className="flex mr-2 ml-2 justify-center items-center">
-                          {" "}
-                          Ose per{" "}
-                        </span>
-
+                      <div>
                         <TextField
-                          className="mt-2"
                           disabled={disabled}
-                          style={{ width: "5rem" }}
+                          type="date"
+                          label="Afati"
+                          InputLabelProps={{
+                            shrink: true,
+                          }}
+                          value={state?.AfatiData}
+                          onChange={(e) =>
+                            handleChange("AfatiData", e.target.value)
+                          }
+                          size="small"
+                        />
+                      </div>
+                      <div className="flex gap-2 text-center items-center  ">
+                        <span> Ose për </span>
+
+                        <input
+                          className="rounded-md w-20 border"
+                          disabled={disabled}
                           type="number"
                           size="small"
                           value={state?.Afati}
@@ -984,23 +946,11 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
                             handleChange("Afati", e.target.value)
                           }
                         />
-                        <span className="flex ml-4 justify-center items-center">
-                          {" "}
-                          Dite
-                        </span>
+                        <span> Ditë</span>
                       </div>
 
-                      <div className="flex justify-center items-center relative">
-                        <div
-                          className="absolute  hover:scale-110 transition-all"
-                          style={{ left: 308, top: 9 }}
-                        >
-                          <Pergjegjesi fetchKKlienti={fetchFShitje} />
-                        </div>
-
+                      <div className="bg-gray-100 rounded-tr-lg rounded-br-lg w-full flex justify-center items-center relative">
                         <Form.Select
-                          size="sm"
-                          className="mt-2"
                           disabled={disabled}
                           value={state?.Pergjegjes ?? ""}
                           onChange={(e) => {
@@ -1017,6 +967,9 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
                             );
                           })}
                         </Form.Select>
+                        <div className="hover:scale-110 transition-all">
+                          <Pergjegjesi fetchKKlienti={fetchFShitje} />
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -1029,43 +982,31 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
                       toggleState === 3 ? "content  active-content" : "content"
                     }
                   >
-                    <Button
-                      variant="contained"
-                      size="sm"
-                      style={{ marginLeft: "19px" }}
-                    >
-                      Flete Hyrje
-                    </Button>
-                    <div className="relative">
-                      <div
-                        className="absolute  hover:scale-110 transition-all"
-                        style={{ left: 113, top: 5 }}
-                      >
-                        <Magazina fetchMAgazin={fetchFShitje} />
+                    <Button variant="contained">Flete Hyrje</Button>
+                    <div className="flex gap-2 w-96 mt-2">
+                      <div className="bg-gray-100 rounded-tr-lg rounded-br-lg w-full flex justify-center items-center relative">
+                        <Form.Select
+                          disabled={disabled}
+                          value={state?.magazina ?? ""}
+                          onChange={(e) => {
+                            handleChange("magazina", e.target.value);
+                          }}
+                        >
+                          <option label="Magazina" />
+                          {magazina.map((magazina) => {
+                            return (
+                              <option value={magazina.Kodi}>
+                                {magazina.Pershkrim}
+                              </option>
+                            );
+                          })}
+                        </Form.Select>
+                        <div className="  hover:scale-110 transition-all">
+                          <Magazina fetchMAgazin={fetchFShitje} />
+                        </div>
                       </div>
-
-                      <Form.Select
-                        size="md"
-                        className="mt-2"
-                        disabled={disabled}
-                        value={state?.magazina ?? ""}
-                        onChange={(e) => {
-                          handleChange("magazina", e.target.value);
-                        }}
-                      >
-                        <option label="Magazina" />
-                        {magazina.map((magazina) => {
-                          return (
-                            <option value={magazina.Kodi}>
-                              {magazina.Pershkrim}
-                            </option>
-                          );
-                        })}
-                      </Form.Select>
-
                       <div>
                         <TextField
-                          className="mt-2  "
                           disabled={disabled}
                           type="date"
                           label="Data"
@@ -1089,95 +1030,83 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
                       toggleState === 4 ? "content  active-content" : "content"
                     }
                   >
-                    <div className="flex justify-start items-center relative">
-                      <div
-                        className="absolute  hover:scale-110 transition-all"
-                        style={{ left: 257, top: 7 }}
-                      >
-                        <VeprimeSh />
+                    <div className="grid gap-2 grid-cols-2">
+                      <div className="bg-gray-100 rounded-tr-lg rounded-br-lg w-full flex justify-center items-center relative">
+                        <Form.Select
+                          disabled={disabled}
+                          label="Veprimi"
+                          value={state?.veprime ?? ""}
+                          onChange={(e) => {
+                            handleChange("veprime", e.target.value);
+                          }}
+                        >
+                          <option label="Veprim" />
+                          {veprime.map((veprim) => {
+                            return (
+                              <option value={veprim.Kodi}>
+                                {veprim.Pershkrim} | {veprim.Kodi}
+                              </option>
+                            );
+                          })}
+                        </Form.Select>
+                        <div className="hover:scale-110 transition-all">
+                          <VeprimeSh />
+                        </div>
                       </div>
-                      <Form.Select
-                        size="sm"
-                        className="mt-1.5"
-                        disabled={disabled}
-                        label="Veprimi"
-                        value={state?.veprime ?? ""}
-                        onChange={(e) => {
-                          handleChange("veprime", e.target.value);
-                        }}
-                      >
-                        <option label="Veprim" />
-                        {veprime.map((veprim) => {
-                          return (
-                            <option value={veprim.Kodi}>
-                              {veprim.Pershkrim} | {veprim.Kodi}
-                            </option>
-                          );
-                        })}
-                      </Form.Select>
-                    </div>
 
-                    <div className="flex justify-between items-center">
-                      <TextField
-                        className="mt-2 "
-                        disabled={disabled}
-                        type="date"
-                        label="Data e deklarimit"
-                        variant="outlined"
-                        InputLabelProps={{
-                          shrink: true,
-                        }}
-                        value={state?.dataDeklarimit}
-                        onChange={(e) =>
-                          handleChange("dataDeklarimit", e.target.value)
-                        }
-                        size="small"
-                      />
-
-                      <div>
-                        <FormControlLabel
-                          style={{ marginLeft: "1rem", marginTop: "1rem" }}
-                          control={
-                            <Checkbox
-                              disabled={disabled}
-                              type="checkbox"
-                              variant="outlined"
-                              size="small"
-                              value={state?.Active}
-                              onChange={(e) =>
-                                handleChange("Active", e.target.checked)
-                              }
-                            />
+                      <div className="flex justify-between items-center w-full">
+                        <TextField
+                          disabled={disabled}
+                          type="date"
+                          size="small"
+                          label="Data e deklarimit"
+                          variant="outlined"
+                          InputLabelProps={{
+                            shrink: true,
+                          }}
+                          value={state?.dataDeklarimit}
+                          onChange={(e) =>
+                            handleChange("dataDeklarimit", e.target.value)
                           }
-                          label="EKSPORT"
                         />
-                      </div>
-                    </div>
 
-                    <div className="flex justify-center items-center relative">
-                      <div
-                        className="absolute  hover:scale-110 transition-all"
-                        style={{ left: 260, top: 7 }}
-                      >
-                        <Departamenti fetchDepart={fetchFShitje} />
+                        <div>
+                          <FormControlLabel
+                            control={
+                              <Checkbox
+                                disabled={disabled}
+                                type="checkbox"
+                                variant="outlined"
+                                value={state?.Active}
+                                onChange={(e) =>
+                                  handleChange("Active", e.target.checked)
+                                }
+                              />
+                            }
+                            label="EKSPORT"
+                          />
+                        </div>
                       </div>
 
-                      <Form.Select
-                        size="sm"
-                        className="mt-1.5"
-                        disabled={disabled}
-                        value={state?.Departamenti ?? ""}
-                        onChange={(e) => {
-                          handleChange("Departamenti", e.target.value);
-                        }}
-                      >
-                        <option label="Departamenti"></option>
-                        {departamenti.map((list) => {
-                          return (
-                            <option key={list.Kodi}>{list.Pershkrim}</option>
-                          );
-                        })}
-                      </Form.Select>
+                      <div className="bg-gray-100 rounded-tr-lg rounded-br-lg w-full flex justify-center items-center relative">
+                        <Form.Select
+                          disabled={disabled}
+                          value={state?.Departamenti ?? ""}
+                          onChange={(e) => {
+                            handleChange("Departamenti", e.target.value);
+                          }}
+                        >
+                          <option label="Departamenti"></option>
+                          {departamenti.map((list) => {
+                            return (
+                              <option key={list.Kodi}>{list.Pershkrim}</option>
+                            );
+                          })}
+                        </Form.Select>
+                        <div className="  hover:scale-110 transition-all">
+                          <Departamenti fetchDepart={fetchFShitje} />
+                        </div>
+                      </div>
                     </div>
                   </div>
 
@@ -1187,19 +1116,9 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
                       toggleState === 5 ? "content  active-content" : "content"
                     }
                   >
-                    <div style={{ marginTop: "-1.5rem" }}>
-                      <div className="flex justify-start items-center relative">
-                        <div
-                          className="absolute  hover:scale-110 transition-all"
-                          style={{ left: 220, top: 7 }}
-                        >
-                          <TransportShitje fetchTShitje={fetchFShitje} />
-                        </div>
-
+                    <div className="grid gap-2 grid-cols-2">
+                      <div className="bg-gray-100 rounded-tr-lg rounded-br-lg w-full flex justify-center items-center relative">
                         <Form.Select
-                          size="sm"
-                          className="mt-1.5"
-                          style={{ width: "17rem" }}
                           disabled={disabled}
                           label="Transportuesi"
                           value={state?.Transportues ?? ""}
@@ -1216,65 +1135,56 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
                             );
                           })}
                         </Form.Select>
-                      </div>
-
-                      <div>
-                        <TextField
-                          style={{ width: "9rem", marginRight: "5px" }}
-                          className="mt-2 flex gap-2"
-                          disabled={disabled}
-                          type="text"
-                          label="Nipt Tans"
-                          value={state?.NiptTransport}
-                          onChange={(e) =>
-                            handleChange("NiptTransport", e.target.value)
-                          }
-                          size="small"
-                        />
-
-                        <TextField
-                          className="mt-2"
-                          style={{ width: "9rem" }}
-                          disabled={disabled}
-                          type="text"
-                          label="Targa"
-                          value={state?.Targa}
-                          onChange={(e) =>
-                            handleChange("Targa", e.target.value)
-                          }
-                          size="small"
-                        />
-
-                        <div className="flex justify-between items-center">
-                          <TextField
-                            className="mt-2"
-                            disabled={disabled}
-                            type="datetime-local"
-                            label="Koha"
-                            variant="outlined"
-                            InputLabelProps={{
-                              shrink: true,
-                            }}
-                            value={state?.Koha}
-                            onChange={(e) =>
-                              handleChange("Koha", e.target.value)
-                            }
-                            size="small"
-                          />
+                        <div className="  hover:scale-110 transition-all">
+                          <TransportShitje fetchTShitje={fetchFShitje} />
                         </div>
-                        <textarea
-                          //  fullWidth
-                          disabled={disabled}
-                          cols="38"
-                          rows="3"
-                          value={state?.shenimTransport}
-                          onChange={(e) =>
-                            handleChange("shenimTransport", e.target.value)
-                          }
-                          placeholder="Shenim"
-                          className="shenim resize-none mt-2 rounded-md fullWidth"
-                        ></textarea>
                       </div>
+
+                      <TextField
+                        disabled={disabled}
+                        type="text"
+                        label="Nipt Tans"
+                        value={state?.NiptTransport}
+                        onChange={(e) =>
+                          handleChange("NiptTransport", e.target.value)
+                        }
+                        size="small"
+                      />
+
+                      <TextField
+                        disabled={disabled}
+                        type="text"
+                        label="Targa"
+                        value={state?.Targa}
+                        onChange={(e) => handleChange("Targa", e.target.value)}
+                        size="small"
+                      />
+
+                      <TextField
+                        size="small"
+                        disabled={disabled}
+                        type="datetime-local"
+                        label="Koha"
+                        variant="outlined"
+                        InputLabelProps={{
+                          shrink: true,
+                        }}
+                        value={state?.Koha}
+                        onChange={(e) => handleChange("Koha", e.target.value)}
+                      />
+
+                      <textarea
+                        //  fullWidth
+                        disabled={disabled}
+                        cols="38"
+                        rows="3"
+                        value={state?.shenimTransport}
+                        onChange={(e) =>
+                          handleChange("shenimTransport", e.target.value)
+                        }
+                        placeholder="Shënim"
+                        className="shenim resize-none mt-2 rounded-md fullWidth"
+                      ></textarea>
                     </div>
                   </div>
 
@@ -1285,105 +1195,85 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
                       toggleState === 6 ? "content  active-content" : "content"
                     }
                   >
-                    <div className="flex justify-center items-center relative">
-                      <div
-                        className="absolute  hover:scale-110 transition-all"
-                        style={{ left: 267, top: 9 }}
-                      >
-                        <Klasifikim fetchMonedhat={fetchFShitje} />
+                    <div className="grid gap-2 grid-cols-1 w-72">
+                      <div className="bg-gray-100 rounded-tr-lg rounded-br-lg w-full flex justify-center items-center relative">
+                        <Form.Select
+                          disabled={disabled}
+                          value={state?.Kls1 ?? ""}
+                          onChange={(e) => {
+                            handleChange("Kls1", e.target.value);
+                          }}
+                        >
+                          <option label="klasifikim1" />
+
+                          {klasifikim1.map((kls) => {
+                            return (
+                              <option key={kls.ID}>{kls.Pershkrim}</option>
+                            );
+                          })}
+                        </Form.Select>
+                        <div className="  hover:scale-110 transition-all">
+                          <Klasifikim fetchMonedhat={fetchFShitje} />
+                        </div>
                       </div>
 
-                      <Form.Select
-                        size="sm"
-                        className="mt-2 w-80"
-                        disabled={disabled}
-                        value={state?.Kls1 ?? ""}
-                        onChange={(e) => {
-                          handleChange("Kls1", e.target.value);
-                        }}
-                      >
-                        <option label="klasifikim1" />
-
-                        {klasifikim1.map((kls) => {
-                          return <option key={kls.ID}>{kls.Pershkrim}</option>;
-                        })}
-                      </Form.Select>
-                    </div>
-
-                    <div className="flex justify-center items-center relative">
-                      <div
-                        className="absolute  hover:scale-110 transition-all"
-                        style={{ left: 267, top: 9 }}
-                      >
-                        <Klasifikim2 fetchMonedhat={fetchFShitje} />
+                      <div className="bg-gray-100 rounded-tr-lg rounded-br-lg w-full flex justify-center items-center relative">
+                        <Form.Select
+                          disabled={disabled}
+                          value={state?.Kls2 ?? ""}
+                          onChange={(e) => {
+                            handleChange("Kls2", e.target.value);
+                          }}
+                        >
+                          <option label="klasifikim2" />
+                          {klasifikim2.map((kls) => {
+                            return (
+                              <option value={kls.ID}>{kls.Pershkrim}</option>
+                            );
+                          })}
+                        </Form.Select>
+                        <div className="  hover:scale-110 transition-all">
+                          <Klasifikim2 fetchMonedhat={fetchFShitje} />
+                        </div>
                       </div>
-
-                      <Form.Select
-                        size="sm"
-                        className="mt-2"
-                        disabled={disabled}
-                        value={state?.Kls2 ?? ""}
-                        onChange={(e) => {
-                          handleChange("Kls2", e.target.value);
-                        }}
-                      >
-                        <option label="klasifikim2" />
-                        {klasifikim2.map((kls) => {
-                          return (
-                            <option value={kls.ID}>{kls.Pershkrim}</option>
-                          );
-                        })}
-                      </Form.Select>
-                    </div>
-                    <div className="flex justify-center items-center relative">
-                      <div
-                        className="absolute  hover:scale-110 transition-all"
-                        style={{ left: 267, top: 9 }}
-                      >
-                        <Klasifikim3 fetchMonedhat={fetchFShitje} />
+                      <div className="bg-gray-100 rounded-tr-lg rounded-br-lg w-full flex justify-center items-center relative">
+                        <Form.Select
+                          disabled={disabled}
+                          value={state?.Kls3 ?? ""}
+                          onChange={(e) => {
+                            handleChange("Kls3", e.target.value);
+                          }}
+                        >
+                          <option label="klasifikim3" />
+                          {klasifikim3.map((kls) => {
+                            return (
+                              <option value={kls.ID}>{kls.Pershkrim}</option>
+                            );
+                          })}
+                        </Form.Select>
+                        <div className="  hover:scale-110 transition-all">
+                          <Klasifikim3 fetchMonedhat={fetchFShitje} />
+                        </div>
                       </div>
-
-                      <Form.Select
-                        size="sm"
-                        className="mt-2"
-                        disabled={disabled}
-                        value={state?.Kls3 ?? ""}
-                        onChange={(e) => {
-                          handleChange("Kls3", e.target.value);
-                        }}
-                      >
-                        <option label="klasifikim3" />
-                        {klasifikim3.map((kls) => {
-                          return (
-                            <option value={kls.ID}>{kls.Pershkrim}</option>
-                          );
-                        })}
-                      </Form.Select>
-                    </div>
-                    <div className="flex justify-center items-center relative">
-                      <div
-                        className="absolute  hover:scale-110 transition-all"
-                        style={{ left: 267, top: 9 }}
-                      >
-                        <Klasifikim4 fetchMonedhat={fetchFShitje} />
+                      <div className="bg-gray-100 rounded-tr-lg rounded-br-lg w-full flex justify-center items-center relative">
+                        <Form.Select
+                          disabled={disabled}
+                          value={state?.Kls4 ?? ""}
+                          onChange={(e) => {
+                            handleChange("Kls4", e.target.value);
+                          }}
+                        >
+                          <option label="klasifikim4" />
+                          {klasifikim4.map((kls) => {
+                            return (
+                              <option value={kls.ID}>{kls.Pershkrim}</option>
+                            );
+                          })}
+                        </Form.Select>
+                        <div className="  hover:scale-110 transition-all">
+                          <Klasifikim4 fetchMonedhat={fetchFShitje} />
+                        </div>
                       </div>
-
-                      <Form.Select
-                        size="sm"
-                        className="mt-2"
-                        disabled={disabled}
-                        value={state?.Kls4 ?? ""}
-                        onChange={(e) => {
-                          handleChange("Kls4", e.target.value);
-                        }}
-                      >
-                        <option label="klasifikim4" />
-                        {klasifikim4.map((kls) => {
-                          return (
-                            <option value={kls.ID}>{kls.Pershkrim}</option>
-                          );
-                        })}
-                      </Form.Select>
                     </div>
                   </div>
                 </div>

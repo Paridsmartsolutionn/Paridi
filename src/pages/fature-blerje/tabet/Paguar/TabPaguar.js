@@ -75,7 +75,7 @@ const TabPaguar = ({
           />
           <span>ditë</span>
         </div>
-        <div className=" rounded-tr-lg rounded-br-lg flex justify-center items-center relative">
+        <div className="bg-gray-100 rounded-tr-lg rounded-br-lg w-full flex justify-center items-center relative">
           {/* //////////// */}
           <Autocomplete
             disablePortal

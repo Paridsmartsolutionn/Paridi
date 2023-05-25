@@ -443,71 +443,66 @@ const FleteHyrje = () => {
                     )}
                   </PopupState>
                 </div>
-                <div className="fBlerje dtlblerje border-separate flex p-4 gap-24">
-                  <div className="grid gap-2">
-                    <div className="flex flex-col gap-2">
-                      <TextField
-                        fullWidth
-                        disabled={disabled}
-                        type="number"
-                        variant="outlined"
-                        label="Nr Origjines"
-                        value={state?.NrOrigjine}
-                        onChange={(e) =>
-                          handleChange("NrOrigjine", e.target.value)
-                        }
-                        size="small"
-                      />
+                <div className="grid grid-cols-3 gap-4 p-2">
+                  <div className="grid grid-cols-2 gap-2">
+                    <TextField
+                      size="small"
+                      disabled={disabled}
+                      type="number"
+                      variant="outlined"
+                      label="Nr Origjines"
+                      value={state?.NrOrigjine}
+                      onChange={(e) =>
+                        handleChange("NrOrigjine", e.target.value)
+                      }
+                    />
 
-                      <div className="flex justify-center items-center">
+                    <div className="bg-gray-100  rounded-tr-lg rounded-br-lg w-full flex justify-center items-center relative">
+                      <Form.Select
+                        disabled={disabled}
+                        value={state?.Magazina}
+                        onChange={(e) => {
+                          handleChange("Magazina", e.target.value);
+                        }}
+                      >
+                        <option label="Magazina"></option>
+                        {magazina.map((list) => {
+                          return (
+                            <option key={list?.Id} value={list?.Kodi}>
+                              {list?.Pershkrim}
+                            </option>
+                          );
+                        })}
+                      </Form.Select>
+                      <div className="hover:scale-110 transition-all">
                         <MagazinaHyrje MagazinFletHyrje={fetchFletehyrje} />
-                        <Form.Select
-                          disabled={disabled}
-                          value={state?.Magazina}
-                          onChange={(e) => {
-                            handleChange("Magazina", e.target.value);
-                          }}
-                        >
-                          <option label="Magazina"></option>
-                          {magazina.map((list) => {
-                            return (
-                              <option key={list?.Id} value={list?.Kodi}>
-                                {list?.Pershkrim}
-                              </option>
-                            );
-                          })}
-                        </Form.Select>
                       </div>
                     </div>
 
-                    <div className="flex justify-center items-center gap-2">
-                      <TextField
-                        disabled={disabled}
-                        type="date"
-                        label="Data"
-                        variant="outlined"
-                        InputLabelProps={{
-                          shrink: true,
-                        }}
-                        value={state?.data}
-                        onChange={(e) => handleChange("data", e.target.value)}
-                        size="small"
-                      />
+                    <TextField
+                      disabled={disabled}
+                      type="date"
+                      label="Data"
+                      variant="outlined"
+                      InputLabelProps={{
+                        shrink: true,
+                      }}
+                      value={state?.data}
+                      onChange={(e) => handleChange("data", e.target.value)}
+                      size="small"
+                    />
 
-                      <TextField
-                        disabled={disabled}
-                        type="number"
-                        label="Nr"
-                        variant="outlined"
-                        value={state?.Nr}
-                        onChange={(e) => handleChange("Nr", e.target.value)}
-                        size="small"
-                      />
-                    </div>
+                    <TextField
+                      disabled={disabled}
+                      type="number"
+                      label="Nr"
+                      variant="outlined"
+                      value={state?.Nr}
+                      onChange={(e) => handleChange("Nr", e.target.value)}
+                      size="small"
+                    />
 
-                    <div className="flex">
-                      <ModalList shtoArtikull={shtoArtikull} />
-                    </div>
+                    <ModalList shtoArtikull={shtoArtikull} />
                   </div>
 
                   {/* /////////////////////////////////////////////////////////////// */}
@@ -522,14 +517,10 @@ const FleteHyrje = () => {
                           : "content"
                       }
                     >
-                      <div
-                        style={{ marginTop: "-1.2rem" }}
-                        className="flex justify-center items-center"
-                      >
+                      <div className="grid grid-cols-2 gap-2">
                         {/* <VeprimiHyrje/> */}
 
                         <Form.Select
-                          size="sm"
                           disabled={disabled}
                           label="Veprimi"
                           value={state?.veprime}
@@ -546,64 +537,56 @@ const FleteHyrje = () => {
                             );
                           })}
                         </Form.Select>
-                      </div>
-
-                      <TextField
-                        className="mt-2 w-80 "
-                        disabled={disabled}
-                        type="text"
-                        variant="outlined"
-                        label="Shenim 1"
-                        value={state?.Shenim1}
-                        onChange={(e) =>
-                          handleChange("Shenim1", e.target.value)
-                        }
-                        size="small"
-                      />
-
-                      <br />
-
-                      <TextField
-                        className="mt-2 w-80"
-                        disabled={disabled}
-                        type="text"
-                        variant="outlined"
-                        label="Shenim 2"
-                        value={state?.Shenim2}
-                        onChange={(e) =>
-                          handleChange("Shenim2", e.target.value)
-                        }
-                        size="small"
-                      />
-
-                      <div className="flex justify-center items-center">
-                        <MagazinaHyrje MagazinFletHyrje={fetchFletehyrje} />
-                        <Form.Select
-                          className="mt-2"
-                          disabled={disabled}
-                          type="text"
-                          value={state?.MagazinaOrg}
-                          onChange={(e) =>
-                            handleChange("MagazinaOrg", e.target.value)
-                          }
-                          size="sm"
-                        >
-                          <option label="Magazina Origjine" />
-                          {magazina.map((list) => {
-                            return (
-                              <option key={list?.Id} value={list?.Pershkrim}>
-                                {list?.Pershkrim}
-                              </option>
-                            );
-                          })}
-                        </Form.Select>
-                      </div>
-                      <div className="flex justify-between items-center">
+                        <div className="bg-gray-100 rounded-tr-lg rounded-br-lg w-full flex justify-center items-center relative">
+                          <Form.Select
+                            disabled={disabled}
+                            type="text"
+                            value={state?.MagazinaOrg}
+                            onChange={(e) =>
+                              handleChange("MagazinaOrg", e.target.value)
+                            }
+                          >
+                            <option label="Magazina Origjine" />
+                            {magazina.map((list) => {
+                              return (
+                                <option key={list?.Id} value={list?.Pershkrim}>
+                                  {list?.Pershkrim}
+                                </option>
+                              );
+                            })}
+                          </Form.Select>
+                          <div className="hover:scale-110 transition-all">
+                            {" "}
+                            <MagazinaHyrje MagazinFletHyrje={fetchFletehyrje} />
+                          </div>
+                        </div>
                         <TextField
-                          className="mt-2 flex gap-2 "
                           disabled={disabled}
                           type="text"
-                          style={{ width: "10rem" }}
+                          variant="outlined"
+                          label="Shenim 1"
+                          value={state?.Shenim1}
+                          onChange={(e) =>
+                            handleChange("Shenim1", e.target.value)
+                          }
+                          size="small"
+                        />
+
+                        <TextField
+                          disabled={disabled}
+                          type="text"
+                          variant="outlined"
+                          label="Shenim 2"
+                          value={state?.Shenim2}
+                          onChange={(e) =>
+                            handleChange("Shenim2", e.target.value)
+                          }
+                          size="small"
+                        />
+
+                        <TextField
+                          disabled={disabled}
+                          type="text"
                           label="FLD ID"
                           value={state?.FLDID}
                           onChange={(e) =>
@@ -611,13 +594,7 @@ const FleteHyrje = () => {
                           }
                           size="small"
                         />
-                        <Button
-                          variant="contained"
-                          size="sm"
-                          style={{ marginLeft: "19px" }}
-                        >
-                          Flete Dalje
-                        </Button>
+                        <Button variant="contained">Flete Dalje</Button>
                       </div>
                     </div>
 
@@ -630,91 +607,90 @@ const FleteHyrje = () => {
                           : "content"
                       }
                     >
-                      <div
-                        style={{ marginTop: "-1.2rem" }}
-                        className="flex justify-center items-center"
-                      >
-                        <Klasifikim fetchMonedhat={fetchFletehyrje} />
-                        <Form.Select
-                          size="sm"
-                          className="mt-2 w-80"
-                          disabled={disabled}
-                          value={state?.Kls1 ?? ""}
-                          onChange={(e) => {
-                            handleChange("Kls1", e.target.value);
-                          }}
-                        >
-                          <option label="klasifikim1" />
+                      <div className="grid grid-cols-2 gap-2">
+                        <div className="bg-gray-100 rounded-tr-lg rounded-br-lg w-full flex justify-center items-center relative">
+                          <Form.Select
+                            disabled={disabled}
+                            value={state?.Kls1 ?? ""}
+                            onChange={(e) => {
+                              handleChange("Kls1", e.target.value);
+                            }}
+                          >
+                            <option label="klasifikim1" />
 
-                          {klasifikim1.map((kls) => {
-                            return (
-                              <option value={kls.ID}>{kls.Pershkrim}</option>
-                            );
-                          })}
-                        </Form.Select>
-                      </div>
+                            {klasifikim1.map((kls) => {
+                              return (
+                                <option value={kls.ID}>{kls.Pershkrim}</option>
+                              );
+                            })}
+                          </Form.Select>
+                          <div className="hover:scale-110 transition-all">
+                            {" "}
+                            <Klasifikim fetchMonedhat={fetchFletehyrje} />
+                          </div>
+                        </div>
 
-                      <div className="flex justify-center items-center">
-                        <Klasifikim2 fetchMonedhat={fetchFletehyrje} />
+                        <div className="bg-gray-100 rounded-tr-lg rounded-br-lg w-full flex justify-center items-center relative">
+                          <Form.Select
+                            disabled={disabled}
+                            value={state?.Kls2 ?? ""}
+                            onChange={(e) => {
+                              handleChange("Kls2", e.target.value);
+                            }}
+                          >
+                            <option label="klasifikim2" />
+                            {klasifikim2.map((kls) => {
+                              return (
+                                <option value={kls.ID}>{kls.Pershkrim}</option>
+                              );
+                            })}
+                          </Form.Select>
+                          <div className="hover:scale-110 transition-all">
+                            {" "}
+                            <Klasifikim2 fetchMonedhat={fetchFletehyrje} />{" "}
+                          </div>
+                        </div>
+                        <div className="bg-gray-100 rounded-tr-lg rounded-br-lg w-full flex justify-center items-center relative">
+                          <Form.Select
+                            disabled={disabled}
+                            value={state?.Kls3 ?? ""}
+                            onChange={(e) => {
+                              handleChange("Kls3", e.target.value);
+                            }}
+                          >
+                            <option label="klasifikim3" />
+                            {klasifikim3.map((kls) => {
+                              return (
+                                <option value={kls.ID}>{kls.Pershkrim}</option>
+                              );
+                            })}
+                          </Form.Select>
+                          <div className="hover:scale-110 transition-all">
+                            {" "}
+                            <Klasifikim3 fetchMonedhat={fetchFletehyrje} />
+                          </div>
+                        </div>
+                        <div className="bg-gray-100 rounded-tr-lg rounded-br-lg w-full flex justify-center items-center relative">
+                          <Form.Select
+                            disabled={disabled}
+                            value={state?.Kls4 ?? ""}
+                            onChange={(e) => {
+                              handleChange("Kls4", e.target.value);
+                            }}
+                          >
+                            <option label="klasifikim4" />
+                            {klasifikim4.map((kls) => {
+                              return (
+                                <option value={kls.ID}>{kls.Pershkrim}</option>
+                              );
+                            })}
+                          </Form.Select>
+                          <div className="hover:scale-110 transition-all">
+                            {" "}
+                            <Klasifikim4 fetchMonedhat={fetchFletehyrje} />
+                          </div>
+                        </div>
                         <Form.Select
-                          size="sm"
-                          className="mt-2"
-                          disabled={disabled}
-                          value={state?.Kls2 ?? ""}
-                          onChange={(e) => {
-                            handleChange("Kls2", e.target.value);
-                          }}
-                        >
-                          <option label="klasifikim2" />
-                          {klasifikim2.map((kls) => {
-                            return (
-                              <option value={kls.ID}>{kls.Pershkrim}</option>
-                            );
-                          })}
-                        </Form.Select>
-                      </div>
-                      <div className="flex justify-center items-center">
-                        <Klasifikim3 fetchMonedhat={fetchFletehyrje} />
-                        <Form.Select
-                          size="sm"
-                          className="mt-2"
-                          disabled={disabled}
-                          value={state?.Kls3 ?? ""}
-                          onChange={(e) => {
-                            handleChange("Kls3", e.target.value);
-                          }}
-                        >
-                          <option label="klasifikim3" />
-                          {klasifikim3.map((kls) => {
-                            return (
-                              <option value={kls.ID}>{kls.Pershkrim}</option>
-                            );
-                          })}
-                        </Form.Select>
-                      </div>
-                      <div className="flex justify-center items-center">
-                        <Klasifikim4 fetchMonedhat={fetchFletehyrje} />
-                        <Form.Select
-                          size="sm"
-                          className="mt-2"
-                          disabled={disabled}
-                          value={state?.Kls4 ?? ""}
-                          onChange={(e) => {
-                            handleChange("Kls4", e.target.value);
-                          }}
-                        >
-                          <option label="klasifikim4" />
-                          {klasifikim4.map((kls) => {
-                            return (
-                              <option value={kls.ID}>{kls.Pershkrim}</option>
-                            );
-                          })}
-                        </Form.Select>
-                      </div>
-                      <div className="flex justify-center items-center">
-                        <Form.Select
-                          size="sm"
-                          className="mt-2"
                           disabled={disabled}
                           value={state?.departamenti ?? ""}
                           onChange={(e) => {

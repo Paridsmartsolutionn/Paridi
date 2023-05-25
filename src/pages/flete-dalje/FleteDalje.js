@@ -462,11 +462,10 @@ const FleteDalje = () => {
                     )}
                   </PopupState>
                 </div>
-                <div className="fBlerje dtlblerje border-separate flex p-4 gap-24">
+                <div className="fBlerje dtlblerje border-separate flex p-2 gap-24">
                   <div className="grid gap-2">
                     <div className="flex justify-center items-center gap-2">
                       <TextField
-                        //  fullWidth
                         disabled={disabled}
                         type="number"
                         variant="outlined"
@@ -479,7 +478,6 @@ const FleteDalje = () => {
                       />
 
                       <TextField
-                        //  fullWidth
                         style={{ width: "10rem" }}
                         disabled={disabled}
                         type="number"
@@ -493,8 +491,7 @@ const FleteDalje = () => {
                       />
                     </div>
 
-                    <div className="flex justify-center items-center">
-                      <MagazinaDalje fetchMagazinaDalje={fetchFleteDalje} />
+                    <div className="bg-gray-100 rounded-tr-lg rounded-br-lg w-full flex justify-center items-center relative">
                       <Form.Select
                         disabled={disabled}
                         value={state?.Magazina}
@@ -511,6 +508,10 @@ const FleteDalje = () => {
                           );
                         })}
                       </Form.Select>
+                      <div className="  hover:scale-110 transition-all">
+                        {" "}
+                        <MagazinaDalje fetchMagazinaDalje={fetchFleteDalje} />
+                      </div>
                     </div>
 
                     <div className="flex justify-center items-center gap-2">
@@ -555,14 +556,10 @@ const FleteDalje = () => {
                           : "content"
                       }
                     >
-                      <div
-                        style={{ marginTop: "-1.2rem" }}
-                        className="flex justify-center items-center "
-                      >
+                      <div className="grid gap-2 grid-cols-2 ">
                         {/* <VeprimiHyrje/> */}
 
                         <Form.Select
-                          size="sm"
                           disabled={disabled}
                           label="Veprimi"
                           value={state?.veprime ?? ""}
@@ -579,63 +576,56 @@ const FleteDalje = () => {
                             );
                           })}
                         </Form.Select>
-                      </div>
-                      <TextField
-                        className="mt-2 w-80 "
-                        disabled={disabled}
-                        type="text"
-                        variant="outlined"
-                        label="Shenim 1"
-                        value={state?.Shenim1}
-                        onChange={(e) =>
-                          handleChange("Shenim1", e.target.value)
-                        }
-                        size="small"
-                      />
-
-                      <br />
-
-                      <TextField
-                        className="mt-2 w-80"
-                        disabled={disabled}
-                        type="text"
-                        variant="outlined"
-                        label="Shenim 2"
-                        value={state?.Shenim2}
-                        onChange={(e) =>
-                          handleChange("Shenim2", e.target.value)
-                        }
-                        size="small"
-                      />
-
-                      <div className="flex justify-center items-center">
-                        <MagazinaDalje fetchMagazinaDalje={fetchFleteDalje} />
-                        <Form.Select
-                          className="mt-2"
-                          disabled={disabled}
-                          type="text"
-                          value={state?.MagazinaOrg}
-                          onChange={(e) =>
-                            handleChange("MagazinaOrg", e.target.value)
-                          }
-                          size="sm"
-                        >
-                          <option label="Magazina Origjine" />
-                          {magazinaorg.map((list) => {
-                            return (
-                              <option key={list.Id} value={list?.Kodi}>
-                                {list.Pershkrim}
-                              </option>
-                            );
-                          })}
-                        </Form.Select>
-                      </div>
-                      <div className="flex justify-between items-center">
+                        <div className="bg-gray-100 rounded-tr-lg rounded-br-lg w-full flex justify-center items-center relative">
+                          <Form.Select
+                            disabled={disabled}
+                            type="text"
+                            value={state?.MagazinaOrg}
+                            onChange={(e) =>
+                              handleChange("MagazinaOrg", e.target.value)
+                            }
+                          >
+                            <option label="Magazina Origjine" />
+                            {magazinaorg.map((list) => {
+                              return (
+                                <option key={list.Id} value={list?.Kodi}>
+                                  {list.Pershkrim}
+                                </option>
+                              );
+                            })}
+                          </Form.Select>
+                          <div className="  hover:scale-110 transition-all">
+                            <MagazinaDalje
+                              fetchMagazinaDalje={fetchFleteDalje}
+                            />
+                          </div>
+                        </div>
                         <TextField
-                          className="mt-2 flex gap-2"
                           disabled={disabled}
                           type="text"
-                          style={{ width: "10rem" }}
+                          variant="outlined"
+                          label="Shënim 1"
+                          value={state?.Shenim1}
+                          onChange={(e) =>
+                            handleChange("Shenim1", e.target.value)
+                          }
+                          size="small"
+                        />
+                        <TextField
+                          size="small"
+                          disabled={disabled}
+                          type="text"
+                          variant="outlined"
+                          label="Shënim 2"
+                          value={state?.Shenim2}
+                          onChange={(e) =>
+                            handleChange("Shenim2", e.target.value)
+                          }
+                        />
+
+                        <TextField
+                          disabled={disabled}
+                          type="text"
                           label="FLD ID"
                           value={state?.FLDID}
                           onChange={(e) =>
@@ -643,13 +633,7 @@ const FleteDalje = () => {
                           }
                           size="small"
                         />
-                        <Button
-                          variant="contained"
-                          size="sm"
-                          style={{ marginLeft: "19px" }}
-                        >
-                          Flete Hyrje
-                        </Button>
+                        <Button variant="contained">Fletë Hyrje</Button>
                       </div>
                     </div>
 
@@ -661,12 +645,9 @@ const FleteDalje = () => {
                           : "content"
                       }
                     >
-                      <div style={{ marginTop: "-1.3rem" }}>
-                        <div className="flex justify-start items-center">
-                          <TransportDalje TransportDalje={fetchFleteDalje} />
+                      <div className="grid grid-cols-2 gap-2  ">
+                        <div className="bg-gray-100 rounded-tr-lg rounded-br-lg w-full flex justify-center items-center relative">
                           <Form.Select
-                            size="sm"
-                            className="mt-1.5"
                             disabled={disabled}
                             label="Transportuesi"
                             value={state?.Transportues ?? ""}
@@ -683,79 +664,59 @@ const FleteDalje = () => {
                               );
                             })}
                           </Form.Select>
+                          <div className="hover:scale-110 transition-all">
+                            <TransportDalje TransportDalje={fetchFleteDalje} />
+                          </div>
                         </div>
 
-                        <div>
-                          <TextField
-                            style={{ width: "9rem", marginRight: "5px" }}
-                            className="mt-2 flex gap-2"
-                            disabled={disabled}
-                            type="text"
-                            label="Nipt Tans"
-                            inputProps={{ maxLength: 10 }}
-                            value={state?.NiptTransport}
-                            onChange={(e) =>
-                              handleChange("NiptTransport", e.target.value)
-                            }
-                            size="small"
-                          />
+                        <TextField
+                          disabled={disabled}
+                          type="text"
+                          label="Nipt Tans"
+                          inputProps={{ maxLength: 10 }}
+                          value={state?.NiptTransport}
+                          onChange={(e) =>
+                            handleChange("NiptTransport", e.target.value)
+                          }
+                          size="small"
+                        />
 
-                          <TextField
-                            className="mt-2"
-                            disabled={disabled}
-                            type="text"
-                            label="Targa"
-                            value={state?.Targa}
-                            onChange={(e) =>
-                              handleChange("Targa", e.target.value)
-                            }
-                            size="small"
-                          />
+                        <TextField
+                          disabled={disabled}
+                          type="text"
+                          label="Targa"
+                          value={state?.Targa}
+                          onChange={(e) =>
+                            handleChange("Targa", e.target.value)
+                          }
+                          size="small"
+                        />
 
-                          <div className="flex justify-between items-center">
-                            <TextField
-                              className="mt-2"
-                              disabled={disabled}
-                              type="datetime-local"
-                              label="Koha"
-                              InputLabelProps={{
-                                shrink: true,
-                              }}
-                              value={state?.Koha}
-                              onChange={(e) =>
-                                handleChange("Koha", e.target.value)
-                              }
-                              size="small"
-                            />
-                          </div>
-                          <div className="flex justify-center ">
-                            <textarea
-                              disabled={disabled}
-                              cols="38"
-                              rows="3"
-                              value={state?.shenimTransport}
-                              onChange={(e) =>
-                                handleChange("shenimTransport", e.target.value)
-                              }
-                              placeholder="Shenim"
-                              className="shenim resize-none mt-2 rounded-md w-60"
-                            ></textarea>
+                        <TextField
+                          disabled={disabled}
+                          type="datetime-local"
+                          label="Koha"
+                          InputLabelProps={{
+                            shrink: true,
+                          }}
+                          value={state?.Koha}
+                          onChange={(e) => handleChange("Koha", e.target.value)}
+                          size="small"
+                        />
+                        <textarea
+                          disabled={disabled}
+                          cols="38"
+                          rows="3"
+                          value={state?.shenimTransport}
+                          onChange={(e) =>
+                            handleChange("shenimTransport", e.target.value)
+                          }
+                          placeholder="Shënim"
+                          className=" border  mt-2 p-2 rounded-md w-72"
+                        ></textarea>
 
-                            <div className="ml-2">
-                              <h4>Pronesia e Mjetit</h4>
-
-                              {/* <Radio.Group style={{background:'	rgb(232,232,232)', borderRadius:'2px' ,padding:'5px' }} 
- disabled={disabled} 
- onChange={(e)=> handleChange("Pronesia",e.target.value)}
- value={state?.Pronesia}>
- <Radio value={1}>Pronar</Radio>
- <br/>
- <Radio value={2}>Pale e trete </Radio>
- <br/>
-
-</Radio.Group> */}
-                            </div>
-                          </div>
+                        <div className="flex justify-center items-center">
+                          <h4>Pronësia e Mjetit</h4>
                         </div>
                       </div>
                     </div>
@@ -768,12 +729,9 @@ const FleteDalje = () => {
                           : "content"
                       }
                     >
-                      <div style={{ marginTop: "-1.2rem" }}>
-                        <div className="flex justify-center items-center">
-                          <Klasifikim fetchMonedhat={fetchFleteDalje} />
+                      <div className=" grid grid-cols-2 gap-2 w-96">
+                        <div className="bg-gray-100 rounded-tr-lg rounded-br-lg w-full flex justify-center items-center relative">
                           <Form.Select
-                            size="sm"
-                            className="mt-2 w-80"
                             disabled={disabled}
                             value={state?.Kls1 ?? ""}
                             onChange={(e) => {
@@ -788,13 +746,14 @@ const FleteDalje = () => {
                               );
                             })}
                           </Form.Select>
+                          <div className="hover:scale-110 transition-all">
+                            {" "}
+                            <Klasifikim fetchMonedhat={fetchFleteDalje} />
+                          </div>
                         </div>
 
-                        <div className="flex justify-center items-center">
-                          <Klasifikim2 fetchMonedhat={fetchFleteDalje} />
+                        <div className="bg-gray-100 rounded-tr-lg rounded-br-lg w-full flex justify-center items-center relative">
                           <Form.Select
-                            size="sm"
-                            className="mt-2"
                             disabled={disabled}
                             value={state?.Kls2 ?? ""}
                             onChange={(e) => {
@@ -808,12 +767,13 @@ const FleteDalje = () => {
                               );
                             })}
                           </Form.Select>
+                          <div className="hover:scale-110 transition-all">
+                            {" "}
+                            <Klasifikim2 fetchMonedhat={fetchFleteDalje} />
+                          </div>
                         </div>
-                        <div className="flex justify-center items-center">
-                          <Klasifikim3 fetchMonedhat={fetchFleteDalje} />
+                        <div className="bg-gray-100 rounded-tr-lg rounded-br-lg w-full flex justify-center items-center relative">
                           <Form.Select
-                            size="sm"
-                            className="mt-2"
                             disabled={disabled}
                             value={state?.Kls3 ?? ""}
                             onChange={(e) => {
@@ -827,12 +787,12 @@ const FleteDalje = () => {
                               );
                             })}
                           </Form.Select>
+                          <div className="hover:scale-110 transition-all">
+                            <Klasifikim3 fetchMonedhat={fetchFleteDalje} />
+                          </div>
                         </div>
-                        <div className="flex justify-center items-center">
-                          <Klasifikim4 fetchMonedhat={fetchFleteDalje} />
+                        <div className="bg-gray-100 rounded-tr-lg rounded-br-lg w-full flex justify-center items-center relative">
                           <Form.Select
-                            size="sm"
-                            className="mt-2"
                             disabled={disabled}
                             value={state?.Kls4 ?? ""}
                             onChange={(e) => {
@@ -846,27 +806,27 @@ const FleteDalje = () => {
                               );
                             })}
                           </Form.Select>
+                          <div className="hover:scale-110 transition-all">
+                            <Klasifikim4 fetchMonedhat={fetchFleteDalje} />
+                          </div>
                         </div>
-                        <div className="flex justify-center items-center">
-                          <Form.Select
-                            size="sm"
-                            className="mt-2"
-                            disabled={disabled}
-                            value={state?.departamenti ?? ""}
-                            onChange={(e) => {
-                              handleChange("departamenti", e.target.value);
-                            }}
-                          >
-                            <option label="Depratamenti" />
-                            {departament.map((list) => {
-                              return (
-                                <option key={list.ID} value={list.Kodi}>
-                                  {list.Pershkrim}
-                                </option>
-                              );
-                            })}
-                          </Form.Select>
-                        </div>
+
+                        <Form.Select
+                          disabled={disabled}
+                          value={state?.departamenti ?? ""}
+                          onChange={(e) => {
+                            handleChange("departamenti", e.target.value);
+                          }}
+                        >
+                          <option label="Depratamenti" />
+                          {departament.map((list) => {
+                            return (
+                              <option key={list.ID} value={list.Kodi}>
+                                {list.Pershkrim}
+                              </option>
+                            );
+                          })}
+                        </Form.Select>
                       </div>
                     </div>
                   </div>
