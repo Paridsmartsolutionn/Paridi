@@ -284,10 +284,8 @@ const FleteHyrje = () => {
   return (
     <div>
       <NavBar />
-      <div className="flex">
-        <div>
-          <SideBar />
-        </div>
+      <div className="template">
+        <SideBar />
 
         <div className=" p-1">
           <ToastContainer />

@@ -4,12 +4,14 @@
 }
 
 .main-container {
+  padding: 0.25rem;
   @media (max-width: 1280px) {
     display: none !important;
   }
 }
 
 .sidebar {
+  width: 100%;
   @media (max-width: 1280px) {
     display: none !important;
   }

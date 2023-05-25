@@ -50,6 +50,8 @@ import NavBar from "../../components/Navbar/NavBar";
 import SideBar from "../../components/Navbar/SideBar";
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 import Draggable from "react-draggable";
+import "./FatureShitje.scss";
+
 const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
   // removableSort,multiSortMeta,onSort,
 
@@ -532,12 +534,10 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
     <div>
       <NavBar />
 
-      <div className="flex">
-        <div>
-          <SideBar />
-        </div>
+      <div className="template">
+        <SideBar />
 
-        <div className=" p-1">
+        <div className=" p-1 ">
           {hidePupUp && popUpConfirm}
           {/* <form className="drop-shadow-lg mr-4 mb-3"  onSubmit={(e)=>aprovoFature(e.preventDefault())}> */}
           <Panel headerTemplate={template} toggleable>
@@ -1406,7 +1406,7 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
           </div>
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

@@ -911,8 +911,8 @@ const SideBar = () => {
     if (element.label.toLowerCase().includes(matchingTitle)) {
       return element;
     } else if (element?.items != null) {
-      var i;
-      var result = null;
+      let i;
+      let result = null;
       for (i = 0; result === null && i < element.items.length; i++) {
         result = searchTree(element.items[i], matchingTitle);
       }
@@ -954,7 +954,7 @@ const SideBar = () => {
   // }
 
   return (
-    <div className="sidebar m-1 w-[25vh] rounded-xl  p-2">
+    <div className="sidebar ">
       <ScrollPanel style={{ width: "100%", height: "85vh" }}>
         <div className="mb-2 border-b p-2">
           <span className="p-input-icon-right">

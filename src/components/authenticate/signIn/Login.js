@@ -40,9 +40,18 @@ const Login = () => {
     login({ username, nipt, password }).then((res) => {
       if (res) {
         const tokeCookie = getCookie("refresh_token", refreshToken);
-        console.log(tokeCookie);
+        // console.log(tokeCookie);
+        const options = {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${tokeCookie}`,
+          },
+        };
 
-        refreshToken({ tokeCookie });
+        fetch("http://161.97.162.139:5000/test/refresh", options)
+          .then((response) => response.json())
+          .then((response) => setCookie("access_token", response.access_token))
+          .catch((error) => console.log(error));
         navigate("/fature-blerje");
       } else if (!user) {
         setError(true);
@@ -53,29 +62,7 @@ const Login = () => {
       }
     });
   };
-  // const refreshToken = async ({ tokeCookie }) => {
-  //   // Create the headers with the refresh token
-  //   const headers = {
-  //     Authorization: `Bearer ${tokeCookie}`,
-  //   };
-  //   console.log(tokeCookie, "tokeCookie");
-  //   // Make the post request to the other link
-  //   return await mainAxios
-  //     .post("/refresh", { headers })
-  //     .then((res) => {
-  //       const { refresh_token } = res?.data;
 
-  //       // Update the state and cookies with the new refresh token
-
-  //       setCookie("refresh_token", refresh_token);
-
-  //       return true;
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //       return false;
-  //     });
-  // };
   const [showPassword, setShowPassword] = useState(true);
 
   const showHidePassword = (

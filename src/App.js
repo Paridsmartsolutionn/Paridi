@@ -5,7 +5,7 @@ import FatureShitje from "./pages/fature-shitje/FatureShitje";
 import FleteDalje from "./pages/flete-dalje/FleteDalje";
 import FleteHyrje from "./pages/flete-hyrje/FleteHyrje";
 import Import from "./pages/Import";
-import Raporte from "./pages/Raporte";
+import Raporte from "./pages/Raporte/Raporte";
 import { useEffect, useState } from "react";
 import SideBar from "./components/Navbar/SideBar";
 import Footer from "./components/Navbar/Footer";

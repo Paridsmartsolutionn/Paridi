@@ -41,7 +41,7 @@ import TotalFooter from "../../components/FaqetEprintimit/TotalFooter";
 import Footer from "../../components/Navbar/Footer";
 import NavBar from "../../components/Navbar/NavBar";
 import SideBar from "../../components/Navbar/SideBar";
-
+import "./FleteDalje.scss";
 const FleteDalje = () => {
   const [disabled, setDisabled] = useState(true);
 
@@ -292,10 +292,8 @@ const FleteDalje = () => {
     <div>
       <NavBar />
 
-      <div className="flex">
-        <div>
-          <SideBar />
-        </div>
+      <div className="template">
+        <SideBar />
 
         <div className=" p-1">
           <form
@@ -890,7 +888,7 @@ const FleteDalje = () => {
           />
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

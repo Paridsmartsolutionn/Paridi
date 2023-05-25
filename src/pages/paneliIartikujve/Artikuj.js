@@ -679,11 +679,10 @@ const Artikuj = ({
     <div>
       <NavBar />
 
-      <div className="flex">
-        <div>
-          <SideBar />
-        </div>
-        <div className="border p-1">
+      <div className="template">
+        <SideBar />
+
+        <div className=" p-2">
           <div className="flex justify-between items-center">
             <ButtonGroup size="xl" className="mb-2 mt-1 shadow-md">
               <Button
@@ -822,8 +821,7 @@ const Artikuj = ({
           />
         </div>
       </div>
-
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

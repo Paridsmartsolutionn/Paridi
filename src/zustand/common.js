@@ -40,28 +40,4 @@ export const useUser = create((set) => ({
         return false;
       });
   },
-
-  refreshToken: async ({ tokeCookie }) => {
-    // Create the headers with the refresh token
-    const headers = {
-      Authorization: `Bearer ${tokeCookie}`,
-    };
-
-    // Make the post request to the other link
-    return await mainAxios
-      .post("/refresh", { headers })
-      .then((res) => {
-        const { refresh_token } = res?.data;
-        console.log(refresh_token, "res");
-        // Update the state and cookies with the new refresh token
-
-        setCookie("refresh_token", refresh_token);
-
-        return true;
-      })
-      .catch((err) => {
-        console.log(err);
-        return false;
-      });
-  },
 }));
