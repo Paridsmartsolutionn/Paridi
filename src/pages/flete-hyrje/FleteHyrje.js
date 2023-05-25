@@ -726,7 +726,6 @@ const FleteHyrje = () => {
           />
         </div>
       </div>
-      <Footer />
     </div>
   );
 };
