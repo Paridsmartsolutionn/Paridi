@@ -1,31 +1,63 @@
-import { TextField } from '@mui/material'
-import React,{useState} from 'react'
-
-
+import React, { useState } from "react";
+import Dialog from "@mui/material/Dialog";
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogContent from "@mui/material/DialogContent";
+import DialogActions from "@mui/material/DialogActions";
+import Button from "@mui/material/Button";
+import Supermarket from "./POS/SuperMarket/SuperMarket";
+import Restorant from "./POS/Restaurant/Restorant";
 
 const Pos = () => {
-    
-const [disabled,setDisabled]=useState(false)
+  const [open, setOpen] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(null);
 
-const [check,setChecked]=useState(false)
-const [check2,setChecked2]=useState(false)
-const [check3,setChecked3]=useState(false)
+  const handleOpen = () => {
+    setOpen(true);
+  };
 
-console.log({check})
-console.log({check2})
-console.log({check3})
+  const handleClose = () => {
+    setOpen(false);
+  };
 
+  const handleSelectOption = (option) => {
+    setSelectedOption(option);
+    handleClose();
+  };
 
-  
   return (
     <div>
-    <input type="checkbox" disabled={disabled} checked={check} onChange={(e)=>{setChecked(e.target.checked)}} />
-    <br/>
-    <input type="checkbox" disabled={disabled} checked={check2} onChange={(e)=>{setChecked2(e.target.checked)}} />
-    <br/>
-    <input type="checkbox" disabled={disabled} checked={check3} onChange={(e)=>{setChecked3(e.target.checked)}} />
-    </div>
-  )
-}
+      {!selectedOption && (
+        <Button variant="contained" onClick={handleOpen}>
+          Open Components
+        </Button>
+      )}
+      {selectedOption === "restaurant" && (
+        <div>
+          <Restorant />
+        </div>
+      )}
+      {selectedOption === "supermarket" && (
+        <div>
+          <Supermarket />
+        </div>
+      )}
 
-export default Pos
+      <Dialog open={open} onClose={handleClose}>
+        <DialogTitle>Choose Component</DialogTitle>
+        <DialogContent>
+          <Button onClick={() => handleSelectOption("restaurant")}>
+            Restaurant
+          </Button>
+          <Button onClick={() => handleSelectOption("supermarket")}>
+            Supermarket
+          </Button>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>Cancel</Button>
+        </DialogActions>
+      </Dialog>
+    </div>
+  );
+};
+
+export default Pos;

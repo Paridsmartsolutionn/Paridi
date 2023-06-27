@@ -64,7 +64,7 @@ const Departamenti = ({ fetchMonedhat }) => {
   };
 
   return (
-    <form onSubmit={() => submitHanlder()}>
+    <Form onSubmit={() => submitHanlder()}>
       <AddIcon
         fontSize="small"
         className="cursor-pointer"
@@ -143,7 +143,7 @@ const Departamenti = ({ fetchMonedhat }) => {
           ></textarea>
         </div>
       </Dialog>
-    </form>
+    </Form>
   );
 };
 

@@ -29,7 +29,7 @@ import { Ripple } from "primereact/ripple";
 import ModalList from "../../components/ListaArtikujve/ModalList";
 import axios from "axios";
 import DirectionsBusIcon from "@mui/icons-material/DirectionsBus";
-import { ToastContainer, toast, Zoom, Bounce } from "react-toastify";
+// import { ToastContainer, toast, Zoom, Bounce } from "react-toastify";
 import Klasifikim from "../fature-blerje/minimodal/Klasifikim";
 import Klasifikim2 from "../fature-blerje/minimodal/Klasifikim2";
 import Klasifikim3 from "../fature-blerje/minimodal/Klasifikim3";
@@ -37,8 +37,8 @@ import Klasifikim4 from "../fature-blerje/minimodal/Klasifikim4";
 import MagazinaDalje from "./minimodals/MagazinaDalje";
 import TransportDalje from "./minimodals/TransportuesiDalje/TransportDalje";
 // import { Radio } from 'antd';
-import TotalFooter from "../../components/FaqetEprintimit/TotalFooter";
-import Footer from "../../components/Navbar/Footer";
+// import TotalFooter from "../../components/FaqetEprintimit/TotalFooter";
+// import Footer from "../../components/Navbar/Footer";
 import NavBar from "../../components/Navbar/NavBar";
 import SideBar from "../../components/Navbar/SideBar";
 import "./FleteDalje.scss";
@@ -364,7 +364,7 @@ const FleteDalje = () => {
                       disabled={disabled}
                     >
                       {" "}
-                      Transport
+                      Trans
                       <DirectionsBusIcon />
                     </Button>
                     <Button

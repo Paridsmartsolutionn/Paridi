@@ -11,7 +11,6 @@ function useStorage(defaultValue, key) {
       return defaultValue;
     }
   });
-  
 
   useEffect(() => {
     if (value === undefined) return localStorage.removeItem(key);

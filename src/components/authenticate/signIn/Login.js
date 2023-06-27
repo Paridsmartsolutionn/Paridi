@@ -4,18 +4,18 @@ import { Link, Navigate } from "react-router-dom";
 import { useUser } from "../../../zustand/common";
 import { Button, TextField } from "@mui/material";
 import { Checkbox } from "primereact/checkbox";
-import bgLogin from "../../../assets/bg-login.png";
-import Register from "../register/Register";
+// import bgLogin from "../../../assets/bg-login.png";
+// import Register from "../register/Register";
 import { useNavigate } from "react-router-dom";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { ToastContainer, toast, Zoom, Bounce } from "react-toastify";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
-import LockIcon from "@mui/icons-material/Lock";
+import LoginIcon from "@mui/icons-material/Login";
 import "./login.scss";
 import { getCookie, setCookie } from "../../../services/helpers";
-import mainAxios from "../../../services/axios";
+// import mainAxios from "../../../services/axios";
 const Login = () => {
   const [checked, setChecked] = useState(false);
   const [cities, setCities] = useState([]);
@@ -94,8 +94,8 @@ const Login = () => {
 
   return (
     <div>
-      <Button className="text-white butoni" onClick={handleOpen}>
-        <span>Hyr</span> <LockIcon />
+      <Button className="text-white loginBtn" onClick={handleOpen}>
+        <span>hyr</span> <LoginIcon />
       </Button>
 
       <Modal keepMounted open={open} onClose={handleClose}>
@@ -103,7 +103,7 @@ const Login = () => {
           <form className="form" onSubmit={submit}>
             <ToastContainer />
 
-            <h1 className="mb-4">Hyr në PSS</h1>
+            <h1 className="mb-4 text-center">Hyr në PSS</h1>
 
             {!error ? (
               <TextField
@@ -210,7 +210,7 @@ const Login = () => {
               </Button>
             </div>
 
-            <div className="flex justify-end">
+            <div className=" text-center">
               <span>
                 Nuk keni ende nje profil?{" "}
                 <Link to="/register" className="linku">

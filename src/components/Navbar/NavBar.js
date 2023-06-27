@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./NavStyles/NavBar.scss";
 import Logoja from "../../assets/Logoja.png";
 import SupervisorAccountIcon from "@mui/icons-material/SupervisorAccount";
@@ -19,15 +19,28 @@ import { useState } from "react";
 import { useUser } from "../../zustand/common";
 import { useNavigate } from "react-router-dom";
 import items from "./items";
+import CloseIcon from "@mui/icons-material/Close";
+
 import MenuIcon from "@mui/icons-material/Menu";
-import { Dialog } from "primereact/dialog";
+import {
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  Button,
+} from "@mui/material";
 import Navbar2 from "./phone/Navbar-phone";
+import "./NavStyles/posBtn.scss";
+import Stack from "@mui/material/Stack";
+
 const NavBar = () => {
   const navigate = useNavigate();
   const logout = useUser((userStore) => userStore.logout);
-
+  const location = useLocation();
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
+  const [dialogOpen, setDialogOpen] = useState(false); // State for controlling the dialog
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -36,7 +49,19 @@ const NavBar = () => {
     setAnchorEl(null);
   };
 
-  ///button-menu
+  const handleDialogOpen = () => {
+    setDialogOpen(true);
+  };
+
+  const handleDialogClose = () => {
+    setDialogOpen(false);
+  };
+
+  const handleSublinkClick = (sublinkUrl) => {
+    navigate(sublinkUrl);
+    handleDialogClose();
+  };
+
   const [position, setPosition] = useState("center");
   const [displayMaximizable, setDisplayMaximizable] = useState(false);
   const dialogFuncMap = {
@@ -61,20 +86,41 @@ const NavBar = () => {
       className="flex items-center tekst  h-14 rounded-xl  mt-1 ml-1 mr-1 shadow-md"
     >
       <div className="item-1">
-        <img src={Logoja} className="pss-logo w-9 h-9 ml-8" alt="" />
+        <Link to="/home">
+          <img src={Logoja} className="pss-logo w-9 h-9 ml-8" alt="" />
+        </Link>
       </div>
+
       <div className="navbari item-2 flex">
         <ul className="flex gap-3">
           {items.map((link) => {
-            const { id, text, url, photo } = link;
+            const { id, text, url, photo, sublinks } = link;
+            const isActive = location.pathname === url;
             return (
               <li key={id}>
-                <Link to={url}>
-                  <div className="navitem flex items-center py-2 px-3 rounded-md transform hover:bg-blue-400 hover:bg-opacity-30 transition duration-200 ease-in-out">
+                {id === 4 ? (
+                  <div
+                    className={`navitem flex items-center py-2 px-3 rounded-md transform hover:bg-blue-400 hover:bg-opacity-30 transition duration-200 ease-in-out ${
+                      isActive ? "active" : ""
+                    }`}
+                    style={{ color: "white" }}
+                    onClick={handleDialogOpen}
+                  >
                     {photo}
                     {text}
                   </div>
-                </Link>
+                ) : (
+                  <Link to={url}>
+                    <div
+                      className={`navitem  flex items-center py-2 px-3 rounded-md transform hover:bg-blue-400 hover:bg-opacity-30 transition duration-200 ease-in-out ${
+                        isActive ? "active" : ""
+                      }`}
+                    >
+                      {photo}
+                      {text}
+                    </div>
+                  </Link>
+                )}
               </li>
             );
           })}
@@ -171,8 +217,128 @@ const NavBar = () => {
       <div className="navbar-button item-4">
         <Navbar2 />
       </div>
+
+      {/* Dialog POS */}
+
+      <Dialog
+        open={dialogOpen}
+        onClose={handleDialogClose}
+        className="largeDialog"
+      >
+        <DialogActions className="dialogActionsContainer">
+          <div className="dialogTitleContainer">
+            <DialogTitle className="titleDialogPos">POS</DialogTitle>
+          </div>
+          <div className="closeIconContainer">
+            <IconButton
+              onClick={handleDialogClose}
+              color="inherit"
+              aria-label="Close"
+            >
+              <CloseIcon />
+            </IconButton>
+          </div>
+        </DialogActions>
+
+        <DialogContent className="ContentPos">
+          <ul className="ulPos">
+            {items
+              .find((link) => link.id === 4)
+              .sublinks.map((sublink) => (
+                <li key={sublink.id}>
+                  {sublink.photo}
+                  <Stack direction="row" spacing={1}>
+                    <Button
+                      variant="contained"
+                      style={{
+                        padding: "10px",
+                        width: "200px",
+                      }}
+                      onClick={() => handleSublinkClick(sublink.url)}
+                    >
+                      {sublink.text}
+                    </Button>
+                  </Stack>
+                </li>
+              ))}
+          </ul>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
 
 export default NavBar;
+
+{
+  /* <Dialog
+        header="Shtim/Modifikim Departament"
+        visible={displayResponsive}
+        onHide={() => onHide("displayResponsive")}
+        breakpoints={{ "960px": "75vw" }}
+        style={{ width: "24.5vw" }}
+      >
+        <div className=" mt-2">
+          <ButtonGroup size="xl" className="mb-2">
+            <Button
+              className="p-2"
+              onClick={(e) => {
+                e.preventDefault();
+                setDisabled(false);
+              }}
+            >
+              <PostAddIcon /> Shtim
+            </Button>
+            <Button className="p-2" disabled={disabled}>
+              <DeleteIcon /> Fshije
+            </Button>
+            <Button
+              className="p-2"
+              onClick={(e) => {
+                e.preventDefault();
+                setState(defaultState);
+              }}
+              disabled={disabled}
+            >
+              <ClearIcon />
+              Anullim
+            </Button>
+            <Button
+              className="p-2"
+              onClick={(e) => {
+                e.preventDefault();
+                submitHanlder();
+                setState(defaultState);
+              }}
+              disabled={disabled}
+              type="submit"
+            >
+              <AppRegistrationIcon />
+              Rregjistrim
+            </Button>
+          </ButtonGroup>
+        </div>
+
+        <div className="border p-2">
+          <TextField
+            disabled={disabled}
+            type="text"
+            variant="outlined"
+            label="Kodi"
+            value={state?.Kodi}
+            onChange={(e) => handleChange("Kodi", e.target.value)}
+            size="small"
+          />
+
+          <textarea
+            disabled={disabled}
+            cols="38"
+            rows="2"
+            placeholder="Pershkrim"
+            value={state?.Pershkrim}
+            onChange={(e) => handleChange("Pershkrim", e.target.value)}
+            className="shenim resize-none rounded-md mt-3"
+          ></textarea>
+        </div>
+      </Dialog> */
+}

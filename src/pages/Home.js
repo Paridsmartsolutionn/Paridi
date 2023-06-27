@@ -1,7 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import Footer from "../components/Navbar/Footer";
 import NavBar from "../components/Navbar/NavBar";
 import SideBar from "../components/Navbar/SideBar";
 import { useUser } from "../zustand/common";
@@ -30,8 +29,6 @@ const Home = () => {
           <p> Nuk kemi punuar ende per kete !</p>
         </div>
       </div>
-
-      <Footer />
     </div>
   );
 };

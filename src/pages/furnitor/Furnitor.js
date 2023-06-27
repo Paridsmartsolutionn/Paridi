@@ -609,7 +609,7 @@ const Furnitor = () => {
           </Panel>
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

@@ -171,6 +171,12 @@ table {
   background-color: #d6e9ff !important;
   transition: 0.8s;
 }
+.nxtPrv {
+  z-index: 1000;
+  background-color: #1c80cf !important;
+  transition: 0.8s;
+  color: currentColor;
+}
 
 .layover {
   z-index: 40;

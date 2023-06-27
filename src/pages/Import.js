@@ -39,6 +39,7 @@ import Klasifikim3 from "./fature-blerje/minimodal/Klasifikim3";
 import Klasifikim4 from "./fature-blerje/minimodal/Klasifikim4";
 import Monedhat from "./fature-blerje/minimodal/Monedhat";
 import TotalFooter from "../components/FaqetEprintimit/TotalFooter";
+import NavBar from "../components/Navbar/NavBar";
 
 const Import = () => {
   const [disabled, setDisabled] = useState(true);
@@ -281,393 +282,423 @@ const Import = () => {
   };
 
   return (
-    <div className=" p-1">
-      <ToastContainer />
+    <div>
+      <NavBar />
 
-      <form
-        className="drop-shadow-lg mr-4 mb-3"
-        onSubmit={(e) => aprovoFature(e.preventDefault())}
-      >
-        <Panel headerTemplate={template} toggleable>
-          <div className="form_panel ">
-            <div className="flex gap-40">
-              <ButtonGroup size="xl" className="mb-2">
-                <Button
-                  className="p-1"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setDisabled(false);
-                  }}
-                >
-                  <PostAddIcon /> Shtim
-                </Button>
-                <Button className="p-1" disabled={disabled}>
-                  <DeleteIcon /> Fshije
-                </Button>
-                <Button
-                  className="p-1"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setState(defaultState);
-                    setDisabled(true);
-                  }}
-                  disabled={disabled}
-                >
-                  <ClearIcon />
-                  Anullim
-                </Button>
-                <Button
-                  className="p-1"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    aprovoFature();
-                    setState(defaultState);
-                  }}
-                  disabled={disabled}
-                  type="submit"
-                >
-                  <AppRegistrationIcon />
-                  Rregjistrim
-                </Button>
-                <div></div>
-              </ButtonGroup>
+      <div className="template">
+        <SideBar />
+        <div className=" p-1">
+          <ToastContainer />
 
-              <ButtonGroup size="xl" className="mb-2 ">
-                <Button
-                  className={toggleState === 4 ? "tabs active-tabs" : "tabs"}
-                  onClick={() => toggleTab(4)}
-                  disabled={disabled}
-                >
-                  Tjera
-                  <AutoAwesomeMotionIcon />
-                </Button>
-                <Button
-                  className={toggleState === 5 ? "tabs active-tabs" : "tabs"}
-                  onClick={() => toggleTab(5)}
-                  disabled={disabled}
-                >
-                  Kls
-                  <ClassIcon />
-                </Button>
-              </ButtonGroup>
-
-              {/* <PrintSharp style={{color:"#1971c2",cursor:"pointer"}} onClick={handlePrint}>Printo</PrintSharp> */}
-              <PopupState variant="popover" popupId="demo-popup-popover">
-                {(popupState) => (
-                  <div>
-                    <Button {...bindTrigger(popupState)}>
-                      <PrintSharp />
+          <form
+            className="drop-shadow-lg mr-4 mb-3"
+            onSubmit={(e) => aprovoFature(e.preventDefault())}
+          >
+            <Panel headerTemplate={template} toggleable>
+              <div className="form_panel ">
+                <div className="flex gap-40">
+                  <ButtonGroup size="xl" className="mb-2">
+                    <Button
+                      className="p-1"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setDisabled(false);
+                      }}
+                    >
+                      <PostAddIcon /> Shtim
                     </Button>
-                    <Popover
-                      style={{ marginTop: "15px" }}
-                      {...bindPopover(popupState)}
-                      anchorOrigin={{
-                        vertical: "bottom",
-                        horizontal: "center",
+                    <Button className="p-1" disabled={disabled}>
+                      <DeleteIcon /> Fshije
+                    </Button>
+                    <Button
+                      className="p-1"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setState(defaultState);
+                        setDisabled(true);
                       }}
-                      transformOrigin={{
-                        vertical: "top",
-                        horizontal: "center",
-                      }}
-                    >
-                      <Typography
-                        style={{
-                          padding: "1rem",
-                          display: "grid",
-                          flexDirection: "row",
-                        }}
-                      >
-                        <Button
-                          style={{
-                            color: "#1971c2",
-                            cursor: "pointer",
-                            margin: "5px",
-                          }}
-                          onClick={handlePrint}
-                        >
-                          {" "}
-                          <div style={{ fontSize: "12px" }}>
-                            Printo Faturen 1
-                          </div>
-                          <PrintSharp style={{ blockSize: "17px" }} />{" "}
-                        </Button>
-                        <Button
-                          style={{
-                            color: "#1971c2",
-                            cursor: "pointer",
-                            margin: "5px",
-                          }}
-                        >
-                          {" "}
-                          <div style={{ fontSize: "12px" }}>
-                            Printo Faturen 2
-                          </div>
-                          <PrintSharp style={{ blockSize: "17px" }} />{" "}
-                        </Button>
-                        <Button
-                          style={{
-                            color: "#1971c2",
-                            cursor: "pointer",
-                            margin: "5px",
-                          }}
-                        >
-                          <div style={{ fontSize: "12px" }}>
-                            Printo Faturen 3
-                          </div>
-                          <PrintSharp style={{ blockSize: "17px" }} />{" "}
-                        </Button>
-                        <Button
-                          style={{
-                            color: "#1971c2",
-                            cursor: "pointer",
-                            margin: "5px",
-                          }}
-                        >
-                          <div style={{ fontSize: "12px" }}>
-                            Printo Faturen 4
-                          </div>
-                          <PrintSharp style={{ blockSize: "17px" }} />{" "}
-                        </Button>
-                      </Typography>
-                    </Popover>
-                  </div>
-                )}
-              </PopupState>
-            </div>
-            <div className="fBlerje dtlblerje border-separate flex p-4 gap-24">
-              <div className="grid gap-2">
-                <div className="flex justify-start items-center gap-4">
-                  <Button variant="contained" size="sm">
-                    Ngarko Faturat
-                  </Button>
-                  <TextField
-                    disabled={disabled}
-                    type="date"
-                    label="Data"
-                    variant="outlined"
-                    InputLabelProps={{
-                      shrink: true,
-                    }}
-                    value={state?.data}
-                    onChange={(e) => handleChange("data", e.target.value)}
-                    size="small"
-                    style={{ width: "12rem" }}
-                  />
-                </div>
-                <div className="flex justify-start gap-2">
-                  <TextField
-                    disabled={disabled}
-                    type="number"
-                    label="Nr"
-                    variant="outlined"
-                    value={state?.Nr}
-                    onChange={(e) => handleChange("Nr", e.target.value)}
-                    size="small"
-                    style={{ width: "10rem" }}
-                  />
-                  <div className=" flex items-center">
-                    <Monedhat
-                    //  fetchMonedhat={fetchPost}
-                    />
-                    <Form.Select
-                      style={{ width: "12rem" }}
                       disabled={disabled}
-                      value={state?.Monedha}
-                      // onChange={(e)=>{handleKursiType(e)}}
                     >
-                      <option label="Monedha"></option>
-                      {/* {monedhat.map(monedha=>{
+                      <ClearIcon />
+                      Anullim
+                    </Button>
+                    <Button
+                      className="p-1"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        aprovoFature();
+                        setState(defaultState);
+                      }}
+                      disabled={disabled}
+                      type="submit"
+                    >
+                      <AppRegistrationIcon />
+                      Rregjistrim
+                    </Button>
+                    <div></div>
+                  </ButtonGroup>
+
+                  <ButtonGroup size="xl" className="mb-2 ">
+                    <Button
+                      className={
+                        toggleState === 4 ? "tabs active-tabs" : "tabs"
+                      }
+                      onClick={() => toggleTab(4)}
+                      disabled={disabled}
+                    >
+                      Tjera
+                      <AutoAwesomeMotionIcon />
+                    </Button>
+                    <Button
+                      className={
+                        toggleState === 5 ? "tabs active-tabs" : "tabs"
+                      }
+                      onClick={() => toggleTab(5)}
+                      disabled={disabled}
+                    >
+                      Kls
+                      <ClassIcon />
+                    </Button>
+                  </ButtonGroup>
+
+                  {/* <PrintSharp style={{color:"#1971c2",cursor:"pointer"}} onClick={handlePrint}>Printo</PrintSharp> */}
+                  <PopupState variant="popover" popupId="demo-popup-popover">
+                    {(popupState) => (
+                      <div>
+                        <Button {...bindTrigger(popupState)}>
+                          <PrintSharp />
+                        </Button>
+                        <Popover
+                          style={{ marginTop: "15px" }}
+                          {...bindPopover(popupState)}
+                          anchorOrigin={{
+                            vertical: "bottom",
+                            horizontal: "center",
+                          }}
+                          transformOrigin={{
+                            vertical: "top",
+                            horizontal: "center",
+                          }}
+                        >
+                          <Typography
+                            style={{
+                              padding: "1rem",
+                              display: "grid",
+                              flexDirection: "row",
+                            }}
+                          >
+                            <Button
+                              style={{
+                                color: "#1971c2",
+                                cursor: "pointer",
+                                margin: "5px",
+                              }}
+                              onClick={handlePrint}
+                            >
+                              {" "}
+                              <div style={{ fontSize: "12px" }}>
+                                Printo Faturen 1
+                              </div>
+                              <PrintSharp style={{ blockSize: "17px" }} />{" "}
+                            </Button>
+                            <Button
+                              style={{
+                                color: "#1971c2",
+                                cursor: "pointer",
+                                margin: "5px",
+                              }}
+                            >
+                              {" "}
+                              <div style={{ fontSize: "12px" }}>
+                                Printo Faturen 2
+                              </div>
+                              <PrintSharp style={{ blockSize: "17px" }} />{" "}
+                            </Button>
+                            <Button
+                              style={{
+                                color: "#1971c2",
+                                cursor: "pointer",
+                                margin: "5px",
+                              }}
+                            >
+                              <div style={{ fontSize: "12px" }}>
+                                Printo Faturen 3
+                              </div>
+                              <PrintSharp style={{ blockSize: "17px" }} />{" "}
+                            </Button>
+                            <Button
+                              style={{
+                                color: "#1971c2",
+                                cursor: "pointer",
+                                margin: "5px",
+                              }}
+                            >
+                              <div style={{ fontSize: "12px" }}>
+                                Printo Faturen 4
+                              </div>
+                              <PrintSharp style={{ blockSize: "17px" }} />{" "}
+                            </Button>
+                          </Typography>
+                        </Popover>
+                      </div>
+                    )}
+                  </PopupState>
+                </div>
+
+                <div className="fBlerje dtlblerje border-separate flex p-4 gap-24">
+                  <div className="grid gap-2">
+                    <div className="flex justify-start items-center gap-4">
+                      <Button variant="contained" size="sm">
+                        Ngarko Faturat
+                      </Button>
+                      <TextField
+                        disabled={disabled}
+                        type="date"
+                        label="Data"
+                        variant="outlined"
+                        InputLabelProps={{
+                          shrink: true,
+                        }}
+                        value={state?.data}
+                        onChange={(e) => handleChange("data", e.target.value)}
+                        size="small"
+                        style={{ width: "12rem" }}
+                      />
+                    </div>
+                    <div className="flex justify-start gap-2">
+                      <TextField
+                        disabled={disabled}
+                        type="number"
+                        label="Nr"
+                        variant="outlined"
+                        value={state?.Nr}
+                        onChange={(e) => handleChange("Nr", e.target.value)}
+                        size="small"
+                        style={{ width: "10rem" }}
+                      />
+                      <div className=" flex items-center">
+                        <Monedhat
+                        //  fetchMonedhat={fetchPost}
+                        />
+                        <Form.Select
+                          style={{ width: "12rem" }}
+                          disabled={disabled}
+                          value={state?.Monedha}
+                          // onChange={(e)=>{handleKursiType(e)}}
+                        >
+                          <option label="Monedha"></option>
+                          {/* {monedhat.map(monedha=>{
           return <option value={monedha.Kodi}>{monedha.Pershkrim}</option>  
         })} */}
-                    </Form.Select>
+                        </Form.Select>
+                      </div>
+                    </div>
+
+                    <div className="flex flex-row gap-2">
+                      <TextField
+                        fullWidth
+                        disabled={disabled}
+                        type="number"
+                        variant="outlined"
+                        label="Numer Referimi"
+                        value={state?.NrOrigjine}
+                        onChange={(e) =>
+                          handleChange("NrOrigjine", e.target.value)
+                        }
+                        size="small"
+                        style={{ width: "10rem" }}
+                      />
+
+                      <div className="">
+                        <TextField
+                          fullWidth
+                          disabled={disabled}
+                          type="number"
+                          variant="outlined"
+                          label="Referenca Doganore"
+                          value={state?.NrOrigjine}
+                          onChange={(e) =>
+                            handleChange("NrOrigjine", e.target.value)
+                          }
+                          size="small"
+                          style={{ width: "12rem", marginLeft: "20px" }}
+                        />
+                      </div>
+                    </div>
+
+                    <div className="flex mt-2">
+                      <ModalList shtoArtikull={shtoArtikull} />
+                    </div>
                   </div>
-                </div>
 
-                <div className="flex flex-row gap-2">
-                  <TextField
-                    fullWidth
-                    disabled={disabled}
-                    type="number"
-                    variant="outlined"
-                    label="Numer Referimi"
-                    value={state?.NrOrigjine}
-                    onChange={(e) => handleChange("NrOrigjine", e.target.value)}
-                    size="small"
-                    style={{ width: "10rem" }}
-                  />
+                  {/* /////////////////////////////////////////////////////////////// */}
 
-                  <div className="">
-                    <TextField
-                      fullWidth
-                      disabled={disabled}
-                      type="number"
-                      variant="outlined"
-                      label="Referenca Doganore"
-                      value={state?.NrOrigjine}
-                      onChange={(e) =>
-                        handleChange("NrOrigjine", e.target.value)
+                  <div style={{ marginLeft: "2.3rem" }}>
+                    {/* tab1 */}
+
+                    <div
+                      className={
+                        toggleState === 4
+                          ? "content  active-content"
+                          : "content"
                       }
-                      size="small"
-                      style={{ width: "12rem", marginLeft: "20px" }}
-                    />
-                  </div>
-                </div>
-
-                <div className="flex mt-2">
-                  <ModalList shtoArtikull={shtoArtikull} />
-                </div>
-              </div>
-
-              {/* /////////////////////////////////////////////////////////////// */}
-
-              <div style={{ marginLeft: "2.3rem" }}>
-                {/* tab1 */}
-
-                <div
-                  className={
-                    toggleState === 4 ? "content  active-content" : "content"
-                  }
-                >
-                  <div className="flex justify-start items-center gap-2">
-                    <TextField
-                      label="Nr i Fleteve 1"
-                      size="small"
-                      InputLabelProps={{
-                        shrink: true,
-                      }}
-                      style={{ width: "7rem" }}
-                    />
-                    <TextField
-                      style={{ width: "7rem" }}
-                      label="2"
-                      size="small"
-                      InputLabelProps={{
-                        shrink: true,
-                      }}
-                    />
-                  </div>
-
-                  <TextField
-                    className="mt-2 w-80 "
-                    disabled={disabled}
-                    type="text"
-                    variant="outlined"
-                    label="Shenim 1"
-                    value={state?.Shenim1}
-                    onChange={(e) => handleChange("Shenim1", e.target.value)}
-                    size="small"
-                  />
-
-                  <br />
-
-                  <TextField
-                    className="mt-2 w-80"
-                    disabled={disabled}
-                    type="text"
-                    variant="outlined"
-                    label="Shenim 2"
-                    value={state?.Shenim2}
-                    onChange={(e) => handleChange("Shenim2", e.target.value)}
-                    size="small"
-                  />
-                </div>
-
-                {/* tab2 */}
-
-                <div
-                  className={
-                    toggleState === 5 ? "content  active-content" : "content"
-                  }
-                >
-                  <div className="flex justify-center items-center">
-                    <Klasifikim fetchMonedhat={fetchFletehyrje} />
-                    <Form.Select
-                      size="sm"
-                      className="mt-2 w-80"
-                      disabled={disabled}
-                      value={state?.Kls1 ?? ""}
-                      onChange={(e) => {
-                        handleChange("Kls1", e.target.value);
-                      }}
                     >
-                      <option label="klasifikim1" />
+                      <div className="flex justify-start items-center gap-2">
+                        <TextField
+                          label="Nr i Fleteve 1"
+                          size="small"
+                          InputLabelProps={{
+                            shrink: true,
+                          }}
+                          style={{ width: "7rem" }}
+                        />
+                        <TextField
+                          style={{ width: "7rem" }}
+                          label="2"
+                          size="small"
+                          InputLabelProps={{
+                            shrink: true,
+                          }}
+                        />
+                      </div>
 
-                      {klasifikim1.map((kls) => {
-                        return <option value={kls.ID}>{kls.Pershkrim}</option>;
-                      })}
-                    </Form.Select>
-                  </div>
+                      <TextField
+                        className="mt-2 w-80 "
+                        disabled={disabled}
+                        type="text"
+                        variant="outlined"
+                        label="Shenim 1"
+                        value={state?.Shenim1}
+                        onChange={(e) =>
+                          handleChange("Shenim1", e.target.value)
+                        }
+                        size="small"
+                      />
 
-                  <div className="flex justify-center items-center">
-                    <Klasifikim2 fetchMonedhat={fetchFletehyrje} />
-                    <Form.Select
-                      size="sm"
-                      className="mt-2"
-                      disabled={disabled}
-                      value={state?.Kls2 ?? ""}
-                      onChange={(e) => {
-                        handleChange("Kls2", e.target.value);
-                      }}
+                      <br />
+
+                      <TextField
+                        className="mt-2 w-80"
+                        disabled={disabled}
+                        type="text"
+                        variant="outlined"
+                        label="Shenim 2"
+                        value={state?.Shenim2}
+                        onChange={(e) =>
+                          handleChange("Shenim2", e.target.value)
+                        }
+                        size="small"
+                      />
+                    </div>
+
+                    {/* tab2 */}
+
+                    <div
+                      className={
+                        toggleState === 5
+                          ? "content  active-content"
+                          : "content"
+                      }
                     >
-                      <option label="klasifikim2" />
-                      {klasifikim2.map((kls) => {
-                        return <option value={kls.ID}>{kls.Pershkrim}</option>;
-                      })}
-                    </Form.Select>
-                  </div>
-                  <div className="flex justify-center items-center">
-                    <Klasifikim3 fetchMonedhat={fetchFletehyrje} />
-                    <Form.Select
-                      size="sm"
-                      className="mt-2"
-                      disabled={disabled}
-                      value={state?.Kls3 ?? ""}
-                      onChange={(e) => {
-                        handleChange("Kls3", e.target.value);
-                      }}
-                    >
-                      <option label="klasifikim3" />
-                      {klasifikim3.map((kls) => {
-                        return <option value={kls.ID}>{kls.Pershkrim}</option>;
-                      })}
-                    </Form.Select>
-                  </div>
-                  <div className="flex justify-center items-center">
-                    <Klasifikim4 fetchMonedhat={fetchFletehyrje} />
-                    <Form.Select
-                      size="sm"
-                      className="mt-2"
-                      disabled={disabled}
-                      value={state?.Kls4 ?? ""}
-                      onChange={(e) => {
-                        handleChange("Kls4", e.target.value);
-                      }}
-                    >
-                      <option label="klasifikim4" />
-                      {klasifikim4.map((kls) => {
-                        return <option value={kls.ID}>{kls.Pershkrim}</option>;
-                      })}
-                    </Form.Select>
+                      <div className="flex justify-center items-center">
+                        <Klasifikim fetchMonedhat={fetchFletehyrje} />
+                        <Form.Select
+                          size="sm"
+                          className="mt-2 w-80"
+                          disabled={disabled}
+                          value={state?.Kls1 ?? ""}
+                          onChange={(e) => {
+                            handleChange("Kls1", e.target.value);
+                          }}
+                        >
+                          <option label="klasifikim1" />
+
+                          {klasifikim1.map((kls) => {
+                            return (
+                              <option value={kls.ID}>{kls.Pershkrim}</option>
+                            );
+                          })}
+                        </Form.Select>
+                      </div>
+
+                      <div className="flex justify-center items-center">
+                        <Klasifikim2 fetchMonedhat={fetchFletehyrje} />
+                        <Form.Select
+                          size="sm"
+                          className="mt-2"
+                          disabled={disabled}
+                          value={state?.Kls2 ?? ""}
+                          onChange={(e) => {
+                            handleChange("Kls2", e.target.value);
+                          }}
+                        >
+                          <option label="klasifikim2" />
+                          {klasifikim2.map((kls) => {
+                            return (
+                              <option value={kls.ID}>{kls.Pershkrim}</option>
+                            );
+                          })}
+                        </Form.Select>
+                      </div>
+                      <div className="flex justify-center items-center">
+                        <Klasifikim3 fetchMonedhat={fetchFletehyrje} />
+                        <Form.Select
+                          size="sm"
+                          className="mt-2"
+                          disabled={disabled}
+                          value={state?.Kls3 ?? ""}
+                          onChange={(e) => {
+                            handleChange("Kls3", e.target.value);
+                          }}
+                        >
+                          <option label="klasifikim3" />
+                          {klasifikim3.map((kls) => {
+                            return (
+                              <option value={kls.ID}>{kls.Pershkrim}</option>
+                            );
+                          })}
+                        </Form.Select>
+                      </div>
+                      <div className="flex justify-center items-center">
+                        <Klasifikim4 fetchMonedhat={fetchFletehyrje} />
+                        <Form.Select
+                          size="sm"
+                          className="mt-2"
+                          disabled={disabled}
+                          value={state?.Kls4 ?? ""}
+                          onChange={(e) => {
+                            handleChange("Kls4", e.target.value);
+                          }}
+                        >
+                          <option label="klasifikim4" />
+                          {klasifikim4.map((kls) => {
+                            return (
+                              <option value={kls.ID}>{kls.Pershkrim}</option>
+                            );
+                          })}
+                        </Form.Select>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </Panel>
-      </form>
-      <PrimeGrid
-        gridKey="FatureBlerje"
-        isEditable={true}
-        columns={columns}
-        setColumns={setColumns}
-        rows={rows}
-        setRows={setRows}
-        selectedColumns={selectedColumns}
-        setSelectedColumns={setSelectedColumns}
-        calculateData={calculateData}
-      />
+            </Panel>
+          </form>
+          <PrimeGrid
+            gridKey="FatureBlerje"
+            isEditable={true}
+            columns={columns}
+            setColumns={setColumns}
+            rows={rows}
+            setRows={setRows}
+            selectedColumns={selectedColumns}
+            setSelectedColumns={setSelectedColumns}
+            calculateData={calculateData}
+          />
 
-      <TotalFooter className="m-2" />
+          <TotalFooter className="m-2" />
+        </div>
+      </div>
     </div>
   );
 };

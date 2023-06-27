@@ -7,19 +7,21 @@ import FleteHyrje from "./pages/flete-hyrje/FleteHyrje";
 import Import from "./pages/Import";
 import Raporte from "./pages/Raporte/Raporte";
 import { useEffect, useState } from "react";
-import SideBar from "./components/Navbar/SideBar";
+// import SideBar from "./components/Navbar/SideBar";
 import Footer from "./components/Navbar/Footer";
 import Artikuj from "./pages/paneliIartikujve/Artikuj";
-import Pos from "./pages/Pos";
+// import Pos from "./pages/Pos";
 import Furnitor from "./pages/furnitor/Furnitor";
 import Register from "./components/authenticate/register/Register";
 import Home from "./pages/Home";
 import mainAxios, { AxiosInterceptor, setAuthToken } from "./services/axios";
 import AuthorizedRoute from "./services/AuthorizedRoute";
-import { useUser } from "./zustand/common";
+// import { useUser } from "./zustand/common";
 import { getCookie, setCookie } from "./services/helpers";
 import LandingPage from "./pages/landing-page/LandingPage";
 import "./index.scss";
+import Restorant from "./pages/POS/Restaurant/Restorant";
+import Supermarket from "./pages/POS/SuperMarket/SuperMarket";
 function App() {
   const [ndryshoKushtin, setNdryshoKushtin] = useState(false);
   const [hidePupUp, setHidePupUp] = useState(false);
@@ -85,11 +87,27 @@ function App() {
                 }
               />
 
-              <Route
-                path="/Pos"
+              {/* <Route
+                path={"/Pos"}
                 element={
                   <AuthorizedRoute>
                     <Pos />
+                  </AuthorizedRoute>
+                }
+              /> */}
+              <Route
+                path={"/Pos/restorant"}
+                element={
+                  <AuthorizedRoute>
+                    <Restorant />
+                  </AuthorizedRoute>
+                }
+              />
+              <Route
+                path={"/Pos/supermarket"}
+                element={
+                  <AuthorizedRoute>
+                    <Supermarket />
                   </AuthorizedRoute>
                 }
               />

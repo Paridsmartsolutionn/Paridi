@@ -23,7 +23,7 @@ const TabTjera = ({
 }) => {
   const veprimet = [
     { label: "Euro", id: "EU" },
-    { label: "Dolla", id: "USD" },
+    { label: "Dollar", id: "USD" },
     { label: "Pound", id: "PD" },
   ];
 

@@ -1,18 +1,24 @@
+import React from "react";
 import DescriptionIcon from "@mui/icons-material/Description";
 import RequestQuoteIcon from "@mui/icons-material/RequestQuote";
 import ArticleIcon from "@mui/icons-material/Article";
-import TableBarIcon from "@mui/icons-material/TableBar";
+// import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import RestaurantIcon from "@mui/icons-material/Restaurant";
+import LocalGroceryStoreIcon from "@mui/icons-material/LocalGroceryStore";
+import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
 import FormatIndentIncreaseIcon from "@mui/icons-material/FormatIndentIncrease";
 import FormatIndentDecreaseIcon from "@mui/icons-material/FormatIndentDecrease";
 import QueryStatsIcon from "@mui/icons-material/QueryStats";
-// import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
+import PopupState, { bindTrigger, bindMenu } from "material-ui-popup-state";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 
 const items = [
   {
     id: 1,
     text: "Faturë Blerje",
     url: "/fature-blerje",
-    photo: <DescriptionIcon fontSize="medium" className="opacity-50" />,
+    photo: <DescriptionIcon fontSize="medium" className="opacity-70" />,
   },
   {
     id: 2,
@@ -30,7 +36,23 @@ const items = [
     id: 4,
     text: "POS",
     url: "/pos",
-    photo: <TableBarIcon fontSize="medium" className="opacity-50" />,
+    photo: <PointOfSaleIcon fontSize="medium" className="opacity-50" />,
+    sublinks: [
+      {
+        id: 1,
+        text: " Restorant ",
+        url: "/pos/restorant",
+        photo: <RestaurantIcon fontSize="small" className="opacity-50" />,
+      },
+      {
+        id: 2,
+        text: "Supermarket",
+        url: "/pos/supermarket",
+        photo: (
+          <LocalGroceryStoreIcon fontSize="small" className="opacity-50" />
+        ),
+      },
+    ],
   },
   {
     id: 5,
