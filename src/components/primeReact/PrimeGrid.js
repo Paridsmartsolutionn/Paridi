@@ -113,7 +113,7 @@ const PrimeGrid = ({
   const header = (
     <>
       <div className="flex justify-between ">
-        <span style={{ width: "15rem" }} className="p-input-icon-left">
+        {/* <span style={{ width: "15rem" }} className="p-input-icon-left">
           <i className="pi pi-search" />
           <InputText
             style={{ height: "2em" }}
@@ -122,16 +122,16 @@ const PrimeGrid = ({
             placeholder="Kërko"
             onClick={clearFilter1}
           />
-        </span>
+        </span> */}
 
         <div className="flex file-choosen ">
-          <input
+          {/* <input
             onChange={(e) => {
               const file = e.target.files[0];
               readExcel(file);
             }}
             type="file"
-          />
+          /> */}
 
           {showHideColumns && (
             <MultiSelect

@@ -7,16 +7,7 @@ import { DataTable } from "primereact/datatable";
 import { MultiSelect } from "primereact/multiselect";
 import useStorage from "../../hooks/useStorage";
 import { TabView, TabPanel } from "primereact/tabview";
-
-const dummyData = [
-  {
-    Kodi: 1,
-    BarKod: 9128,
-    Pershkrim: "Ca bone laleee",
-    Njesi_Kodi: 23,
-    Cmimi: 34,
-  },
-];
+import { InputText } from "primereact/inputtext";
 
 const ModalList = ({
   shtoArtikull,
@@ -135,6 +126,16 @@ const ModalList = ({
   return (
     <>
       <div>
+        <span style={{ width: "14rem" }} className="p-input-icon-left">
+          <i className="pi pi-search" />
+          <InputText
+            style={{ height: "1em" }}
+            // value={globalFilterValue1}
+            // onChange={onGlobalFilterChange1}
+            placeholder="Kërko"
+            // onClick={clearFilter1}
+          />
+        </span>
         <Button
           disabled={disabled}
           type="button"
@@ -144,7 +145,6 @@ const ModalList = ({
           aria-haspopup
           aria-controls="overlay_panel"
         >
-          {" "}
           Artikuj/Llogari
         </Button>
       </div>
@@ -172,8 +172,7 @@ const ModalList = ({
                 scrollable
                 scrollHeight="400px"
                 virtualScrollerOptions={{ itemSize: 46 }}
-                // value={rows}
-                value={dummyData}
+                value={rows}
                 responsiveLayout="scroll"
               >
                 {dynamicColumns}
