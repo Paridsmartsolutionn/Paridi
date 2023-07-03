@@ -51,10 +51,10 @@ import SideBar from "../../components/Navbar/SideBar";
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 import Draggable from "react-draggable";
 import "./FatureShitje.scss";
+import mainAxios from "../../services/axios";
+import { responsivePropType } from "react-bootstrap/esm/createUtilityClasses";
 
 const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
-  // removableSort,multiSortMeta,onSort,
-
   const [disabled, setDisabled] = useState(true);
 
   const [rows, setRows] = useState([]);
@@ -70,30 +70,6 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
   const [filteredCities, setFilteredCities] = useState(null);
 
   console.log({ countries });
-
-  // const searchCountry = (event) => {
-  //   setTimeout(() => {
-  //       let _filteredCountries;
-  //       if (!event.query.trim().length) {
-  //           _filteredCountries = [...countries];
-  //       }
-  //       else {
-  //           _filteredCountries = countries.filter((country) => {
-  //               return country.name.toLowerCase().startsWith(event.query.toLowerCase());
-  //           });
-  //       }
-
-  //   setFilteredItems(_filteredItems);
-  // }
-  // }
-
-  // const itemTemplate = (item) => {
-  //   return (
-  //       <div className="country-item">
-  //           <div>{item.Pershkrim}</div>
-  //       </div>
-  //   );
-  //   }
 
   const [qytetet, setQytetet] = useState([]);
   const [shtetet, setShtetet] = useState([]);
@@ -120,9 +96,8 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
 
   const fetchFShitje = async () => {
     try {
-      const response = await axios(
-        `${process.env.REACT_APP_API_KEY}/fatura/shitje/data`
-      );
+      const response = await mainAxios(`/fature/shitje`);
+      console.log(response, "RESPONSE");
 
       setKlient(response?.data.Klient);
       setQytetet(response?.data.Qytetet);
@@ -1302,3 +1277,27 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
 };
 
 export default memo(FatureShitje);
+// removableSort,multiSortMeta,onSort,
+// const searchCountry = (event) => {
+//   setTimeout(() => {
+//       let _filteredCountries;
+//       if (!event.query.trim().length) {
+//           _filteredCountries = [...countries];
+//       }
+//       else {
+//           _filteredCountries = countries.filter((country) => {
+//               return country.name.toLowerCase().startsWith(event.query.toLowerCase());
+//           });
+//       }
+
+//   setFilteredItems(_filteredItems);
+// }
+// }
+
+// const itemTemplate = (item) => {
+//   return (
+//       <div className="country-item">
+//           <div>{item.Pershkrim}</div>
+//       </div>
+//   );
+//   }

@@ -295,7 +295,7 @@ const Shtet = ({ fetchUpdate, shtetet, setShtetet }) => {
                   value={shtetet}
                   responsiveLayout="scroll"
                   contextMenuSelection={selectedProduct}
-                  contextSelection={selectedProduct}
+                  contextselection={selectedProduct}
                   onContextMenuSelectionChange={(e) =>
                     setSelectedProduct(e.value)
                   }

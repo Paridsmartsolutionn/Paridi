@@ -122,8 +122,35 @@ const Klasifikim = ({ fetchMonedhat }) => {
             <textarea
               disabled={disabled}
               cols="38"
+              rows="1"
+              placeholder="Kodi"
+              value={state?.Pershkrim}
+              onChange={(e) => handleChange("Pershkrim", e.target.value)}
+              className="shenim resize-none rounded-md mt-3"
+            ></textarea>
+            <textarea
+              disabled={disabled}
+              cols="38"
               rows="2"
               placeholder="Pershkrim"
+              value={state?.Pershkrim}
+              onChange={(e) => handleChange("Pershkrim", e.target.value)}
+              className="shenim resize-none rounded-md mt-3"
+            ></textarea>
+            <textarea
+              disabled={disabled}
+              cols="38"
+              rows="1"
+              placeholder="Master Kodi +"
+              value={state?.Pershkrim}
+              onChange={(e) => handleChange("Pershkrim", e.target.value)}
+              className="shenim resize-none rounded-md mt-3"
+            ></textarea>
+            <textarea
+              disabled={disabled}
+              cols="38"
+              rows="1"
+              placeholder="Rendit"
               value={state?.Pershkrim}
               onChange={(e) => handleChange("Pershkrim", e.target.value)}
               className="shenim resize-none rounded-md mt-3"

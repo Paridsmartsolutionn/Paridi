@@ -4,13 +4,76 @@ import { Button, Typography } from "@mui/material";
 import { OverlayPanel } from "primereact/overlaypanel";
 import { Column } from "primereact/column";
 import { DataTable } from "primereact/datatable";
-import "./print.css";
+
 import PrintoFblerje from "../FaqetEprintimit/PrintoFblerje";
 import { PrintSharp } from "@mui/icons-material";
 import PopupState, { bindTrigger, bindPopover } from "material-ui-popup-state";
 import Popover from "@mui/material/Popover";
 import { ReactToPrint, useReactToPrint } from "react-to-print";
 import TotalFooter from "../FaqetEprintimit/TotalFooter";
+
+const dummyData = [
+  {
+    Kodi: "ABC123",
+    Pershkrim: "Lorem ipsum",
+    Sasia: 5,
+    Njesi_Kodi: "Piece",
+    Cmimi: 10.99,
+    Skonto_Vlera: 2.5,
+    Vlera_Pa_Tvsh: 13.74,
+    Cmimi_pa_TVSH: 8.74,
+    Tvsh: 20,
+    Total: 10,
+  },
+  {
+    Kodi: "ABC123",
+    Pershkrim: "Lorem ipsum",
+    Sasia: 5,
+    Njesi_Kodi: "Piece",
+    Cmimi: 10.99,
+    Skonto_Vlera: 2.5,
+    Vlera_Pa_Tvsh: 13.74,
+    Cmimi_pa_TVSH: 8.74,
+    Tvsh: 20,
+    Total: 10,
+  },
+  {
+    Kodi: "ABC123",
+    Pershkrim: "Lorem ipsum",
+    Sasia: 5,
+    Njesi_Kodi: "Piece",
+    Cmimi: 10.99,
+    Skonto_Vlera: 2.5,
+    Vlera_Pa_Tvsh: 13.74,
+    Cmimi_pa_TVSH: 8.74,
+    Tvsh: 20,
+    Total: 10,
+  },
+  {
+    Kodi: "ABC123",
+    Pershkrim: "Lorem ipsum",
+    Sasia: 5,
+    Njesi_Kodi: "Piece",
+    Cmimi: 10.99,
+    Skonto_Vlera: 2.5,
+    Vlera_Pa_Tvsh: 13.74,
+    Cmimi_pa_TVSH: 8.74,
+    Tvsh: 20,
+    Total: 10,
+  },
+  {
+    Kodi: "ABC123",
+    Pershkrim: "Lorem ipsum",
+    Sasia: 5,
+    Njesi_Kodi: "Piece",
+    Cmimi: 10.99,
+    Skonto_Vlera: 2.5,
+    Vlera_Pa_Tvsh: 13.74,
+    Cmimi_pa_TVSH: 8.74,
+    Tvsh: 20,
+    Total: 10,
+  },
+];
 
 const PrintoPdf = ({ rows, state, adresa1, nipt1 }) => {
   const Nr = state?.Nr;
@@ -44,6 +107,7 @@ const PrintoPdf = ({ rows, state, adresa1, nipt1 }) => {
         key={col.field}
         field={col.field}
         header={col.title.split("_").join(" ")}
+        body={(rowData) => rowData[col.field]}
       />
     );
   });
@@ -145,16 +209,12 @@ const PrintoPdf = ({ rows, state, adresa1, nipt1 }) => {
           Data={Data}
         />
 
-        <DataTable
-          className="m-6"
-          size="small"
-          showGridlines
-          value={rows}
-          responsiveLayout="scroll"
-        >
-          {dynamicColumns}
-        </DataTable>
-
+        <div className="print-table">
+          {/* value = {row} */}
+          <DataTable className="m-6" size="small" value={dummyData}>
+            {dynamicColumns}
+          </DataTable>
+        </div>
         <TotalFooter
           newTot={newTot}
           newTvshVlera={newTvshVlera}

@@ -32,6 +32,7 @@ import PaneliTabeve from "./tabet/PaneliTabeve";
 import "./FatureBlerje.scss";
 import PhoneFatureBlerje from "./phone/PhoneFatureBlerje";
 import useCourseStore from "./zustand/store";
+import Api from "../../services/Api";
 
 const FatureBlerje = ({ hidePupUp, setHidePupUp }) => {
   const [disabled, setDisabled] = useState(true);
@@ -134,7 +135,8 @@ const FatureBlerje = ({ hidePupUp, setHidePupUp }) => {
 
   const fetchPost = async () => {
     try {
-      const response = await mainAxios(`/fature/blerje`);
+      // const response = await mainAxios(`/fature/blerje`);
+      const response = await Api.get("/fature/blerje");
       setTesti(response?.data);
     } catch (err) {
       console.error(err);
@@ -188,6 +190,7 @@ const FatureBlerje = ({ hidePupUp, setHidePupUp }) => {
         [key]: value,
       };
     });
+    console.log(state, "STATE");
   };
 
   //POST method for fature-blerje
@@ -198,58 +201,63 @@ const FatureBlerje = ({ hidePupUp, setHidePupUp }) => {
       items: rows,
     };
 
-    if (state.furnitorType === "") {
-      toast.info("Cakto Furnitorin!", {
-        draggable: true,
-        position: toast.POSITION.BOTTOM_RIGHT,
-      });
-    } else if (state.magazina === "") {
-      toast.info("Cakto Magazinen!", {
-        draggable: true,
-        position: toast.POSITION.BOTTOM_RIGHT,
-        hideProgressBar: true,
-      });
-    } else {
-      axios.post(`${process.env.REACT_APP_API_KEY}/fatura/blerje`, {
-        Shenim: state.shenim,
-        NrSerik: state.NrSerial,
-        Qyteti_Kodi: state.Qytetet,
-        Veprimi: state.veprime,
-        KLFU_Kodi: state.furnitorId,
-        Operator: "A",
-        Punonjes_ID: state.Pergjegjes,
-        Data: state.data,
-        Kursi: state.Kursi,
-        Mon: state.Monedha,
-        KLFU_Pershkrim: state.furnitorType,
-        Targa_e_Mjetit: state.Targa,
-        Transportuesi_Id: state.Transport,
-        Menyra_Pageses_Id: state.Menyra,
-        NIPT: state.Nipt,
-        Transportuesi_Nipt: state.NiptTransport,
-        Kodi: state.Kodi,
-        Afati_PagesesDite: state.Afati,
-        Arka_Banka_Kodi: state.arkBank,
-        Kodi_ORG: state.NrOrigjine,
-        Dep_Kodi: state.Departamenti,
-        Afati_PagesesData: state.AfatiData,
-        Klasifikim1_ID: state.Kls1,
-        Klasifikim2_ID: state.kls2,
-        Klasifikim3_ID: state.Kls3,
-        Klasifikim4_ID: state.Kls4,
-        Data_deklarimit: state.Deklarimit,
-        Magazina_Kodi: state.magazina,
-        Paguar: state.Paguar,
-        Import: state.Import,
-        Flete_Hyrje_ID: null,
-        Flete_Hyrje_KODI: null,
-        Flete_Hyrje_DATA: null,
-        Aktiv: null,
-        // Nr:state.Nr
-        // MagazinaData:state.MagazinaData
-        content,
-      });
-    }
+    // if (state.furnitorType === "") {
+    //   toast.info("Cakto Furnitorin!", {
+    //     draggable: true,
+    //     position: toast.POSITION.BOTTOM_RIGHT,
+    //   });
+    // } else if (state.magazina === "") {
+    //   toast.info("Cakto Magazinen!", {
+    //     draggable: true,
+    //     position: toast.POSITION.BOTTOM_RIGHT,
+    //     hideProgressBar: true,
+    //   });
+    // } else {
+    Api.post(`/fature/blerje`, {
+      ...state,
+      ...content,
+    });
+
+    // axios.post(`${process.env.REACT_APP_API_KEY}/fature/blerje`, {
+    //   Shenim: state.shenim,
+    //   NrSerik: state.NrSerial,
+    //   Qyteti_Kodi: state.Qytetet,
+    //   Veprimi: state.veprime,
+    //   KLFU_Kodi: state.furnitorId,
+    //   Operator: "A",
+    //   Punonjes_ID: state.Pergjegjes,
+    //   Data: state.data,
+    //   Kursi: state.Kursi,
+    //   Mon: state.Monedha,
+    //   KLFU_Pershkrim: state.furnitorType,
+    //   Targa_e_Mjetit: state.Targa,
+    //   Transportuesi_Id: state.Transport,
+    //   Menyra_Pageses_Id: state.Menyra,
+    //   NIPT: state.Nipt,
+    //   Transportuesi_Nipt: state.NiptTransport,
+    //   Kodi: state.Kodi,
+    //   Afati_PagesesDite: state.Afati,
+    //   Arka_Banka_Kodi: state.arkBank,
+    //   Kodi_ORG: state.NrOrigjine,
+    //   Dep_Kodi: state.Departamenti,
+    //   Afati_PagesesData: state.AfatiData,
+    //   Klasifikim1_ID: state.Kls1,
+    //   Klasifikim2_ID: state.kls2,
+    //   Klasifikim3_ID: state.Kls3,
+    //   Klasifikim4_ID: state.Kls4,
+    //   Data_deklarimit: state.Deklarimit,
+    //   Magazina_Kodi: state.magazina,
+    //   Paguar: state.Paguar,
+    //   Import: state.Import,
+    //   Flete_Hyrje_ID: null,
+    //   Flete_Hyrje_KODI: null,
+    //   Flete_Hyrje_DATA: null,
+    //   Aktiv: null,
+    //   // Nr:state.Nr
+    //   // MagazinaData:state.MagazinaData
+    //   content,
+    // });
+    // }
   };
 
   const calculateData = (item) => {

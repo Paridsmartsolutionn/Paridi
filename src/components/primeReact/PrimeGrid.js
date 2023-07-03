@@ -360,7 +360,7 @@ const PrimeGrid = ({
         <div className="prime-react">
           <DataTable
             // footer={footer}
-            reorderableColumnsDataTable
+            reorderablecolumnsDataTable
             cellSelection
             selection={selectionRow}
             onSelectionChange={(e) => setSelectionRow(e.value)}
@@ -373,7 +373,7 @@ const PrimeGrid = ({
             scrollable
             scrollHeight="46vh"
             // virtualScrollerOptions={{ itemSize: 46 }}
-            contextSelection={selectedProduct}
+            contextselection={selectedProduct}
             onContextMenuSelectionChange={(e) => setSelectedProduct(e.value)}
             onContextMenu={(e) => cm.current.show(e.originalEvent)}
             onColReorder={onColReorder}

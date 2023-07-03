@@ -1,12 +1,9 @@
+.print {
+  display: none;
+}
 
-  .print{
-    display: none;
-  }
-
-  @media print{
-    
-  .print{
+@media print {
+  .print {
     display: inline;
   }
-
-  }
+}

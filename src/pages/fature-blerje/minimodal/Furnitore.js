@@ -13,7 +13,7 @@ import { Dialog } from "primereact/dialog";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
 import Form from "react-bootstrap/Form";
-import Modal from "react-bootstrap/Modal";
+import Modal from "react-modal";
 import Button from "@mui/material/Button";
 import { Checkbox, FormControlLabel, TextField } from "@mui/material";
 

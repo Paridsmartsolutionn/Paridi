@@ -8,6 +8,16 @@ import { MultiSelect } from "primereact/multiselect";
 import useStorage from "../../hooks/useStorage";
 import { TabView, TabPanel } from "primereact/tabview";
 
+const dummyData = [
+  {
+    Kodi: 1,
+    BarKod: 9128,
+    Pershkrim: "Ca bone laleee",
+    Njesi_Kodi: 23,
+    Cmimi: 34,
+  },
+];
+
 const ModalList = ({
   shtoArtikull,
   showHideColumns = true,
@@ -162,7 +172,8 @@ const ModalList = ({
                 scrollable
                 scrollHeight="400px"
                 virtualScrollerOptions={{ itemSize: 46 }}
-                value={rows}
+                // value={rows}
+                value={dummyData}
                 responsiveLayout="scroll"
               >
                 {dynamicColumns}

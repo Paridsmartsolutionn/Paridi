@@ -790,7 +790,7 @@ const Artikuj = ({
               responsiveLayout="stack"
               // breakpoint="960px"
               contextMenuSelection={selectedProduct}
-              contextSelection={selectedProduct}
+              contextselection={selectedProduct}
               onContextMenuSelectionChange={(e) => setSelectedProduct(e.value)}
               onContextMenu={(e) => cm.current.show(e.originalEvent)}
               size="small"

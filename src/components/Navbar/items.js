@@ -52,6 +52,14 @@ const items = [
           <LocalGroceryStoreIcon fontSize="small" className="opacity-50" />
         ),
       },
+      // {
+      //   id: 3,
+      //   text: "Example",
+      //   url: "/pos/Example",
+      //   photo: (
+      //     <LocalGroceryStoreIcon fontSize="small" className="opacity-50" />
+      //   ),
+      // },
     ],
   },
   {
