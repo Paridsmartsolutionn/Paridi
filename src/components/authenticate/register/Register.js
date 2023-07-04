@@ -10,6 +10,7 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { ToastContainer, toast, Zoom, Bounce } from "react-toastify";
 import { useUser } from "../../../zustand/common";
 import Autocomplete from "@mui/material/Autocomplete";
+
 const Register = () => {
   const [checked, setChecked] = useState(false);
   const [cities, setCities] = useState([]);

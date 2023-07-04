@@ -52,7 +52,7 @@ const Login = () => {
           .then((response) => response.json())
           .then((response) => setCookie("access_token", response.access_token))
           .catch((error) => console.log(error));
-        navigate("/fature-blerje");
+        navigate("/home");
       } else if (!user) {
         setError(true);
         toast.error("Te dhenat jane gabim", {
@@ -197,9 +197,9 @@ const Login = () => {
                 ></Checkbox>
                 <span>Më rikujto!</span>
               </div>
-              <span className="hover:underline cursor-pointer">
-                <Link to="/forgotPassword" className="linku">
-                  Keni harruar fjalëkalimin?
+              <span>
+                <Link to="/forgot" className="linku">
+                  Keni harruar fjalëkalimin ?
                 </Link>
               </span>
             </div>

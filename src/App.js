@@ -13,6 +13,7 @@ import Artikuj from "./pages/paneliIartikujve/Artikuj";
 // import Pos from "./pages/Pos";
 import Furnitor from "./pages/furnitor/Furnitor";
 import Register from "./components/authenticate/register/Register";
+import Forgot from "./components/authenticate/forgot/Forgot";
 import Home from "./pages/Home";
 import mainAxios, { AxiosInterceptor, setAuthToken } from "./services/axios";
 import AuthorizedRoute from "./services/AuthorizedRoute";
@@ -40,6 +41,7 @@ function App() {
         <BrowserRouter>
           <div>
             <Routes>
+              <Route path="/forgot" element={<Forgot />} />
               <Route path="/Register" element={<Register />} />
               <Route path="/" element={<LandingPage />} />
               <Route

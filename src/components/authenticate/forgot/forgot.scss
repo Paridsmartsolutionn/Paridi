@@ -1,0 +1,87 @@
+.Nav-text {
+  text-align: center;
+  margin: 20px;
+
+  .logoja {
+    display: flex;
+    width: auto;
+    height: 1.65rem;
+    display: block;
+    margin-left: 0.6rem;
+    background-color: rgb(25, 113, 194);
+  }
+
+  .header-text {
+    text-align: center;
+    margin: 20px;
+  }
+
+  .middle-text {
+    margin: 20px 20px;
+  }
+
+  .reset-button {
+    margin-top: 20px;
+  }
+
+  .back-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .blackLink {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: rgb(95, 91, 91) !important;
+    font-weight: bold;
+    svg {
+      color: rgb(95, 91, 91);
+      margin-right: 5px;
+    }
+  }
+
+  .section {
+    display: flex;
+  }
+
+  .link-register {
+    margin-left: auto;
+  }
+
+  .number-input-div {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .reset-subheader {
+    margin: 20px;
+  }
+
+  .number-input {
+    display: flex;
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+      appearance: none;
+      -moz-appearance: textfield;
+    }
+    justify-content: center;
+  }
+
+  .number-input input {
+    width: 3rem;
+    height: 3rem;
+    border: 2px solid rgb(25, 113, 194);
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-right: 5px;
+  }
+  /* Add more styles as needed */
+}
