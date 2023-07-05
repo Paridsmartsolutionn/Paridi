@@ -133,6 +133,15 @@ const FatureBlerje = ({ hidePupUp, setHidePupUp }) => {
   const adresa1 = konfigurim[0]?.Adresa1;
   const nipt1 = konfigurim[0]?.Nipt;
 
+  const functionGet = async () => {
+    try {
+      const response = await Api.get("/fature/blerje");
+      console.log(response ? response : "");
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const fetchPost = async () => {
     try {
       // const response = await mainAxios(`/fature/blerje`);
@@ -144,6 +153,7 @@ const FatureBlerje = ({ hidePupUp, setHidePupUp }) => {
   };
   useEffect(() => {
     fetchPost();
+    functionGet();
   }, []);
 
   const defaultState = {

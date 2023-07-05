@@ -12,7 +12,8 @@ const Api = {
     let reqUrl = this.baseUrl + url;
     this.setHeader();
     let response = axios.get(reqUrl);
-    return response.data;
+    console.log(response);
+    return response;
   },
   post: function (url, data) {
     let reqUrl = this.baseUrl + url;

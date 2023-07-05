@@ -98,7 +98,6 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
     try {
       const response = await mainAxios(`/fature/shitje`);
       console.log(response, "RESPONSE");
-
       setKlient(response?.data.Klient);
       setQytetet(response?.data.Qytetet);
       setShtetet(response?.data.Shtetet);
@@ -397,11 +396,15 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
 
   const shtoArtikull = (artikull) => {
     if (!artikull) return;
+
     let currObj = rows.find((row) => row.Id === artikull?.Id);
+
     if (currObj) {
       setRows((rows) => {
+        if (!rows) return []; // Add a null check for rows array
+
         return rows.map((row) => {
-          if (currObj.Id == row.Id) {
+          if (currObj.Id === row.Id) {
             return { ...row, Sasia: parseFloat(row.Sasia) + 1 };
           }
           return row;
@@ -409,7 +412,10 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
       });
       return;
     }
+
     setRows((rows) => {
+      if (!rows) return []; // Add a null check for rows array
+
       return [
         {
           ...artikull,
