@@ -23,6 +23,7 @@ import LandingPage from "./pages/landing-page/LandingPage";
 import "./index.scss";
 import Restorant from "./pages/POS/Restaurant/Restorant";
 import Supermarket from "./pages/POS/SuperMarket/SuperMarket";
+import Celje from "./pages/celje/Celje";
 function App() {
   const [ndryshoKushtin, setNdryshoKushtin] = useState(false);
   const [hidePupUp, setHidePupUp] = useState(false);
@@ -44,6 +45,7 @@ function App() {
               <Route path="/forgot" element={<Forgot />} />
               <Route path="/Register" element={<Register />} />
               <Route path="/" element={<LandingPage />} />
+
               <Route
                 path="/fature-blerje"
                 element={
@@ -150,6 +152,14 @@ function App() {
                 }
               />
 
+              <Route
+                path="/celje"
+                element={
+                  <AuthorizedRoute>
+                    <Celje />
+                  </AuthorizedRoute>
+                }
+              />
               <Route
                 path="/raporte"
                 element={

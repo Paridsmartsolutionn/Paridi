@@ -12,6 +12,7 @@ import QueryStatsIcon from "@mui/icons-material/QueryStats";
 import PopupState, { bindTrigger, bindMenu } from "material-ui-popup-state";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import SaveAsIcon from "@mui/icons-material/SaveAs";
 
 const items = [
   {
@@ -80,6 +81,12 @@ const items = [
   },
   {
     id: 7,
+    text: "Celje",
+    url: "/celje",
+    photo: <SaveAsIcon fontSize="medium" className="opacity-50" />,
+  },
+  {
+    id: 8,
     text: "Raporte",
     url: "/raporte",
     photo: <QueryStatsIcon fontSize="medium" className="opacity-50" />,

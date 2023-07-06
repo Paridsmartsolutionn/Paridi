@@ -126,7 +126,7 @@ const KodKlienti = ({ fetchKKlienti }) => {
     dialogFuncMap[`${Pershkrim}`](false);
   };
 
-  // perodren per radio buton
+  // perdoren per radio buton
   const [value, setValue] = useState(1);
 
   const onChange = (e) => {

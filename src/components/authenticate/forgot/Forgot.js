@@ -35,10 +35,9 @@ const Forgot = () => {
         </div>
       </div>
       <div className="header-text">
-        Keni harruar fjalkalimin ?
+        Keni harruar passwordin ?
         <div className="middle-text">
-          Nuk ka problem, do t'ju dërgojmë udhëzimet për rivendosjen e
-          fjalëkalimit.
+          <h4> Do t'ju dërgojmë udhëzimet për rivendosjen e fjalëkalimit.</h4>
         </div>
         <TextField
           id="outlined-basic"

@@ -732,17 +732,6 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
                   >
                     <div className="flex gap-4">
                       <div className="flex flex-col gap-2">
-                        <TextField
-                          disabled={disabled}
-                          value={state?.Klienti}
-                          onChange={(e) =>
-                            handleChange("Klienti", e.target.value)
-                          }
-                          label="Klienti"
-                          variant="outlined"
-                          size="small"
-                        />
-
                         <div className="bg-gray-100 rounded-tr-lg rounded-br-lg w-full flex justify-center items-center relative">
                           <Form.Select
                             required
@@ -763,6 +752,17 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
                             <KodKlienti fetchKKlienti={fetchFShitje} />
                           </div>
                         </div>
+                        <TextField
+                          disabled={disabled}
+                          value={state?.Klienti}
+                          onChange={(e) =>
+                            handleChange("Klienti", e.target.value)
+                          }
+                          label="Klienti"
+                          variant="outlined"
+                          size="small"
+                        />
+
                         <div className="flex justify-center items-center">
                           <Form.Select
                             required

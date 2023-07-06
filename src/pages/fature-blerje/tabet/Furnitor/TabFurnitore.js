@@ -17,15 +17,24 @@ const TabFurnitore = ({
   return (
     <div className={toggleState === 1 ? "content  active-content" : "content"}>
       <div className="grid gap-2 grid-cols-2 ">
-        <TextField
-          disabled={disabled}
-          value={state?.furnitorId}
-          onChange={(e) => handleChange("furnitorId", e.target.value)}
-          label="FurnitorId"
-          variant="outlined"
-          size="small"
-          style={{ width: "100%" }}
-        />
+        <div className="bg-gray-100 rounded-tr-lg rounded-br-lg w-full flex justify-center items-center relative">
+          {/* //////// */}
+          <Autocomplete
+            disablePortal
+            id="combo-box-demo"
+            options={furnitoret}
+            size="small"
+            style={{ width: "100%" }}
+            renderInput={(params) => (
+              <TextField {...params} label="FurnitorID" />
+            )}
+          />
+          {/* //////MiniModal */}
+          <div className="hover:scale-110 transition-all">
+            <Furnitore fetchMonedhat={fetchPost} />
+          </div>
+        </div>
+
         <TextField
           disabled={disabled}
           type="text"
@@ -37,21 +46,15 @@ const TabFurnitore = ({
           style={{ width: "100%" }}
         />
 
-        <div className="bg-gray-100 rounded-tr-lg rounded-br-lg w-full flex justify-center items-center relative">
-          {/* //////// */}
-          <Autocomplete
-            disablePortal
-            id="combo-box-demo"
-            options={furnitoret}
-            size="small"
-            style={{ width: "100%" }}
-            renderInput={(params) => <TextField {...params} label="Furnitor" />}
-          />
-          {/* //////MiniModal */}
-          <div className="hover:scale-110 transition-all">
-            <Furnitore fetchMonedhat={fetchPost} />
-          </div>
-        </div>
+        <TextField
+          disabled={disabled}
+          value={state?.furnitorId}
+          onChange={(e) => handleChange("furnitorId", e.target.value)}
+          label="Furnitor"
+          variant="outlined"
+          size="small"
+          style={{ width: "100%" }}
+        />
 
         <div className="flex justify-start items-center w-full relative bg-gray-100 rounded-tr-lg rounded-br-lg">
           {/* ////////////////// */}
