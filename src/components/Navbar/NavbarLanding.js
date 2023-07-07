@@ -46,7 +46,7 @@ const NavbarLanding = () => {
             Kontakt
           </Link>
           <Link
-            to={"/"}
+            to={"/gjuhet"}
             className="  py-2 px-3 rounded-md transform hover:bg-blue-400 hover:bg-opacity-30  transition duration-200 ease-in-out "
           >
             Gjuhet

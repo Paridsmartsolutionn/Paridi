@@ -55,74 +55,81 @@ const ConfirmComponent = () => {
   };
 
   return (
-    <div className="Nav-text">
-      <div className="section">
-        <div>
-          <img className="logoja" src={Logoja} alt="Logo" />
-        </div>
-        <div className="link-register">
-          <Link to="/Register" className="linku">
-            Regjistrrohu
-          </Link>
+    <section className="bg-gray-200 min-h-screen flex  items-center justify-center">
+      <div
+        style={{ height: "49rem" }}
+        className="flex items-center max-w-7xl gap-20"
+      >
+        <div className="Nav-text">
+          <div className="section">
+            <div>
+              <img className="logoja" src={Logoja} alt="Logo" />
+            </div>
+            <div className="link-register">
+              <Link to="/Register" className="linku">
+                Regjistrrohu
+              </Link>
+            </div>
+          </div>
+          <div className="header-text">
+            Vendosni Passwordin e ri.
+            <div className="middle-text">Duhet të paktën 8 karaktere.</div>
+            {/* Password new */}
+            <TextField
+              id="outlined-basic"
+              label="Password"
+              variant="outlined"
+              type={showPassword ? "text" : "password"}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton onClick={handleTogglePassword} edge="end">
+                      {showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
+            />
+            {/*Confirm Password new 2*/}
+            <TextField
+              id="outlined-basic"
+              label="Confirm Password"
+              variant="outlined"
+              type={showPassword ? "text" : "password"}
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton onClick={handleTogglePassword} edge="end">
+                      {showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
+            />
+            <div className="reset-button">
+              <Button
+                variant="contained"
+                onClick={handleConfirmClick}
+                disabled={isPasswordEmpty || isPasswordShort}
+              >
+                Confirm
+              </Button>
+            </div>
+            <div className="back-login">
+              <Link to="/" className="blackLink">
+                <ArrowBack />
+                Back to log in
+              </Link>
+            </div>
+          </div>
+          <Toast ref={toast} position="center" />
         </div>
       </div>
-      <div className="header-text">
-        Vendosni Passwordin e ri.
-        <div className="middle-text">Duhet të paktën 8 karaktere.</div>
-        {/* Password new */}
-        <TextField
-          id="outlined-basic"
-          label="Password"
-          variant="outlined"
-          type={showPassword ? "text" : "password"}
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          InputProps={{
-            endAdornment: (
-              <InputAdornment position="end">
-                <IconButton onClick={handleTogglePassword} edge="end">
-                  {showPassword ? <VisibilityOff /> : <Visibility />}
-                </IconButton>
-              </InputAdornment>
-            ),
-          }}
-        />
-        {/*Confirm Password new 2*/}
-        <TextField
-          id="outlined-basic"
-          label="Confirm Password"
-          variant="outlined"
-          type={showPassword ? "text" : "password"}
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          InputProps={{
-            endAdornment: (
-              <InputAdornment position="end">
-                <IconButton onClick={handleTogglePassword} edge="end">
-                  {showPassword ? <VisibilityOff /> : <Visibility />}
-                </IconButton>
-              </InputAdornment>
-            ),
-          }}
-        />
-        <div className="reset-button">
-          <Button
-            variant="contained"
-            onClick={handleConfirmClick}
-            disabled={isPasswordEmpty || isPasswordShort}
-          >
-            Confirm
-          </Button>
-        </div>
-        <div className="back-login">
-          <Link to="/" className="blackLink">
-            <ArrowBack />
-            Back to log in
-          </Link>
-        </div>
-      </div>
-      <Toast ref={toast} position="center" />
-    </div>
+    </section>
   );
 };
 

@@ -23,55 +23,65 @@ const Forgot = () => {
   const isEmailInvalid = !email.includes("@");
 
   return (
-    <div className="Nav-text">
-      <div className="section">
-        <div>
-          <img className="logoja" src={Logoja} alt="Logo" />
-        </div>
-        <div className="link-register">
-          <Link to="/Register" className="linku">
-            Regjistrrohu
-          </Link>
+    <section className="bg-gray-200 min-h-screen flex  items-center justify-center">
+      <div
+        style={{ height: "49rem" }}
+        className="flex items-center max-w-7xl gap-20"
+      >
+        <div className="Nav-text">
+          <div className="section">
+            <div>
+              <img className="logoja" src={Logoja} alt="Logo" />
+            </div>
+            <div className="link-register">
+              <Link to="/Register" className="linku">
+                Regjistrrohu
+              </Link>
+            </div>
+          </div>
+          <div className="header-text">
+            Keni harruar fjalëkalimin ?
+            <div className="middle-text">
+              <h4>
+                {" "}
+                Do t'ju dërgojmë udhëzimet për rivendosjen e fjalëkalimit.
+              </h4>
+            </div>
+            <TextField
+              id="outlined-basic"
+              label="Email"
+              variant="outlined"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              //   error={isEmailEmpty || isEmailInvalid}
+              //   helperText={
+              //     isEmailEmpty
+              //       ? "Email is required"
+              //       : isEmailInvalid
+              //       ? "Invalid email"
+              //       : ""
+              //   }
+            />
+            <div className="reset-button">
+              <Button
+                variant="contained"
+                onClick={handleResetPassword}
+                disabled={isEmailEmpty || isEmailInvalid}
+              >
+                Reset password
+              </Button>
+            </div>
+            <div className="back-login">
+              <Link to="/" className="blackLink">
+                <ArrowBack />
+                Back to log in
+              </Link>
+            </div>
+          </div>
+          {showResetComponent && <ResetComponent />}
         </div>
       </div>
-      <div className="header-text">
-        Keni harruar passwordin ?
-        <div className="middle-text">
-          <h4> Do t'ju dërgojmë udhëzimet për rivendosjen e fjalëkalimit.</h4>
-        </div>
-        <TextField
-          id="outlined-basic"
-          label="Email"
-          variant="outlined"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          //   error={isEmailEmpty || isEmailInvalid}
-          //   helperText={
-          //     isEmailEmpty
-          //       ? "Email is required"
-          //       : isEmailInvalid
-          //       ? "Invalid email"
-          //       : ""
-          //   }
-        />
-        <div className="reset-button">
-          <Button
-            variant="contained"
-            onClick={handleResetPassword}
-            disabled={isEmailEmpty || isEmailInvalid}
-          >
-            Reset password
-          </Button>
-        </div>
-        <div className="back-login">
-          <Link to="/" className="blackLink">
-            <ArrowBack />
-            Back to log in
-          </Link>
-        </div>
-      </div>
-      {showResetComponent && <ResetComponent />}
-    </div>
+    </section>
   );
 };
 
