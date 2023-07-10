@@ -83,7 +83,7 @@ const MainTab = ({
       <TextField
         disabled={disabled}
         value={state?.NrSerial}
-        Konfigurim
+        // Konfigurim
         type="number"
         label="Serial numer"
         onChange={(e) => handleChange("NrSerial", e.target.value)}

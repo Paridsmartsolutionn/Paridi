@@ -40,6 +40,7 @@ import Klasifikim4 from "./fature-blerje/minimodal/Klasifikim4";
 import Monedhat from "./fature-blerje/minimodal/Monedhat";
 import TotalFooter from "../components/FaqetEprintimit/TotalFooter";
 import NavBar from "../components/Navbar/NavBar";
+import ChangeCircleRoundedIcon from "@mui/icons-material/ChangeCircleRounded";
 
 const Import = () => {
   const [disabled, setDisabled] = useState(true);
@@ -306,6 +307,18 @@ const Import = () => {
                       }}
                     >
                       <PostAddIcon /> Shtim
+                    </Button>
+                    <Button
+                      className="p-1"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        aprovoFature();
+                        setState(defaultState);
+                      }}
+                      disabled={disabled}
+                    >
+                      <ChangeCircleRoundedIcon />
+                      Modifikim
                     </Button>
                     <Button className="p-1" disabled={disabled}>
                       <DeleteIcon /> Fshije

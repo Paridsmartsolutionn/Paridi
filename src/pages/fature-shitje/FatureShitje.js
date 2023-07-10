@@ -53,6 +53,10 @@ import Draggable from "react-draggable";
 import "./FatureShitje.scss";
 import mainAxios from "../../services/axios";
 import { responsivePropType } from "react-bootstrap/esm/createUtilityClasses";
+import ArrowCircleLeftOutlinedIcon from "@mui/icons-material/ArrowCircleLeftOutlined";
+import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
+import ChangeCircleRoundedIcon from "@mui/icons-material/ChangeCircleRounded";
+import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 
 const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
   const [disabled, setDisabled] = useState(true);
@@ -98,31 +102,32 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
     try {
       const response = await mainAxios(`/fature/shitje`);
       console.log(response, "RESPONSE");
-      setKlient(response?.data.Klient);
-      setQytetet(response?.data.Qytetet);
-      setShtetet(response?.data.Shtetet);
-      setMagazina(response?.data.Magazina);
-      setProfesioni(response?.data.Profesioni);
-      setPozicioni(response?.data.Pozicioni);
-      setKategoriSigurimesh(response?.data.KategoriSigurimesh);
-      setPergjegjes(response?.data.Pergjegjes);
-      setArkBank(response?.data.ArkaBanka);
-      setMenyra(response?.data.Menyra);
-      setLlogari(response?.data.Llogari);
-      setVeprim(response?.data.Veprim);
-      setSkemaVeprimit(response?.data.Skema_Veprimit);
-      setKlasifikim1(response?.data.Klasifikim1);
-      setKlasifikim2(response?.data.Klasifikim2);
-      setKlasifikim3(response?.data.Klasifikim3);
-      setKlasifikim4(response?.data.Klasifikim4);
-      setTransportuesi(response?.data.Transportues);
-      setDepartament(response?.data.Departament);
-      setCountries(response?.data.Klient);
+
+      // setKlient(response?.data.Klient_ID); //e
+      // setQytetet(response?.data.Qyteteti_Kodi); //e
+      // setShtetet(response?.data.Shtetet);
+      // setMagazina(response?.data.Magazina_Kodi); //e
+      // setProfesioni(response?.data.Profesioni);
+      // setPozicioni(response?.data.Pozicioni);
+      // setKategoriSigurimesh(response?.data.KategoriSigurimesh);
+      // setPergjegjes(response?.data.Pergjegjes);
+      // setArkBank(response?.data.Arka_Banka_Kodi); //e
+      // setMenyra(response?.data.Menyra_Pageses_ID); //e
+      // setLlogari(response?.data.Llogari);
+      // setVeprim(response?.data.Veprimi); //e
+      // setSkemaVeprimit(response?.data.Skema_Veprimit);
+      // setKlasifikim1(response?.data.Klasifikim1_ID); //e
+      // setKlasifikim2(response?.data.Klasifikim2_ID); //e
+      // setKlasifikim3(response?.data.Klasifikim3_ID); //e
+      // setKlasifikim4(response?.data.Klasifikim4_ID); //e
+      // setTransportuesi(response?.data.Transportues);
+      // setDepartament(response?.data.Departament);
       setTest(response?.data);
     } catch (error) {
       console.error(error);
     }
   };
+
   useEffect(() => {
     fetchFShitje();
   }, []);
@@ -130,9 +135,9 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
   const fetchmonedha = async () => {
     try {
       const response = await axios(
-        `${process.env.REACT_APP_API_KEY}/fatura/blerje/data`
+        `${process.env.REACT_APP_API_KEY}/fature/blerje/data`
       );
-      setMonedhat(response?.data.Monedhat);
+      setMonedhat(response?.data.Mon);
     } catch (error) {
       console.error(error);
     }
@@ -294,7 +299,7 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
         hideProgressBar: true,
       });
     } else {
-      axios.post(`${process.env.REACT_APP_API_KEY}/fatura/shitje`, {
+      axios.post(`${process.env.REACT_APP_API_KEY}/fature/shitje`, {
         Kodi: state.Nr,
         KLFU_Kodi: state.Klienti,
         KLFU_Pershkrim: state.KodKlient,
@@ -327,7 +332,6 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
         Klasifikim2_ID: state.Kls2,
         Klasifikim3_ID: state.Kls3,
         Klasifikim4_ID: state.Kls4,
-
         Import: null,
         Flete_Dalje_ID: null,
         Flete_Dalje_KODI: null,
@@ -442,10 +446,14 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
       ? "pi pi-chevron-down"
       : "pi pi-chevron-up";
     const className = `${options.className} justify-content-start`;
+    const ButtonGroupArrow = ` justify-content-end`;
     const titleClassName = `${options.titleClassName} pl-1`;
 
     return (
-      <div className={className}>
+      <div
+        className={className}
+        style={{ display: "flex", alignItems: "center" }}
+      >
         <button
           className={options.togglerClassName}
           onClick={options.onTogglerClick}
@@ -454,6 +462,17 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
           <Ripple />
         </button>
         <span className={titleClassName}>Fature Shitje</span>
+        <div style={{ marginLeft: "auto" }}>
+          <ButtonGroup variant="contained" aria-label="text button group">
+            <Button>
+              <ArrowCircleLeftOutlinedIcon />
+            </Button>
+            <Button>
+              <ArrowCircleRightOutlinedIcon />
+            </Button>
+            <Button size="lg" startIcon={<SearchRoundedIcon />} />
+          </ButtonGroup>
+        </div>
       </div>
     );
   };
@@ -534,6 +553,19 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
                   >
                     <PostAddIcon /> Shtim
                   </Button>
+                  <Button
+                    className="p-1"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      aprovoFature();
+                      setState(defaultState);
+                    }}
+                    disabled={disabled}
+                    type="submit"
+                  >
+                    <ChangeCircleRoundedIcon />
+                    Modifikim
+                  </Button>
                   <Button className="p-1" disabled={disabled}>
                     <DeleteIcon /> Fshije
                   </Button>
@@ -563,6 +595,7 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
                     <AppRegistrationIcon />
                     Rregjistrim
                   </Button>
+
                   <ToastContainer />
                 </ButtonGroup>
 
@@ -624,7 +657,8 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
                   KonfigurimPrshk={konfigurim}
                 />
               </div>
-              {/* <Properties onContextMenu={handleClick}/> */}
+
+              {/* <Properties onContextMenu={handleClick} /> */}
 
               <div className="fBlerje dtlblerje border-separate flex p-4 gap-24 border-t">
                 <div className="grid gap-2">
@@ -677,13 +711,18 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
                           }}
                         >
                           <option label="Monedha"></option>
-                          {monedhat.map((monedha) => {
-                            return (
-                              <option value={monedha.Kodi}>
-                                {monedha.Pershkrim}
-                              </option>
-                            );
-                          })}
+                          {console.log("monedhat:", monedhat)}
+                          {monedhat && Array.isArray(monedhat) ? (
+                            monedhat.map((monedha) => {
+                              return (
+                                <option value={monedha.Kodi} key={monedha.Kodi}>
+                                  {monedha.Pershkrim}
+                                </option>
+                              );
+                            })
+                          ) : (
+                            <option label="Loading..."></option>
+                          )}
                         </Form.Select>
                         <div className="hover:scale-110 transition-all">
                           <Monedhat fetchMonedhat={fetchmonedha} />
@@ -712,6 +751,7 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
                         }
                         variant="outlined"
                         size="small"
+                        list
                       />
                     </div>
                   </div>
@@ -1262,7 +1302,6 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
             </div>
           </Panel>
           {/* </form> */}
-
           <div className="mt-3">
             <PrimeGrid
               gridKey="FatureShitje"
