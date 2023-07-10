@@ -16,7 +16,7 @@ import { Toast } from "primereact/toast";
 import { ContextMenu } from "primereact/contextmenu";
 import { Dialog } from "primereact/dialog";
 import { InputText } from "primereact/inputtext";
-
+import ChangeCircleRoundedIcon from "@mui/icons-material/ChangeCircleRounded";
 const Shtet = ({ fetchUpdate, shtetet, setShtetet }) => {
   const toast = useRef(null);
   const cm = useRef(null);
@@ -207,6 +207,18 @@ const Shtet = ({ fetchUpdate, shtetet, setShtetet }) => {
               }}
             >
               <PostAddIcon /> Shtim
+            </Button>
+            <Button
+              className="p-1"
+              onClick={(e) => {
+                e.preventDefault();
+                setState(defaultState);
+              }}
+              disabled={disabled}
+              type="submit"
+            >
+              <ChangeCircleRoundedIcon />
+              Modifikim
             </Button>
             <Button
               className="p-1.5"

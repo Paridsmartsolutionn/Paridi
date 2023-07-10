@@ -40,7 +40,7 @@ import TotalFooter from "../../components/FaqetEprintimit/TotalFooter";
 import Footer from "../../components/Navbar/Footer";
 import NavBar from "../../components/Navbar/NavBar";
 import SideBar from "../../components/Navbar/SideBar";
-
+import ChangeCircleRoundedIcon from "@mui/icons-material/ChangeCircleRounded";
 const FleteHyrje = () => {
   const [disabled, setDisabled] = useState(true);
 
@@ -306,6 +306,30 @@ const FleteHyrje = () => {
                       }}
                     >
                       <PostAddIcon /> Shtim
+                    </Button>
+                    <Button
+                      className="p-1"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setState(defaultState);
+                      }}
+                      disabled={disabled}
+                      type="submit"
+                    >
+                      <ChangeCircleRoundedIcon />
+                      Modifikim
+                    </Button>
+                    <Button
+                      className="p-1"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setState(defaultState);
+                      }}
+                      disabled={disabled}
+                      type="submit"
+                    >
+                      <ChangeCircleRoundedIcon />
+                      Modifikim
                     </Button>
                     <Button className="p-1" disabled={disabled}>
                       <DeleteIcon /> Fshije

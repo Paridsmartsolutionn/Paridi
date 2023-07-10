@@ -17,7 +17,7 @@ import Form from "react-bootstrap/Form";
 import Button from "@mui/material/Button";
 import { Checkbox, TextField } from "@mui/material";
 import { border, borderRadius } from "@mui/system";
-
+import ChangeCircleRoundedIcon from "@mui/icons-material/ChangeCircleRounded";
 const KodKlienti = ({ fetchKKlienti }) => {
   const [furnitor, setFurnitoret] = useState([]);
   const [qytetet, setQytetet] = useState([]);
@@ -178,6 +178,18 @@ const KodKlienti = ({ fetchKKlienti }) => {
               }}
             >
               <PostAddIcon /> Shtim
+            </Button>
+            <Button
+              className="p-1"
+              onClick={(e) => {
+                e.preventDefault();
+                setState(defaultState);
+              }}
+              disabled={disabled}
+              type="submit"
+            >
+              <ChangeCircleRoundedIcon />
+              Modifikim
             </Button>
             <Button className="p-2" disabled={disabled}>
               <DeleteIcon /> Fshije

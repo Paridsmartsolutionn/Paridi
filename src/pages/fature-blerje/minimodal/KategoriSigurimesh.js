@@ -13,7 +13,7 @@ import axios from "axios";
 import Checkbox from "antd/lib/checkbox/Checkbox";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
-
+import ChangeCircleRoundedIcon from "@mui/icons-material/ChangeCircleRounded";
 const KategoriSigurimesh = () => {
   const [kategoriSigurimesh, setKategoriSigurimesh] = useState([]);
   const [pozicioni, setPozicioni] = useState([]);
@@ -114,6 +114,18 @@ const KategoriSigurimesh = () => {
                   }}
                 >
                   <PostAddIcon /> Shtim
+                </Button>
+                <Button
+                  className="p-1"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setState(defaultState);
+                  }}
+                  disabled={disabled}
+                  type="submit"
+                >
+                  <ChangeCircleRoundedIcon />
+                  Modifikim
                 </Button>
                 <Button className="p-2" disabled={disabled}>
                   <DeleteIcon /> Fshije

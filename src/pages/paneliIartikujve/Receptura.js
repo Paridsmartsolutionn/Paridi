@@ -17,7 +17,7 @@ import { MultiSelect } from "primereact/multiselect";
 import Form from "react-bootstrap/Form";
 import GrupRecpture from "./MiniModalArtikuj/Receptura/GrupRecpture";
 import ModalTable from "./MiniModalArtikuj/Receptura/ModalTable";
-
+import ChangeCircleRoundedIcon from "@mui/icons-material/ChangeCircleRounded";
 const Receptura = ({
   data,
   gridKey = true,
@@ -380,6 +380,18 @@ const Receptura = ({
               }}
             >
               <PostAddIcon />
+              Shtim
+            </Button>
+            <Button
+              className="p-1"
+              onClick={(e) => {
+                e.preventDefault();
+              }}
+              disabled={disabled}
+              type="submit"
+            >
+              <ChangeCircleRoundedIcon />
+              Modifikim
             </Button>
             <Button
               className="p-1 border"
@@ -389,6 +401,7 @@ const Receptura = ({
               disabled={disabled}
             >
               <DeleteIcon />
+              Fshije
             </Button>
             <Button
               className="p-1 border"
@@ -398,6 +411,7 @@ const Receptura = ({
               disabled={disabled}
             >
               <CheckIcon />
+              Rregjistrim
             </Button>
             <Button
               className="p-1 border"
@@ -408,6 +422,7 @@ const Receptura = ({
               disabled={disabled}
             >
               <ClearIcon />
+              Anullo
             </Button>
           </ButtonGroup>
         </div>

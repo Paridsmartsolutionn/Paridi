@@ -13,7 +13,7 @@ import Modal from "react-bootstrap/Modal";
 import { TextField } from "@mui/material";
 import Klasifikim3 from "./Klasifikim3";
 import { Dialog } from "primereact/dialog";
-
+import ChangeCircleRoundedIcon from "@mui/icons-material/ChangeCircleRounded";
 const Klasifikim2 = () => {
   const defaultState = {
     Kodi: "",
@@ -95,6 +95,18 @@ const Klasifikim2 = () => {
               }}
             >
               <PostAddIcon /> Shtim
+            </Button>
+            <Button
+              className="p-1"
+              onClick={(e) => {
+                e.preventDefault();
+                setState(defaultState);
+              }}
+              disabled={disabled}
+              type="submit"
+            >
+              <ChangeCircleRoundedIcon />
+              Modifikim
             </Button>
             <Button className="p-2" disabled={disabled}>
               <DeleteIcon /> Fshije

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import Button from "@mui/material/Button";
-
+import ChangeCircleRoundedIcon from "@mui/icons-material/ChangeCircleRounded";
 import AddIcon from "@mui/icons-material/Add";
 import CloseIcon from "@mui/icons-material/Close";
 import { TextField } from "@mui/material";
@@ -205,6 +205,18 @@ const Qytet = ({ fetchUpdate, qytetet, setQytetet }) => {
               }}
             >
               <PostAddIcon /> Shtim
+            </Button>
+            <Button
+              className="p-1"
+              onClick={(e) => {
+                e.preventDefault();
+                setState(defaultState);
+              }}
+              disabled={disabled}
+              type="submit"
+            >
+              <ChangeCircleRoundedIcon />
+              Modifikim
             </Button>
             <Button
               className="pr-1.5"

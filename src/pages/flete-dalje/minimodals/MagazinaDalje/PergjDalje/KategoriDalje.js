@@ -11,7 +11,7 @@ import AppRegistrationIcon from "@mui/icons-material/AppRegistration";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import axios from "axios";
 import { Dialog } from "primereact/dialog";
-
+import ChangeCircleRoundedIcon from "@mui/icons-material/ChangeCircleRounded";
 const KategoriDalje = ({ KategoriDalje }) => {
   const submitHandler = () => {
     try {
@@ -90,6 +90,18 @@ const KategoriDalje = ({ KategoriDalje }) => {
               }}
             >
               <PostAddIcon /> Shtim
+            </Button>
+            <Button
+              className="p-1"
+              onClick={(e) => {
+                e.preventDefault();
+                setState(defaultState);
+              }}
+              disabled={disabled}
+              type="submit"
+            >
+              <ChangeCircleRoundedIcon />
+              Modifikim
             </Button>
             <Button className="p-2" disabled={disabled}>
               <DeleteIcon /> Fshije

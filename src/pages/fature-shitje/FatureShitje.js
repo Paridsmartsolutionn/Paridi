@@ -446,7 +446,6 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
       ? "pi pi-chevron-down"
       : "pi pi-chevron-up";
     const className = `${options.className} justify-content-start`;
-    const ButtonGroupArrow = ` justify-content-end`;
     const titleClassName = `${options.titleClassName} pl-1`;
 
     return (
@@ -1003,7 +1002,7 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
                       toggleState === 3 ? "content  active-content" : "content"
                     }
                   >
-                    <Button variant="contained">Flete Hyrje</Button>
+                    <Button variant="contained">Flete Dalje</Button>
                     <div className="flex gap-2 w-96 mt-2">
                       <div className="bg-gray-100 rounded-tr-lg rounded-br-lg w-full flex justify-center items-center relative">
                         <Form.Select

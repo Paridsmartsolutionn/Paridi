@@ -10,7 +10,7 @@ import AppRegistrationIcon from "@mui/icons-material/AppRegistration";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import axios from "axios";
 import { Dialog } from "primereact/dialog";
-
+import ChangeCircleRoundedIcon from "@mui/icons-material/ChangeCircleRounded";
 const Qyteti = () => {
   const submitHandler = () => {
     axios
@@ -91,6 +91,18 @@ const Qyteti = () => {
               }}
             >
               <PostAddIcon /> Shtim
+            </Button>
+            <Button
+              className="p-1"
+              onClick={(e) => {
+                e.preventDefault();
+                setState(defaultState);
+              }}
+              disabled={disabled}
+              type="submit"
+            >
+              <ChangeCircleRoundedIcon />
+              Modifikim
             </Button>
             <Button className="p-2" disabled={disabled}>
               <DeleteIcon /> Fshije

@@ -33,6 +33,11 @@ import "./FatureBlerje.scss";
 import PhoneFatureBlerje from "./phone/PhoneFatureBlerje";
 import useCourseStore from "./zustand/store";
 import Api from "../../services/Api";
+import ArrowCircleLeftOutlinedIcon from "@mui/icons-material/ArrowCircleLeftOutlined";
+import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
+import ChangeCircleRoundedIcon from "@mui/icons-material/ChangeCircleRounded";
+import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
+import { ButtonGroup } from "@mui/material";
 
 const FatureBlerje = ({ hidePupUp, setHidePupUp }) => {
   const [disabled, setDisabled] = useState(true);
@@ -381,6 +386,17 @@ const FatureBlerje = ({ hidePupUp, setHidePupUp }) => {
           <Ripple />
         </button>
         <span className={titleClassName}>Fature Blerje</span>
+        <div style={{ marginLeft: "auto" }}>
+          <ButtonGroup variant="contained" aria-label="text button group">
+            <Button>
+              <ArrowCircleLeftOutlinedIcon />
+            </Button>
+            <Button>
+              <ArrowCircleRightOutlinedIcon />
+            </Button>
+            <Button size="lg" startIcon={<SearchRoundedIcon />} />
+          </ButtonGroup>
+        </div>
       </div>
     );
   };

@@ -42,6 +42,7 @@ import TransportDalje from "./minimodals/TransportuesiDalje/TransportDalje";
 import NavBar from "../../components/Navbar/NavBar";
 import SideBar from "../../components/Navbar/SideBar";
 import "./FleteDalje.scss";
+import ChangeCircleRoundedIcon from "@mui/icons-material/ChangeCircleRounded";
 const FleteDalje = () => {
   const [disabled, setDisabled] = useState(true);
 
@@ -312,6 +313,18 @@ const FleteDalje = () => {
                       }}
                     >
                       <PostAddIcon /> Shtim
+                    </Button>
+                    <Button
+                      className="p-1"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setState(defaultState);
+                      }}
+                      disabled={disabled}
+                      type="submit"
+                    >
+                      <ChangeCircleRoundedIcon />
+                      Modifikim
                     </Button>
                     <Button className="p-1" disabled={disabled}>
                       <DeleteIcon /> Fshije

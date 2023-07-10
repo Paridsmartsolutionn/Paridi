@@ -13,7 +13,7 @@ import axios from "axios";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import { Dialog } from "primereact/dialog";
-
+import ChangeCircleRoundedIcon from "@mui/icons-material/ChangeCircleRounded";
 const TipVlereShitje = ({ selektVlereShitje }) => {
   const defaultState = {
     Inventar: "",
@@ -125,6 +125,17 @@ const TipVlereShitje = ({ selektVlereShitje }) => {
                 }}
               >
                 <PostAddIcon /> Shtim
+              </Button>
+              <Button
+                className="p-1"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setState(defaultState);
+                }}
+                disabled={disabled}
+              >
+                <ChangeCircleRoundedIcon />
+                Modifikim
               </Button>
               <Button className="p-2" disabled={disabled}>
                 <DeleteIcon /> Fshije

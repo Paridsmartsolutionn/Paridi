@@ -12,7 +12,7 @@ import axios from "axios";
 import PergjegjMagDalje from "./MagazinaDalje/PergjegjMagDalje";
 import QytetMagDalje from "./MagazinaDalje/QytetMagDalje";
 import DepMagDalje from "./MagazinaDalje/DepMagDalje";
-
+import ChangeCircleRoundedIcon from "@mui/icons-material/ChangeCircleRounded";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import { Dialog } from "primereact/dialog";
@@ -144,6 +144,18 @@ const MagazinaDalje = ({ fetchMagazinaDalje }) => {
               }}
             >
               <PostAddIcon /> Shtim
+            </Button>
+            <Button
+              className="p-1"
+              onClick={(e) => {
+                e.preventDefault();
+                setState(defaultState);
+              }}
+              disabled={disabled}
+              type="submit"
+            >
+              <ChangeCircleRoundedIcon />
+              Modifikim
             </Button>
             <Button className="p-2" disabled={disabled}>
               <DeleteIcon /> Fshije

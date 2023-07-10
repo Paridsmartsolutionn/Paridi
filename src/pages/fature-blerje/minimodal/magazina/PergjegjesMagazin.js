@@ -12,7 +12,7 @@ import axios from "axios";
 import KategoriSigurimesh from "./KategoriSigurimesh";
 import PozicioniMagazin from "./PozicioniMagazin";
 import { Checkbox, FormControlLabel, TextField } from "@mui/material";
-
+import ChangeCircleRoundedIcon from "@mui/icons-material/ChangeCircleRounded";
 import Form from "react-bootstrap/Form";
 import { Dialog } from "primereact/dialog";
 const PergjegjesMagazin = ({ fetchPergjegjes }) => {
@@ -131,6 +131,18 @@ const PergjegjesMagazin = ({ fetchPergjegjes }) => {
               }}
             >
               <PostAddIcon /> Shtim
+            </Button>
+            <Button
+              className="p-1"
+              onClick={(e) => {
+                e.preventDefault();
+                setState(defaultState);
+              }}
+              disabled={disabled}
+              type="submit"
+            >
+              <ChangeCircleRoundedIcon />
+              Modifikim
             </Button>
             <Button className="p-1.5" disabled={disabled}>
               <DeleteIcon /> Fshije

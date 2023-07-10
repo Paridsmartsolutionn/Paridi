@@ -9,7 +9,7 @@ import ClearIcon from "@mui/icons-material/Clear";
 import AppRegistrationIcon from "@mui/icons-material/AppRegistration";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import axios from "axios";
-
+import ChangeCircleRoundedIcon from "@mui/icons-material/ChangeCircleRounded";
 import { Dialog } from "primereact/dialog";
 const Klasifikim = ({ fetchMonedhat }) => {
   const defaultState = {
@@ -87,6 +87,18 @@ const Klasifikim = ({ fetchMonedhat }) => {
                 }}
               >
                 <PostAddIcon /> Shtim
+              </Button>
+              <Button
+                className="p-1"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setState(defaultState);
+                }}
+                disabled={disabled}
+                type="submit"
+              >
+                <ChangeCircleRoundedIcon />
+                Modifikim
               </Button>
               <Button className="p-2" disabled={disabled}>
                 <DeleteIcon /> Fshije

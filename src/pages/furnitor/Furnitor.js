@@ -30,6 +30,7 @@ import Footer from "../../components/Navbar/Footer";
 import { Accordion, AccordionTab } from "primereact/accordion";
 import { Toast } from "primereact/toast";
 import { useRef } from "react";
+import ChangeCircleRoundedIcon from "@mui/icons-material/ChangeCircleRounded";
 const Furnitor = () => {
   const [checked, setChecked] = useState(false);
   const [hidePupUp, setHidePupUp] = useState(false);
@@ -256,6 +257,18 @@ const Furnitor = () => {
                 }}
               >
                 <PostAddIcon /> Shtim
+              </Button>
+              <Button
+                className="p-1"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setState(defaultState);
+                }}
+                disabled={disabled}
+                type="submit"
+              >
+                <ChangeCircleRoundedIcon />
+                Modifikim
               </Button>
               <Button
                 className="p-1"

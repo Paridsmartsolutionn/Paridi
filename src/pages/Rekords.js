@@ -13,6 +13,7 @@ import { Dialog } from "primereact/dialog";
 import Form from "react-bootstrap/Form";
 import Button from "@mui/material/Button";
 import { Checkbox, FormControlLabel, TextField } from "@mui/material";
+import ChangeCircleRoundedIcon from "@mui/icons-material/ChangeCircleRounded";
 
 const Records = ({
   data,
@@ -131,6 +132,18 @@ const Records = ({
             }}
           >
             <PostAddIcon /> Shtim
+          </Button>
+          <Button
+            className="p-1"
+            onClick={(e) => {
+              e.preventDefault();
+              setState(defaultState);
+            }}
+            disabled={disabled}
+            type="submit"
+          >
+            <ChangeCircleRoundedIcon />
+            Modifikim
           </Button>
           <Button className="p-2" disabled={disabled}>
             <DeleteIcon /> Fshije

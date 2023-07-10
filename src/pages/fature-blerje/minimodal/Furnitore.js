@@ -16,6 +16,7 @@ import Form from "react-bootstrap/Form";
 import Modal from "react-modal";
 import Button from "@mui/material/Button";
 import { Checkbox, FormControlLabel, TextField } from "@mui/material";
+import ChangeCircleRoundedIcon from "@mui/icons-material/ChangeCircleRounded";
 
 const Furnitore = ({ fetchMonedhat }) => {
   const max = 10;
@@ -135,6 +136,18 @@ const Furnitore = ({ fetchMonedhat }) => {
               }}
             >
               <PostAddIcon /> Shtim
+            </Button>
+            <Button
+              className="p-1"
+              onClick={(e) => {
+                e.preventDefault();
+                setState(defaultState);
+              }}
+              disabled={disabled}
+              type="submit"
+            >
+              <ChangeCircleRoundedIcon />
+              Modifikim
             </Button>
             <Button className="p-1.5" disabled={disabled}>
               <DeleteIcon /> Fshije

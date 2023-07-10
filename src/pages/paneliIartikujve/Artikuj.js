@@ -23,7 +23,7 @@ import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 import { Tree } from "primereact/tree";
 import { NodeService } from "../../demo-data/node";
 import ListIcon from "@mui/icons-material/List";
-
+import ChangeCircleRoundedIcon from "@mui/icons-material/ChangeCircleRounded";
 const Artikuj = ({
   showHideColumns = true,
   gridKey,
@@ -698,6 +698,18 @@ const Artikuj = ({
               >
                 <PostAddIcon />
                 Shtim
+              </Button>
+              <Button
+                className="p-1"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setState(defaultState);
+                }}
+                disabled={disabled}
+                type="submit"
+              >
+                <ChangeCircleRoundedIcon />
+                Modifikim
               </Button>
               <Button className="p-1" disabled={disabled}>
                 Fshije
