@@ -41,9 +41,22 @@ import Footer from "../../components/Navbar/Footer";
 import NavBar from "../../components/Navbar/NavBar";
 import SideBar from "../../components/Navbar/SideBar";
 import ChangeCircleRoundedIcon from "@mui/icons-material/ChangeCircleRounded";
+import ArrowCircleLeftOutlinedIcon from "@mui/icons-material/ArrowCircleLeftOutlined";
+import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
+import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
+// https://primereact.org/datatable/kerko ktu per tabelen e shikoFatures
 const FleteHyrje = () => {
   const [disabled, setDisabled] = useState(true);
-
+  const [index, setIndex] = useState(0);
+  const shikoFaturen = (type) => {
+    if (type == "increment") {
+      setIndex(index + 1);
+      console.log(index);
+    }
+    if (type == "decrement" && index > 0) {
+      setIndex(index - 1);
+    }
+  };
   const defaultState = {
     NrOrigjine: "",
     MagazinaOrg: "",
@@ -277,6 +290,17 @@ const FleteHyrje = () => {
           <Ripple />
         </button>
         <span className={titleClassName}>Flete Hyrje</span>
+        <div style={{ marginLeft: "auto" }}>
+          <ButtonGroup variant="contained" aria-label="text button group">
+            <Button onClick={() => shikoFaturen("decrement")}>
+              <ArrowCircleLeftOutlinedIcon />
+            </Button>
+            <Button onClick={() => shikoFaturen("increment")}>
+              <ArrowCircleRightOutlinedIcon />
+            </Button>
+            <Button size="lg" startIcon={<SearchRoundedIcon />} />
+          </ButtonGroup>
+        </div>
       </div>
     );
   };

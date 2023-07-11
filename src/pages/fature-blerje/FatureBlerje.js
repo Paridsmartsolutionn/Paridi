@@ -50,7 +50,16 @@ const FatureBlerje = ({ hidePupUp, setHidePupUp }) => {
   ];
 
   const [rows, setRows] = useState([]);
-
+  const [index, setIndex] = useState(0);
+  const shikoFaturen = (type) => {
+    if (type == "increment") {
+      setIndex(index + 1);
+      console.log(index);
+    }
+    if (type == "decrement" && index > 0) {
+      setIndex(index - 1);
+    }
+  };
   const [columns, setColumns] = useState([
     { field: "Kodi", title: "Kodi" },
     { field: "BarKod", title: "BarKod" },
@@ -388,10 +397,10 @@ const FatureBlerje = ({ hidePupUp, setHidePupUp }) => {
         <span className={titleClassName}>Fature Blerje</span>
         <div style={{ marginLeft: "auto" }}>
           <ButtonGroup variant="contained" aria-label="text button group">
-            <Button>
+            <Button onClick={() => shikoFaturen("decrement")}>
               <ArrowCircleLeftOutlinedIcon />
             </Button>
-            <Button>
+            <Button onClick={() => shikoFaturen("increment")}>
               <ArrowCircleRightOutlinedIcon />
             </Button>
             <Button size="lg" startIcon={<SearchRoundedIcon />} />

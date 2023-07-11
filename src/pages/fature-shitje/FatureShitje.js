@@ -77,6 +77,7 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
 
   const [qytetet, setQytetet] = useState([]);
   const [shtetet, setShtetet] = useState([]);
+
   const [magazina, setMagazina] = useState([]);
   const [profesioni, setProfesioni] = useState([]);
   const [pozicioni, setPozicioni] = useState([]);
@@ -94,7 +95,7 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
   const [klasifikim4, setKlasifikim4] = useState([]);
   const [transportuesi, setTransportuesi] = useState([]);
   const [departamenti, setDepartament] = useState([]);
-
+  const [index, setIndex] = useState(0);
   const [test, setTest] = useState([]);
   console.log({ test });
 
@@ -125,6 +126,16 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
       setTest(response?.data);
     } catch (error) {
       console.error(error);
+    }
+  };
+
+  const shikoFaturen = (type) => {
+    if (type == "increment") {
+      setIndex(index + 1);
+      console.log(index);
+    }
+    if (type == "decrement" && index > 0) {
+      setIndex(index - 1);
     }
   };
 
@@ -265,6 +276,43 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
 
   const [state, setState] = useState(defaultState);
 
+  const modifikimState = {
+    Klienti: test.length != 0 ? test[index].KLFU_Pershkrim : "",
+    KodKlient: test.length != 0 ? test[index].KLFU_Kodi : "",
+    data: test.length != 0 ? test[index].Data : "",
+    shenimTransport: test.length != 0 ? test[index].Transport_Shenim : "",
+    Monedha: test.length != 0 ? test[index].Mon : "",
+    Nipt: test.length != 0 ? test[index].NIPT : "",
+    Qytetet: test.length != 0 ? test[index].Qyteti_Kodi : "",
+    shenim: test.length != 0 ? test[index].Shenim : "",
+    Menyra: test.length != 0 ? test[index].Menyra_Pageses_ID : "",
+    arkBank: test.length != 0 ? test[index].Arka_Banka_Kodi : "",
+    Paguar: test.length != 0 ? test[index].Paguar : "",
+    AfatiData: test.length != 0 ? test[index].Afati_PagesesData : "",
+    Afati: test.length != 0 ? test[index].Afati_PagesesDite : "",
+    Kursi: test.length != 0 ? test[index].Kursi : "",
+    NrOrigjine: test.length != 0 ? test[index].Kodi_Org : "",
+    Nr: test.length != 0 ? test[index].Kodi : "",
+    NrSerial: test.length != 0 ? test[index].NrSerik : "",
+    Kls1: test.length != 0 ? test[index].Klasifikim1_ID : "",
+    Kls2: test.length != 0 ? test[index].Klasifikim2_ID : "",
+    Kls3: test.length != 0 ? test[index].Klasifikim3_ID : "",
+    Kls4: test.length != 0 ? test[index].Klasifikim4_ID : "",
+    Cmimi: test.length != 0 ? test[index].Tip_Cmimi : "",
+    Pergjegjes: test.length != 0 ? test[index].Punonjes_ID : "",
+    magazina: test.length != 0 ? test[index].Magazina_Kodi : "",
+    MagazinaData: test.length != 0 ? test[index].Flete_Dalje_DATA : "",
+    veprime: test.length != 0 ? test[index].Veprimi : "",
+    dataDeklarimit: test.length != 0 ? test[index].Data_Deklarimit : "",
+    Departamenti: test.length != 0 ? test[index].Dep_Kodi : "",
+    Transportues: test.length != 0 ? test[index].Transportuesi_Id : "",
+    NiptTransport: test.length != 0 ? test[index].Transportuesi_Nipt : "",
+    Targa: test.length != 0 ? test[index].Targa_e_Mjetit : "",
+    Koha: test.length != 0 ? test[index].Transport_Data : "",
+    Active: test.length != 0 ? test[index].Aktiv : "",
+  };
+
+  const [modifikim, setModifikim] = useState(modifikimState);
   //   console.log('kodklient',state.Klienti)
   // console.log('KodKlient',state.KodKlient)
 
@@ -276,13 +324,21 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
       };
     });
   };
-
+  const handleModifikim = (key, value) => {
+    setModifikim((modifikim) => {
+      return {
+        ...modifikim,
+        [key]: value,
+      };
+    });
+  };
   // const handleFormChange= (e)=> {
   //   e.preventDefault()
   // }
 
   const aprovoFature = () => {
     const content = {
+      ...modifikim,
       ...state,
       items: rows,
     };
@@ -463,10 +519,10 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
         <span className={titleClassName}>Fature Shitje</span>
         <div style={{ marginLeft: "auto" }}>
           <ButtonGroup variant="contained" aria-label="text button group">
-            <Button>
+            <Button onClick={() => shikoFaturen("decrement")}>
               <ArrowCircleLeftOutlinedIcon />
             </Button>
-            <Button>
+            <Button onClick={() => shikoFaturen("increment")}>
               <ArrowCircleRightOutlinedIcon />
             </Button>
             <Button size="lg" startIcon={<SearchRoundedIcon />} />
@@ -475,7 +531,6 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
       </div>
     );
   };
-
   const popUpConfirm = (
     <Draggable>
       <div
@@ -557,10 +612,9 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
                     onClick={(e) => {
                       e.preventDefault();
                       aprovoFature();
-                      setState(defaultState);
+                      setModifikim(modifikimState);
                     }}
                     disabled={disabled}
-                    type="submit"
                   >
                     <ChangeCircleRoundedIcon />
                     Modifikim
