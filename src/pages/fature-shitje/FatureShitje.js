@@ -57,27 +57,25 @@ import ArrowCircleLeftOutlinedIcon from "@mui/icons-material/ArrowCircleLeftOutl
 import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
 import ChangeCircleRoundedIcon from "@mui/icons-material/ChangeCircleRounded";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
+import { DataTable } from "primereact/datatable";
+import { Column } from "primereact/column";
+import { Dialog } from "primereact/dialog";
+import { CustomerService } from "./CustomerService";
 
 const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
   const [disabled, setDisabled] = useState(true);
-
+  const [customers, setCustomers] = useState([]);
+  const [dialogVisible, setDialogVisible] = useState(false);
   const [rows, setRows] = useState([]);
-
   const [klient, setKlient] = useState([]);
-
   const [countries, setCountries] = useState([]);
   const [selectedCountry2, setSelectedCountry2] = useState([]);
   const [filteredCountries, setFilteredCountries] = useState(null);
-
   const [filteredItems, setFilteredItems] = useState(null);
   const [selectedItem, setSelectedItem] = useState(null);
   const [filteredCities, setFilteredCities] = useState(null);
-
-  console.log({ countries });
-
   const [qytetet, setQytetet] = useState([]);
   const [shtetet, setShtetet] = useState([]);
-
   const [magazina, setMagazina] = useState([]);
   const [profesioni, setProfesioni] = useState([]);
   const [pozicioni, setPozicioni] = useState([]);
@@ -127,6 +125,18 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
     } catch (error) {
       console.error(error);
     }
+  };
+
+  useEffect(() => {
+    CustomerService.getCustomersMedium().then((data) => setCustomers(data));
+  }, []);
+
+  const dialogFooterTemplate = () => {
+    return (
+      <Button icon="pi pi-check" onClick={() => setDialogVisible(false)}>
+        OK
+      </Button>
+    );
   };
 
   const shikoFaturen = (type) => {
@@ -525,7 +535,40 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
             <Button onClick={() => shikoFaturen("increment")}>
               <ArrowCircleRightOutlinedIcon />
             </Button>
-            <Button size="lg" startIcon={<SearchRoundedIcon />} />
+            <div className="card">
+              <Button
+                label="Show"
+                icon="pi pi-external-link"
+                onClick={() => setDialogVisible(true)}
+              >
+                Faturat
+              </Button>
+              <Dialog
+                header="Faturat"
+                visible={dialogVisible}
+                style={{ width: "75vw" }}
+                maximizable
+                modal
+                contentStyle={{ height: "300px" }}
+                onHide={() => setDialogVisible(false)}
+                footer={dialogFooterTemplate}
+              >
+                <DataTable
+                  value={customers}
+                  scrollable
+                  scrollHeight="flex"
+                  tableStyle={{ minWidth: "50rem" }}
+                >
+                  <Column field="name" header="Name"></Column>
+                  <Column field="country.name" header="Country"></Column>
+                  <Column
+                    field="representative.name"
+                    header="Representative"
+                  ></Column>
+                  <Column field="company" header="Company"></Column>
+                </DataTable>
+              </Dialog>
+            </div>
           </ButtonGroup>
         </div>
       </div>
@@ -1332,6 +1375,7 @@ const FatureShitje = ({ hidePupUp, setHidePupUp }) => {
                       <div className="bg-gray-100 rounded-tr-lg rounded-br-lg w-full flex justify-center items-center relative">
                         <Form.Select
                           disabled={disabled}
+                          rows
                           value={state?.Kls4 ?? ""}
                           onChange={(e) => {
                             handleChange("Kls4", e.target.value);

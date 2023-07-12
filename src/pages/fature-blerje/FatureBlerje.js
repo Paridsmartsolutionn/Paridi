@@ -184,7 +184,7 @@ const FatureBlerje = ({ hidePupUp, setHidePupUp }) => {
     Flete_Hyrje_DATA: "2023-01-07T00:00:00",
     Flete_Hyrje_ID: 136,
     Flete_Hyrje_KODI: 17,
-
+    Id: 6562,
     IdOld: null,
     Import: null,
     Import_ID: null,
